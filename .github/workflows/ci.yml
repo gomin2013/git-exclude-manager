@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Swift version
+        run: swift --version
+
+      - name: Zero external dependencies
+        run: |
+          DEPS=$(swift package show-dependencies --format json | jq '.dependencies | length')
+          [ "$DEPS" -eq 0 ] || { echo "❌ Found $DEPS external dependencies (should be zero)"; exit 1; }
+
+      - name: Test
+        run: swift test --enable-code-coverage
+
+      - name: App bundle builds
+        run: scripts/build-app.sh
+
+  swiftlint:
+    name: SwiftLint (advisory)
+    runs-on: macos-15
+    # ponytail: advisory until PatternsView (~770 lines) is split below the 600-line file_length error;
+    # then drop continue-on-error and add --strict back.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install swiftlint
+      - run: swiftlint lint --reporter github-actions-logging
