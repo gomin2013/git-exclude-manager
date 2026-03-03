@@ -1,0 +1,66 @@
+/* MARK: - Buttons */
+"btn.add" = "Add";
+"btn.edit" = "Edit";
+"btn.delete" = "Delete";
+"btn.cancel" = "Cancel";
+"btn.save" = "Save";
+"btn.browse" = "Browse...";
+"btn.export" = "Export";
+"btn.import" = "Import";
+"btn.quit" = "Quit";
+"btn.settings" = "Settings";
+"btn.ok" = "OK";
+"btn.remove" = "Remove";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Enter ignore pattern (e.g., *.log)";
+"placeholder.comment" = "Optional comment";
+"placeholder.search" = "Search patterns...";
+"placeholder.repositoryPath" = "Select a Git repository";
+
+/* MARK: - Labels */
+"label.pattern" = "Pattern";
+"label.comment" = "Comment";
+"label.repository" = "Repository";
+"label.status" = "Status";
+"label.enabled" = "Enabled";
+"label.disabled" = "Disabled";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "No patterns yet";
+"message.noPatterns" = "No patterns yet";
+"status.patternsCount" = "%d patterns (%d enabled)";
+"status.noRepository" = "No repository selected";
+"status.selectRepository" = "Select a repository to begin";
+"status.connected" = "Connected";
+"status.disconnected" = "Disconnected";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Are you sure you want to delete this pattern?";
+"dialog.deleteTitle" = "Delete Pattern";
+"dialog.importConfirm" = "Replace existing patterns with imported ones?";
+"dialog.importTitle" = "Import Patterns";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Pattern cannot be empty";
+"error.noRepository" = "Please select a Git repository first";
+"error.fileNotFound" = "Exclude file not found in repository";
+"error.permissionDenied" = "Permission denied. Check file permissions.";
+"error.fileReadError" = "Failed to read exclude file";
+"error.fileWriteError" = "Failed to write exclude file";
+"error.invalidRepository" = "Not a valid Git repository";
+"error.connectionFailed" = "Helper service connection failed";
+"error.invalidData" = "Invalid data received";
+"error.unknown" = "An unknown error occurred";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Edit";
+"menu.delete" = "Delete";
+"menu.toggle" = "Toggle";
+"menu.language" = "Language";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Edit Pattern";
+"window.addTitle" = "Add Pattern";
+

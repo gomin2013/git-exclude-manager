@@ -1,0 +1,66 @@
+/* MARK: - Buttons */
+"btn.add" = "เพิ่ม";
+"btn.edit" = "แก้ไข";
+"btn.delete" = "ลบ";
+"btn.cancel" = "ยกเลิก";
+"btn.save" = "บันทึก";
+"btn.browse" = "เรียกดู...";
+"btn.export" = "ส่งออก";
+"btn.import" = "นำเข้า";
+"btn.quit" = "ออก";
+"btn.settings" = "การตั้งค่า";
+"btn.ok" = "ตกลง";
+"btn.remove" = "นำออก";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "ป้อนรูปแบบการละเว้น (เช่น *.log)";
+"placeholder.comment" = "ความเห็นเพิ่มเติม (ไม่บังคับ)";
+"placeholder.search" = "ค้นหารูปแบบ...";
+"placeholder.repositoryPath" = "เลือกที่เก็บ Git";
+
+/* MARK: - Labels */
+"label.pattern" = "รูปแบบ";
+"label.comment" = "ความเห็น";
+"label.repository" = "ที่เก็บ";
+"label.status" = "สถานะ";
+"label.enabled" = "เปิดใช้งาน";
+"label.disabled" = "ปิดใช้งาน";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "ยังไม่มีรูปแบบ";
+"message.noPatterns" = "ยังไม่มีรูปแบบ";
+"status.patternsCount" = "%d รูปแบบ (%d เปิดใช้งาน)";
+"status.noRepository" = "ไม่ได้เลือกที่เก็บ";
+"status.selectRepository" = "เลือกที่เก็บเพื่อเริ่มต้น";
+"status.connected" = "เชื่อมต่ออยู่";
+"status.disconnected" = "ไม่เชื่อมต่อ";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "คุณต้องการลบรูปแบบนี้หรือไม่";
+"dialog.deleteTitle" = "ลบรูปแบบ";
+"dialog.importConfirm" = "แทนที่รูปแบบที่มีอยู่ด้วยรูปแบบที่นำเข้า";
+"dialog.importTitle" = "นำเข้ารูปแบบ";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "รูปแบบไม่สามารถว่างเปล่าได้";
+"error.noRepository" = "กรุณาเลือกที่เก็บ Git ก่อน";
+"error.fileNotFound" = "ไม่พบไฟล์ exclude ในที่เก็บ";
+"error.permissionDenied" = "การอนุญาต ถูกปฏิเสธ ตรวจสอบสิทธิ์ไฟล์";
+"error.fileReadError" = "ไม่สามารถอ่านไฟล์ exclude";
+"error.fileWriteError" = "ไม่สามารถเขียนไฟล์ exclude";
+"error.invalidRepository" = "ไม่ใช่ที่เก็บ Git ที่ถูกต้อง";
+"error.connectionFailed" = "การเชื่อมต่อบริการตัวช่วยล้มเหลว";
+"error.invalidData" = "ได้รับข้อมูลที่ไม่ถูกต้อง";
+"error.unknown" = "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
+
+/* MARK: - Menu Items */
+"menu.edit" = "แก้ไข";
+"menu.delete" = "ลบ";
+"menu.toggle" = "สลับ";
+"menu.language" = "ภาษา";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "แก้ไขรูปแบบ";
+"window.addTitle" = "เพิ่มรูปแบบ";
+
