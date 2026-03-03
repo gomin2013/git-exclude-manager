@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Exclude Manager</title>
+  <link rel="stylesheet" href="stylesheets/app.css">
+</head>
+<body class="landing-body">
+  <div class="landing-window">
+
+    <!-- ── Header ───────────────────────────────────────── -->
+    <header class="landing-header">
+      <div class="landing-logo">
+        <div class="landing-logo-icon">⛔</div>
+        <span class="landing-title" id="landingTitle">Git Exclude Manager</span>
+      </div>
+      <div class="toolbar-group">
+        <!-- Settings dropdown -->
+        <div class="settings-menu-wrap">
+          <button id="settingsButton">Settings</button>
+          <div class="settings-dropdown" id="settingsDropdown">
+
+            <div class="settings-dropdown-section-label" id="dropdownLabelLanguage">Language</div>
+            <div class="language-options">
+              <button class="language-option" data-lang-val="en" id="langEnglish">
+                <span class="lang-icon">🇺🇸</span>
+                <span id="langEnglishLabel">English</span>
+              </button>
+              <button class="language-option" data-lang-val="th" id="langThai">
+                <span class="lang-icon">🇹🇭</span>
+                <span id="langThaiLabel">ไทย</span>
+              </button>
+            </div>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <div class="settings-dropdown-section-label" id="dropdownLabelAppearance">Appearance</div>
+            <div class="theme-options">
+              <button class="theme-option" data-theme-val="system" id="themeSystem">
+                <span class="theme-icon">💻</span>
+                <span id="themeSystemLabel">System</span>
+              </button>
+              <button class="theme-option" data-theme-val="light" id="themeLight">
+                <span class="theme-icon">☀️</span>
+                <span id="themeLightLabel">Light</span>
+              </button>
+              <button class="theme-option" data-theme-val="dark" id="themeDark">
+                <span class="theme-icon">🌙</span>
+                <span id="themeDarkLabel">Dark</span>
+              </button>
+            </div>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <button class="settings-dropdown-item" id="openAiSettingsItem">
+              <span class="item-icon">🤖</span>
+              <span class="item-label" id="dropdownLabelAiApi">AI API Settings</span>
+              <span class="item-badge" id="aiApiStatusBadge">Not Set</span>
+            </button>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <button class="settings-dropdown-item" id="openHelpItem">
+              <span class="item-icon">❓</span>
+              <span class="item-label" id="dropdownLabelHelp">Help</span>
+            </button>
+            <button class="settings-dropdown-item" id="openAboutItem">
+              <span class="item-icon">ℹ️</span>
+              <span class="item-label" id="dropdownLabelAbout">About</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Body ─────────────────────────────────────────── -->
+    <div class="landing-body-content">
+
+      <div class="landing-section-label" id="recentLabel"></div>
+      <div id="recentList" class="recent-list"></div>
+
+      <div class="landing-actions">
+        <button class="primary" id="browseButton" style="flex:1;"></button>
+      </div>
+
+    </div>
+
+    <!-- ── Footer ───────────────────────────────────────── -->
+    <footer class="landing-footer">
+      <span style="font-size:12px; color:var(--sub);" id="footerNote"></span>
+      <span id="aiStatusBadge" class="badge warn"></span>
+    </footer>
+
+  </div>
+
+  <!-- ── Settings dialog ──────────────────────────────────── -->
+  <dialog id="settingsDialog">
+    <form method="dialog" id="settingsForm">
+      <div class="modal-head" id="settingsTitle">AI API Settings</div>
+      <div class="modal-body settings-grid">
+        <label class="field">
+          <span class="label" id="labelProvider">Provider</span>
+          <select id="settingsProvider">
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+            <option value="google">Google</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="label" id="labelApiKey">API Key</span>
+          <input id="settingsApiKey" type="password" placeholder="sk-...">
+        </label>
+        <div class="settings-auto-note" id="settingsAutoNote"></div>
+      </div>
+      <div class="modal-foot">
+        <button value="cancel" id="settingsCancelButton">Cancel</button>
+        <button class="primary" value="default" id="settingsSaveButton">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ── About dialog ──────────────────────────────────────── -->
+  <dialog id="aboutDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="aboutTitle">About</span>
+      <button type="button" id="aboutCloseButton" style="font-size:12px; padding:4px 10px;">Close</button>
+    </div>
+    <div class="modal-body" style="padding:0 20px 20px;">
+      <div class="about-logo">
+        <div class="about-logo-icon">⛔</div>
+        <div class="about-app-name">Git Exclude Manager</div>
+        <div class="about-version">Version 0.1.0 (Prototype)</div>
+      </div>
+      <div class="about-desc">
+        Manage your <code>.git/info/exclude</code> files visually.<br>
+        Patterns are ignored locally only and never committed.
+      </div>
+      <div class="about-desc" style="font-size:11px;">
+        Built with Swift + SwiftUI · macOS 14+<br>
+        © 2026 — MIT License
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ── Help dialog ────────────────────────────────────────── -->
+  <dialog id="helpDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="helpTitle">Help</span>
+      <button type="button" id="helpCloseButton" style="font-size:12px; padding:4px 10px;">Close</button>
+    </div>
+    <div class="modal-body" style="padding:14px;">
+      <div class="help-list">
+        <div class="help-item">
+          <div class="help-item-icon">📁</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem1Title">Open a Repository</div>
+            <div class="help-item-desc" id="helpItem1Desc">Click a recent repository to open it, or use <strong>Browse…</strong> to pick a new folder.</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">✏️</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem2Title">Manage Patterns</div>
+            <div class="help-item-desc" id="helpItem2Desc">After opening a repository, add, edit, reorder or toggle patterns in the <code>.git/info/exclude</code> file.</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">🤖</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem3Title">AI Features</div>
+            <div class="help-item-desc" id="helpItem3Desc">Configure your AI API key in Settings to enable comment generation and the AI chat assistant.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="javascripts/shared.js"></script>
+  <script>
+    let lang = loadStoredLanguage();
+    let theme = loadStoredTheme();
+
+    function tl(key) { return t(key, lang); }
+
+    // ── DOM refs ─────────────────────────────────────────────
+    const elRecent           = document.getElementById("recentList");
+    const elBrowse           = document.getElementById("browseButton");
+    const elTitle            = document.getElementById("landingTitle");
+    const elAiBadge          = document.getElementById("aiStatusBadge");
+    const elFooter           = document.getElementById("footerNote");
+    const elLabel            = document.getElementById("recentLabel");
+    const elSettingsButton   = document.getElementById("settingsButton");
+    const elSettingsDropdown = document.getElementById("settingsDropdown");
+    const elLangEnglish      = document.getElementById("langEnglish");
+    const elLangThai         = document.getElementById("langThai");
+    const elThemeSystem      = document.getElementById("themeSystem");
+    const elThemeLight       = document.getElementById("themeLight");
+    const elThemeDark        = document.getElementById("themeDark");
+    const elAiApiStatusBadge = document.getElementById("aiApiStatusBadge");
+    const elSettingsDialog   = document.getElementById("settingsDialog");
+    const elSettingsForm     = document.getElementById("settingsForm");
+    const elSettingsProvider = document.getElementById("settingsProvider");
+    const elSettingsApiKey   = document.getElementById("settingsApiKey");
+    const elSettingsAutoNote = document.getElementById("settingsAutoNote");
+    const elSettingsCancelButton = document.getElementById("settingsCancelButton");
+    const elSettingsSaveButton = document.getElementById("settingsSaveButton");
+    const elAboutDialog      = document.getElementById("aboutDialog");
+    const elAboutCloseButton = document.getElementById("aboutCloseButton");
+    const elHelpDialog       = document.getElementById("helpDialog");
+    const elHelpCloseButton  = document.getElementById("helpCloseButton");
+
+    // ── Auto provider config ──────────────────────────────────
+    const AUTO_PROVIDER_CONFIG = {
+      openai:    { model: "gpt-4o",                       temperature: 0.7 },
+      anthropic: { model: "claude-3-5-sonnet-20241022",   temperature: 0.7 },
+      google:    { model: "gemini-1.5-pro",               temperature: 0.7 },
+      other:     { model: "default",                      temperature: 0.7 }
+    };
+
+    function getAutoConfig(provider) {
+      return AUTO_PROVIDER_CONFIG[provider] || AUTO_PROVIDER_CONFIG.other;
+    }
+
+    // ── Dropdown ──────────────────────────────────────────────
+    function toggleDropdown() {
+      elSettingsDropdown.classList.toggle("open");
+    }
+
+    function closeDropdown() {
+      elSettingsDropdown.classList.remove("open");
+    }
+
+    // ── Language ──────────────────────────────────────────────
+    function applyLanguage(val) {
+      lang = val;
+      persistLanguage(val);
+      [elLangEnglish, elLangThai].forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.langVal === val);
+      });
+      applyI18n();
+      updateDropdownI18n();
+      renderRecent();
+      renderAiBadge();
+    }
+
+    // ── Theme ─────────────────────────────────────────────────
+    function applyTheme(val) {
+      theme = val;
+      persistTheme(val);
+      if (val === "system") {
+        document.documentElement.removeAttribute("data-theme");
+      } else {
+        document.documentElement.setAttribute("data-theme", val);
+      }
+      [elThemeSystem, elThemeLight, elThemeDark].forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.themeVal === val);
+      });
+    }
+
+    // ── Settings dialog ───────────────────────────────────────
+    function updateAutoNote() {
+      const cfg = getAutoConfig(elSettingsProvider.value);
+      elSettingsAutoNote.textContent = lang === "th"
+        ? `⚡ ระบบจะใช้ ${cfg.model} โดยอัตโนมัติ`
+        : `⚡ Model and temperature are set automatically: ${cfg.model}`;
+    }
+
+    function openSettings() {
+      const stored = loadStoredSettings({ provider: "openai", apiKey: "" });
+      elSettingsProvider.value = stored.provider;
+      elSettingsApiKey.value   = stored.apiKey;
+      updateAutoNote();
+      closeDropdown();
+      elSettingsDialog.showModal();
+    }
+
+    function saveSettings() {
+      const provider = elSettingsProvider.value;
+      const apiKey   = elSettingsApiKey.value.trim();
+      const cfg      = getAutoConfig(provider);
+      persistSettings({ provider, apiKey, model: cfg.model, temperature: cfg.temperature });
+      renderAiBadge();
+      updateDropdownI18n();
+    }
+
+    // ── Recent list ───────────────────────────────────────────
+    function renderRecent() {
+      const recent = loadRecentRepos();
+      elRecent.innerHTML = "";
+
+      const mockItems = MOCK_REPOSITORIES.map(r => {
+        const stored = recent.find(rr => rr.id === r.id);
+        return stored ? { ...r, lastOpened: stored.lastOpened } : { ...r, lastOpened: null };
+      });
+
+      const sorted = [
+        ...mockItems.filter(r => r.lastOpened !== null).sort((a, b) => b.lastOpened - a.lastOpened),
+        ...mockItems.filter(r => r.lastOpened === null)
+      ];
+
+      sorted.forEach(repo => {
+        const a = document.createElement("a");
+        a.className = "recent-item";
+        a.href = "main.html?repo=" + repo.id;
+
+        const icon = document.createElement("div");
+        icon.className   = "recent-item-icon";
+        icon.textContent = "📁";
+
+        const info = document.createElement("div");
+        info.className = "recent-item-info";
+        const name = document.createElement("div");
+        name.className   = "recent-item-name";
+        name.textContent = repo.name;
+        const path = document.createElement("div");
+        path.className   = "recent-item-path";
+        path.textContent = repo.path;
+        info.append(name, path);
+
+        const time = document.createElement("div");
+        time.className   = "recent-item-time";
+        time.textContent = repo.lastOpened
+          ? relativeTime(repo.lastOpened, lang)
+          : (lang === "th" ? "ยังไม่เคยเปิด" : "Never opened");
+
+        a.append(icon, info, time);
+        elRecent.appendChild(a);
+      });
+    }
+
+    // ── AI badge ──────────────────────────────────────────────
+    function renderAiBadge() {
+      const stored = loadStoredSettings({ provider: "openai", apiKey: "" });
+      const ok     = stored.apiKey.trim().length > 0;
+      const label  = ok ? tl("ai.configured") : tl("ai.notConfigured");
+      elAiBadge.textContent        = label;
+      elAiBadge.className          = "badge " + (ok ? "ok" : "warn");
+      elAiApiStatusBadge.textContent = label;
+      elAiApiStatusBadge.className   = "item-badge " + (ok ? "ok" : "warn");
+    }
+
+    // ── i18n ──────────────────────────────────────────────────
+    function applyI18n() {
+      document.documentElement.lang = lang;
+      document.title        = tl("window.title");
+      elTitle.textContent   = tl("window.title");
+      elBrowse.textContent  = tl("btn.browse");
+      elLabel.textContent   = tl("label.recentRepos");
+      elFooter.textContent  = lang === "th"
+        ? "ต้นแบบ — ข้อมูลจำลองเท่านั้น"
+        : "Prototype — mock data only";
+      elSettingsButton.textContent = tl("btn.settings");
+    }
+
+    function updateDropdownI18n() {
+      document.getElementById("dropdownLabelLanguage").textContent = lang === "th" ? "ภาษา" : "Language";
+      document.getElementById("langEnglishLabel").textContent = "English";
+      document.getElementById("langThaiLabel").textContent = "ไทย";
+      document.getElementById("dropdownLabelAppearance").textContent = lang === "th" ? "ธีม" : "Appearance";
+      document.getElementById("themeSystemLabel").textContent = lang === "th" ? "ระบบ"  : "System";
+      document.getElementById("themeLightLabel").textContent  = lang === "th" ? "สว่าง" : "Light";
+      document.getElementById("themeDarkLabel").textContent   = lang === "th" ? "มืด"   : "Dark";
+      document.getElementById("dropdownLabelAiApi").textContent = lang === "th" ? "ตั้งค่า AI API" : "AI API Settings";
+      document.getElementById("dropdownLabelHelp").textContent  = lang === "th" ? "วิธีใช้"        : "Help";
+      document.getElementById("dropdownLabelAbout").textContent = lang === "th" ? "เกี่ยวกับ"       : "About";
+      document.getElementById("aboutTitle").textContent  = lang === "th" ? "เกี่ยวกับ" : "About";
+      document.getElementById("helpTitle").textContent   = lang === "th" ? "วิธีใช้"   : "Help";
+      document.getElementById("settingsTitle").textContent = lang === "th" ? "การตั้งค่า AI API" : "AI API Settings";
+      document.getElementById("labelProvider").textContent = lang === "th" ? "ผู้ให้บริการ" : "Provider";
+      document.getElementById("labelApiKey").textContent   = lang === "th" ? "API Key"       : "API Key";
+      elSettingsCancelButton.textContent = tl("btn.cancel");
+      elSettingsSaveButton.textContent   = tl("btn.save");
+      document.getElementById("aboutCloseButton").textContent = tl("btn.close");
+      document.getElementById("helpCloseButton").textContent  = tl("btn.close");
+      // Help items
+      const help = [
+        { t: lang === "th" ? "เปิดที่เก็บ"          : "Open a Repository",
+          d: lang === "th" ? "คลิกที่เก็บล่าสุดหรือกด Browse…" : "Click a recent repository or use Browse… to pick a folder." },
+        { t: lang === "th" ? "จัดการ Pattern"        : "Manage Patterns",
+          d: lang === "th" ? "เพิ่ม แก้ไข จัดเรียง หรือเปิด/ปิด pattern" : "Add, edit, reorder or toggle patterns in .git/info/exclude." },
+        { t: lang === "th" ? "ฟีเจอร์ AI"            : "AI Features",
+          d: lang === "th" ? "ตั้งค่า API key เพื่อใช้ AI สร้าง comment และ chat" : "Set your API key in Settings to enable AI comment generation and chat." }
+      ];
+      [1,2,3].forEach((n, i) => {
+        const titleEl = document.getElementById("helpItem" + n + "Title");
+        const descEl  = document.getElementById("helpItem" + n + "Desc");
+        if (titleEl) titleEl.textContent = help[i].t;
+        if (descEl)  descEl.textContent  = help[i].d;
+      });
+    }
+
+    // ── Event listeners ──────────────────────────────────────
+    [elLangEnglish, elLangThai].forEach(btn => {
+      btn.addEventListener("click", () => applyLanguage(btn.dataset.langVal));
+    });
+
+    elSettingsButton.addEventListener("click", ev => {
+      ev.stopPropagation();
+      toggleDropdown();
+    });
+
+    document.addEventListener("click", ev => {
+      if (!elSettingsDropdown.contains(ev.target) && ev.target !== elSettingsButton) {
+        closeDropdown();
+      }
+    });
+
+    [elThemeSystem, elThemeLight, elThemeDark].forEach(btn => {
+      btn.addEventListener("click", () => applyTheme(btn.dataset.themeVal));
+    });
+
+    document.getElementById("openAiSettingsItem").addEventListener("click", openSettings);
+    document.getElementById("openAboutItem").addEventListener("click", () => { closeDropdown(); elAboutDialog.showModal(); });
+    document.getElementById("openHelpItem").addEventListener("click",  () => { closeDropdown(); elHelpDialog.showModal(); });
+
+    elAboutCloseButton.addEventListener("click", () => elAboutDialog.close());
+    elHelpCloseButton.addEventListener("click",  () => elHelpDialog.close());
+
+    elSettingsProvider.addEventListener("change", updateAutoNote);
+
+    // Cancel button - just close dialog without saving
+    elSettingsCancelButton.addEventListener("click", ev => {
+      ev.preventDefault();
+      elSettingsDialog.close();
+    });
+
+    // Save button and form submit - save settings
+    elSettingsSaveButton.addEventListener("click", ev => {
+      ev.preventDefault();
+      saveSettings();
+      elSettingsDialog.close();
+    });
+
+    elSettingsForm.addEventListener("submit", ev => {
+      ev.preventDefault();
+      // Only save if it's not a cancel action
+      if (ev.submitter && ev.submitter === elSettingsSaveButton) {
+        saveSettings();
+      }
+      elSettingsDialog.close();
+    });
+
+    elBrowse.addEventListener("click", () => {
+      const repo = MOCK_REPOSITORIES[0];
+      saveRecentRepo(repo);
+      window.location.href = "main.html?repo=" + repo.id;
+    });
+
+    // ── Boot ──────────────────────────────────────────────────
+    applyLanguage(lang);
+    applyTheme(theme);
+    applyI18n();
+    updateDropdownI18n();
+    renderRecent();
+    renderAiBadge();
+  </script>
+</body>
+</html>
+
