@@ -36,7 +36,7 @@ class GitExcludeManagerTests: XCTestCase {
         )
 
         pattern.isEnabled = false
-        let expectedLine = "# build/"
+        let expectedLine = "#build/"
         XCTAssertEqual(pattern.lineInFile, expectedLine)
     }
 
