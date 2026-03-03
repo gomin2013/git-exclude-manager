@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git Exclude Manager</title>
+  <link rel="stylesheet" href="stylesheets/app.css">
+</head>
+<body>
+  <main class="window">
+
+    <!-- ── Toolbar ──────────────────────────────────────── -->
+    <header class="toolbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <a href="index.html" class="back-link" title="Back to Repositories">
+          ← <span id="backLinkLabel">Repositories</span>
+        </a>
+        <span class="title" id="windowTitle">Git Exclude Manager</span>
+      </div>
+      <div class="toolbar-group">
+        <!-- Settings dropdown -->
+        <div class="settings-menu-wrap">
+          <button id="settingsButton" data-i18n="btn.settings"></button>
+          <div class="settings-dropdown" id="settingsDropdown">
+
+            <!-- Language -->
+            <div class="settings-dropdown-section-label" id="dropdownLabelLanguage">Language</div>
+            <div class="language-options">
+              <button class="language-option" data-lang-val="en" id="langEnglish">
+                <span class="lang-icon">🇺🇸</span>
+                <span id="langEnglishLabel">English</span>
+              </button>
+              <button class="language-option" data-lang-val="th" id="langThai">
+                <span class="lang-icon">🇹🇭</span>
+                <span id="langThaiLabel">ไทย</span>
+              </button>
+            </div>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <!-- Appearance -->
+            <div class="settings-dropdown-section-label" id="dropdownLabelAppearance">Appearance</div>
+            <div class="theme-options">
+              <button class="theme-option" data-theme-val="system" id="themeSystem">
+                <span class="theme-icon">💻</span>
+                <span id="themeSystemLabel">System</span>
+              </button>
+              <button class="theme-option" data-theme-val="light" id="themeLight">
+                <span class="theme-icon">☀️</span>
+                <span id="themeLightLabel">Light</span>
+              </button>
+              <button class="theme-option" data-theme-val="dark" id="themeDark">
+                <span class="theme-icon">🌙</span>
+                <span id="themeDarkLabel">Dark</span>
+              </button>
+            </div>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <!-- AI API Settings -->
+            <button class="settings-dropdown-item" id="openAiSettingsItem">
+              <span class="item-icon">🤖</span>
+              <span class="item-label" id="dropdownLabelAiApi">AI API Settings</span>
+              <span class="item-badge" id="aiApiStatusBadge">Not Set</span>
+            </button>
+
+            <div class="settings-dropdown-divider"></div>
+
+            <!-- Help & About -->
+            <button class="settings-dropdown-item" id="openHelpItem">
+              <span class="item-icon">❓</span>
+              <span class="item-label" id="dropdownLabelHelp">Help</span>
+            </button>
+            <button class="settings-dropdown-item" id="openAboutItem">
+              <span class="item-icon">ℹ️</span>
+              <span class="item-label" id="dropdownLabelAbout">About</span>
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ── Repository tab bar ───────────────────────────── -->
+    <div class="repo-tabs" id="repoTabsBar">
+      <div id="repoTabs" style="display:contents;"></div>
+      <button class="repo-tab-add" id="openRepoButton" title="Open Repository">+</button>
+    </div>
+
+    <!-- ── 2-column content ─────────────────────────────── -->
+    <section class="content">
+
+      <!-- Middle panel: pattern list -->
+      <section class="panel">
+        <div class="repo-info-block">
+          <div class="repo-info-name" id="repoName"></div>
+          <div class="repo-info-path" id="repoPath"></div>
+          <div class="error" id="errorText"></div>
+        </div>
+
+        <div class="section search-wrap">
+          <input id="searchInput" type="text" data-i18n-placeholder="placeholder.search" aria-label="Search patterns">
+          <button id="clearSearch">Clear</button>
+        </div>
+
+        <div class="section" style="display:flex; justify-content:space-between; align-items:center; gap:8px;">
+          <div style="display:flex; gap:8px;">
+            <button class="primary" id="addButton" data-i18n="btn.add"></button>
+            <button id="importButton" data-i18n="btn.import" disabled></button>
+            <button id="exportButton" data-i18n="btn.export" disabled></button>
+          </div>
+          <button id="previewRawButton" data-i18n="btn.previewRaw" style="display:flex; align-items:center; gap:5px;">
+            <span style="font-size:15px; line-height:1;">👁</span>
+          </button>
+        </div>
+
+        <div id="loadingState" class="loading" hidden></div>
+        <div id="emptyState"   class="empty"   hidden></div>
+        <div id="list"         class="list"></div>
+
+        <div class="status">
+          <span id="patternCountText"></span>
+          <span id="hintText"></span>
+        </div>
+      </section>
+
+      <!-- Right panel: AI chat -->
+      <aside class="panel chat-panel">
+        <div class="chat-header">
+          <span data-i18n="chat.title"></span>
+          <span id="aiStatusBadge" class="badge warn"></span>
+        </div>
+
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="quick-prompts">
+          <button type="button" class="quick-prompt" data-prompt="suggest">Suggest patterns</button>
+          <button type="button" class="quick-prompt" data-prompt="explain">Explain syntax</button>
+          <button type="button" class="quick-prompt" data-prompt="optimize">Optimize list</button>
+        </div>
+
+        <div class="chat-input-wrap">
+          <input id="chatInput" type="text" data-i18n-placeholder="chat.placeholder" aria-label="Chat message">
+          <button type="button" id="chatSendButton" class="primary" data-i18n="btn.send"></button>
+        </div>
+      </aside>
+
+    </section>
+  </main>
+
+  <!-- ── Editor dialog ──────────────────────────────────── -->
+  <dialog id="editorDialog">
+    <form method="dialog" id="editorForm">
+      <div class="modal-head" id="dialogTitle"></div>
+      <div class="modal-body">
+        <label class="field">
+          <span class="label" data-i18n="label.pattern"></span>
+          <input id="patternInput" type="text" data-i18n-placeholder="placeholder.pattern" required>
+        </label>
+        <button type="button" id="generateCommentButton"
+                style="width:100%; padding:8px; margin:4px 0;"
+                data-i18n="btn.generateComment"
+                data-i18n-title="hint.generateComment"
+                hidden></button>
+        <label class="field">
+          <span class="label" data-i18n="label.comment"></span>
+          <input id="commentInput" type="text" data-i18n-placeholder="placeholder.comment">
+          <span class="field-hint" id="generateCommentHint"></span>
+        </label>
+        <div class="error" id="dialogError"></div>
+      </div>
+      <div class="modal-foot">
+        <button value="cancel" id="editorCancelButton" data-i18n="btn.cancel"></button>
+        <button class="primary" value="default" id="editorSaveButton" data-i18n="btn.save"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ── Settings dialog ────────────────────────────────── -->
+  <dialog id="settingsDialog">
+    <form method="dialog" id="settingsForm">
+      <div class="modal-head" data-i18n="settings.title"></div>
+      <div class="modal-body settings-grid">
+        <label class="field">
+          <span class="label" data-i18n="settings.provider"></span>
+          <select id="settingsProvider">
+            <option value="openai">OpenAI</option>
+            <option value="anthropic">Anthropic</option>
+            <option value="google">Google</option>
+            <option value="other">Other</option>
+          </select>
+        </label>
+        <label class="field">
+          <span class="label" data-i18n="settings.apiKey"></span>
+          <input id="settingsApiKey" type="password" data-i18n-placeholder="settings.apiKeyPlaceholder">
+        </label>
+        <div class="settings-auto-note" id="settingsAutoNote"></div>
+      </div>
+      <div class="modal-foot">
+        <button value="cancel" id="settingsCancelButton" data-i18n="btn.cancel"></button>
+        <button class="primary" value="default" id="settingsSaveButton" data-i18n="btn.save"></button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- ── Raw preview dialog ─────────────────────────────── -->
+  <dialog id="rawPreviewDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="rawPreviewTitle"></span>
+      <div style="display:flex; gap:6px;">
+        <button type="button" id="rawPreviewCopyButton" style="font-size:12px; padding:4px 10px;"></button>
+        <button type="button" id="rawPreviewCloseButton" data-i18n="btn.close" style="font-size:12px; padding:4px 10px;"></button>
+      </div>
+    </div>
+    <div class="modal-body" style="padding:14px;">
+      <div class="raw-path" id="rawPreviewPath"></div>
+      <textarea class="raw-preview-area" id="rawPreviewContent" readonly spellcheck="false" aria-label="Raw file content"></textarea>
+    </div>
+  </dialog>
+
+  <!-- ── About dialog ──────────────────────────────────────── -->
+  <dialog id="aboutDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="aboutTitle">About</span>
+      <button type="button" id="aboutCloseButton" style="font-size:12px; padding:4px 10px;" data-i18n="btn.close"></button>
+    </div>
+    <div class="modal-body" style="padding:0 20px 20px;">
+      <div class="about-logo">
+        <div class="about-logo-icon">⛔</div>
+        <div class="about-app-name">Git Exclude Manager</div>
+        <div class="about-version" id="aboutVersion">Version 0.1.0 (Prototype)</div>
+      </div>
+      <div class="about-desc" id="aboutDesc">
+        Manage your <code>.git/info/exclude</code> files visually.<br>
+        Patterns are ignored locally only and never committed.
+      </div>
+      <div class="about-desc" style="font-size:11px;" id="aboutCredit">
+        Built with Swift + SwiftUI · macOS 14+<br>
+        © 2026 — MIT License
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ── Help dialog ────────────────────────────────────────── -->
+  <dialog id="helpDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="helpTitle">Help</span>
+      <button type="button" id="helpCloseButton" style="font-size:12px; padding:4px 10px;" data-i18n="btn.close"></button>
+    </div>
+    <div class="modal-body" style="padding:14px;">
+      <div class="help-list" id="helpList">
+        <div class="help-item">
+          <div class="help-item-icon">➕</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem1Title">Add a Pattern</div>
+            <div class="help-item-desc" id="helpItem1Desc">Click <strong>Add</strong> to create a new ignore pattern. Patterns support glob syntax (e.g. <code>*.log</code>, <code>build/</code>).</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">🔘</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem2Title">Enable / Disable</div>
+            <div class="help-item-desc" id="helpItem2Desc">Click the circle toggle on each row to enable or disable a pattern without deleting it.</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">⠿</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem3Title">Reorder Patterns</div>
+            <div class="help-item-desc" id="helpItem3Desc">Drag the <strong>⠿</strong> handle on the left of each row to reorder. Drag is disabled while the search box is active.</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">👁</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem4Title">Preview Raw File</div>
+            <div class="help-item-desc" id="helpItem4Desc">Click the <strong>👁 Preview Raw</strong> button to see the exact content that will be written to <code>.git/info/exclude</code>.</div>
+          </div>
+        </div>
+        <div class="help-item">
+          <div class="help-item-icon">✨</div>
+          <div class="help-item-body">
+            <div class="help-item-title" id="helpItem5Title">AI Generate Comment</div>
+            <div class="help-item-desc" id="helpItem5Desc">When adding or editing a pattern, enter a pattern name and click <strong>✨ AI Generate</strong> to auto-fill a contextual comment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ── Open Repository dialog ─────────────────────────── -->
+  <dialog id="openRepoDialog">
+    <div class="modal-head" style="display:flex; justify-content:space-between; align-items:center;">
+      <span id="openRepoTitle"></span>
+      <button type="button" id="openRepoCloseButton" data-i18n="btn.close" style="font-size:12px; padding:4px 10px;"></button>
+    </div>
+    <div class="modal-body">
+      <div class="settings-dropdown-section-label" id="openRepoRecentLabel"></div>
+      <div class="open-repo-list" id="openRepoList"></div>
+      <div class="open-repo-empty" id="openRepoEmpty" hidden></div>
+      <div class="open-repo-divider"></div>
+      <div style="display:flex; gap:8px;">
+        <button id="openRepoBrowseButton" data-i18n="btn.browse" style="flex:1;"></button>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="javascripts/shared.js"></script>
+  <script src="javascripts/main.js"></script>
+</body>
+</html>
+
