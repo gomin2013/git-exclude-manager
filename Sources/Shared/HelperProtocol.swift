@@ -22,6 +22,15 @@ import Foundation
         completion: @escaping (Bool, NSError?) -> Void
     )
 
+    /// Reverts `.git/info/exclude` to `exclude.bak` (content before the last write)
+    /// - Parameters:
+    ///   - repoPath: Absolute path to the Git repository
+    ///   - completion: Callback with success bool and optional error
+    func restoreBackup(
+        repoPath: String,
+        completion: @escaping (Bool, NSError?) -> Void
+    )
+
     /// Lists available Git repositories (Phase 2+)
     /// - Parameter completion: Callback with repository paths or error
     func listRepositories(completion: @escaping ([String]?, NSError?) -> Void)

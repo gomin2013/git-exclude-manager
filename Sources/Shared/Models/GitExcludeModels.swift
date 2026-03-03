@@ -1,9 +1,20 @@
 import Foundation
 
-/// Represents a single ignore pattern in `.git/info/exclude`
+/// One item in `.git/info/exclude`: an ignore pattern, a section break, or verbatim comment lines.
+/// Every item can be dragged, so users can group patterns under headings.
 public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
+    public enum Kind: String, Codable, Hashable, Sendable {
+        /// An ignore pattern (`isEnabled` / `comment` apply only here).
+        case pattern
+        /// A blank line, optionally followed by `# heading`. `pattern` holds the heading ("" = none).
+        case section
+        /// Comment or unrecognized lines kept verbatim. `pattern` holds the raw text (may contain newlines).
+        case comment
+    }
+
     public let id: UUID
     public var pattern: String
+    public var kind: Kind
     public var isEnabled: Bool
     public var comment: String?
     public let createdAt: Date
@@ -15,7 +26,8 @@ public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
         isEnabled: Bool = true,
         comment: String? = nil,
         createdAt: Date = Date(),
-        modifiedAt: Date = Date()
+        modifiedAt: Date = Date(),
+        kind: Kind = .pattern
     ) {
         self.id = id
         self.pattern = pattern
@@ -23,6 +35,7 @@ public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
         self.comment = comment
         self.createdAt = createdAt
         self.modifiedAt = modifiedAt
+        self.kind = kind
     }
 
     /// Returns the pattern text for display
@@ -30,9 +43,33 @@ public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
         pattern
     }
 
-    /// Returns the full line as it appears in `.git/info/exclude`
+    /// The comment block `git init` writes. Shown pinned at the top: not deletable, not draggable.
+    public static let gitDefaultHeader = """
+        # git ls-files --others --exclude-from=.git/info/exclude
+        # Lines that start with '#' are comments.
+        # For a project mostly in C, the following would be a good set of
+        # exclude patterns (uncomment them if you want to use them):
+        # *.[oa]
+        # *~
+        """
+
+    /// Exact match only — once the user edits it, it's an ordinary comment again.
+    public var isGitDefaultHeader: Bool {
+        kind == .comment && pattern == Self.gitDefaultHeader
+    }
+
+    /// The line(s) this item occupies in `.git/info/exclude`.
+    public var linesInFile: [String] {
+        switch kind {
+        case .pattern: return [lineInFile]
+        case .section: return pattern.isEmpty ? [""] : ["", "# " + pattern]
+        case .comment: return pattern.components(separatedBy: "\n")
+        }
+    }
+
+    /// Returns the full line as it appears in `.git/info/exclude` (pattern items)
     public var lineInFile: String {
-        let line = isEnabled ? pattern : "# " + pattern
+        let line = isEnabled ? pattern : "#" + pattern  // no space: `# text` is read back as a plain comment
         if let comment = comment, !comment.isEmpty {
             return line + " # " + comment
         }
@@ -42,6 +79,21 @@ public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
     /// Indicates if this pattern is valid (non-empty)
     public var isValid: Bool {
         !pattern.trimmingCharacters(in: .whitespaces).isEmpty
+    }
+
+    /// Returns a localized validation error message, or `nil` if valid.
+    public var validationError: String? {
+        let trimmed = pattern.trimmingCharacters(in: .whitespaces)
+        if trimmed.isEmpty {
+            return NSLocalizedString("error.invalidPattern", comment: "")
+        }
+        if trimmed.count > 250 {
+            return NSLocalizedString("error.patternTooLong", comment: "")
+        }
+        if trimmed.contains("\0") {
+            return NSLocalizedString("error.invalidPattern", comment: "")
+        }
+        return nil
     }
 }
 
@@ -70,6 +122,11 @@ public struct GitRepository: Identifiable, Codable, Hashable, Sendable {
     }
 
     /// Validates if the given path is a valid Git repository
+    /// `~/Developer/app` instead of `/Users/name/Developer/app` — shorter, and keeps usernames out of screenshots.
+    public var displayPath: String {
+        (path as NSString).abbreviatingWithTildeInPath
+    }
+
     public static func isValidRepository(at path: String) -> Bool {
         let gitDirPath = (path as NSString).appendingPathComponent(".git")
         let fileManager = FileManager.default

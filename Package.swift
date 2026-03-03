@@ -25,6 +25,9 @@ let package = Package(
             name: "GitExcludeManagerApp",
             dependencies: ["Shared"],
             path: "Sources/GitExcludeManagerApp",
+            exclude: [
+                "Info.plist"
+            ],
             resources: [
                 .process("Resources")
             ]
@@ -34,13 +37,16 @@ let package = Package(
         .executableTarget(
             name: "GitExcludeManagerHelper",
             dependencies: ["Shared"],
-            path: "Sources/GitExcludeManagerHelper"
+            path: "Sources/GitExcludeManagerHelper",
+            exclude: [
+                "Info.plist"
+            ]
         ),
 
         // MARK: - Tests
         .testTarget(
             name: "GitExcludeManagerTests",
-            dependencies: ["Shared", "GitExcludeManagerApp"],
+            dependencies: ["Shared", "GitExcludeManagerApp", "GitExcludeManagerHelper"],
             path: "Tests/GitExcludeManagerTests"
         )
     ]

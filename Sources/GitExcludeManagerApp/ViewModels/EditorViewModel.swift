@@ -10,6 +10,9 @@ public class EditorViewModel: ObservableObject {
 
     private var editingPatternID: UUID?
 
+    /// True when editing an existing pattern (vs adding new)
+    var isEditing: Bool { editingPatternID != nil }
+
     public init(pattern: GitExcludePattern? = nil) {
         if let pattern = pattern {
             self.patternText = pattern.pattern
@@ -25,29 +28,34 @@ public class EditorViewModel: ObservableObject {
 
     /// Returns error message if validation fails
     var errorMessage: String? {
-        guard !patternText.trimmingCharacters(in: .whitespaces).isEmpty else {
-            return NSLocalizedString("error.invalidPattern", comment: "")
-        }
-        return nil
+        let candidate = GitExcludePattern(
+            id: editingPatternID ?? UUID(),
+            pattern: patternText,
+            isEnabled: true,
+            comment: commentText.isEmpty ? nil : commentText
+        )
+        return candidate.validationError
     }
 
     /// Creates a pattern from current input
     func createPattern() -> GitExcludePattern? {
-        guard !patternText.trimmingCharacters(in: .whitespaces).isEmpty else {
-            self.validationError = NSLocalizedString("error.invalidPattern", comment: "")
-            return nil
-        }
-
-        self.validationError = nil
-        let pattern = GitExcludePattern(
+        let trimmed = patternText.trimmingCharacters(in: .whitespaces)
+        let candidate = GitExcludePattern(
             id: editingPatternID ?? UUID(),
-            pattern: patternText,
+            pattern: trimmed,
             isEnabled: true,
             comment: commentText.isEmpty ? nil : commentText,
             createdAt: Date(),
             modifiedAt: Date()
         )
-        return pattern
+
+        if let error = candidate.validationError {
+            self.validationError = error
+            return nil
+        }
+
+        self.validationError = nil
+        return candidate
     }
 
     /// Resets form state
