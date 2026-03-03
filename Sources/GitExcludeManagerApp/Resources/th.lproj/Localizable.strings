@@ -11,6 +11,15 @@
 "btn.settings" = "การตั้งค่า";
 "btn.ok" = "ตกลง";
 "btn.remove" = "นำออก";
+"btn.send" = "ส่ง";
+"btn.copy" = "คัดลอก";
+"btn.close" = "ปิด";
+"btn.previewRaw" = "ดูไฟล์ต้นฉบับ";
+"btn.openRepo" = "เปิดที่เก็บ";
+"btn.generateComment" = "✨ สร้าง Comment";
+"btn.restore" = "กู้คืนเวอร์ชันก่อนหน้า";
+"btn.merge" = "รวม";
+"btn.replace" = "แทนที่";
 
 /* MARK: - Placeholders */
 "placeholder.pattern" = "ป้อนรูปแบบการละเว้น (เช่น *.log)";
@@ -25,24 +34,29 @@
 "label.status" = "สถานะ";
 "label.enabled" = "เปิดใช้งาน";
 "label.disabled" = "ปิดใช้งาน";
+"label.aiGenerating" = "กำลังสร้าง Comment...";
+"label.recentRepos" = "ที่เก็บล่าสุด";
 
 /* MARK: - Status & Messages */
 "status.noPatterns" = "ยังไม่มีรูปแบบ";
 "message.noPatterns" = "ยังไม่มีรูปแบบ";
 "status.patternsCount" = "%d รูปแบบ (%d เปิดใช้งาน)";
+"status.exported" = "ส่งออก %@ แล้ว — แสดงใน Finder";
 "status.noRepository" = "ไม่ได้เลือกที่เก็บ";
 "status.selectRepository" = "เลือกที่เก็บเพื่อเริ่มต้น";
 "status.connected" = "เชื่อมต่ออยู่";
 "status.disconnected" = "ไม่เชื่อมต่อ";
+"ai.notConfigured" = "ยังไม่ตั้งค่า";
 
 /* MARK: - Dialogs */
 "dialog.deleteConfirm" = "คุณต้องการลบรูปแบบนี้หรือไม่";
 "dialog.deleteTitle" = "ลบรูปแบบ";
-"dialog.importConfirm" = "แทนที่รูปแบบที่มีอยู่ด้วยรูปแบบที่นำเข้า";
+"dialog.importConfirm" = "พบ %d รูปแบบ — รวม: เพิ่มเฉพาะที่ยังไม่มี / แทนที่: เขียนทับรูปแบบทั้งหมด";
 "dialog.importTitle" = "นำเข้ารูปแบบ";
 
 /* MARK: - Errors */
 "error.invalidPattern" = "รูปแบบไม่สามารถว่างเปล่าได้";
+"error.patternTooLong" = "รูปแบบต้องไม่เกิน 250 ตัวอักษร";
 "error.noRepository" = "กรุณาเลือกที่เก็บ Git ก่อน";
 "error.fileNotFound" = "ไม่พบไฟล์ exclude ในที่เก็บ";
 "error.permissionDenied" = "การอนุญาต ถูกปฏิเสธ ตรวจสอบสิทธิ์ไฟล์";
@@ -56,7 +70,7 @@
 /* MARK: - Menu Items */
 "menu.edit" = "แก้ไข";
 "menu.delete" = "ลบ";
-"menu.toggle" = "สลับ";
+"menu.removeRecent" = "ลบออกจากรายการล่าสุด";
 "menu.language" = "ภาษา";
 
 /* MARK: - Window Titles */
@@ -64,3 +78,105 @@
 "window.editorTitle" = "แก้ไขรูปแบบ";
 "window.addTitle" = "เพิ่มรูปแบบ";
 
+/* MARK: - Hints */
+"hint.generateComment" = "AI จะสร้างข้อความ Comment ให้อัตโนมัติจากชื่อ Pattern";
+"hint.restore" = "ย้อนกลับไปเวอร์ชันก่อนบันทึกล่าสุด กดอีกครั้งเพื่อยกเลิกการกู้คืน";
+"hint.generateCommentField" = "กรอก Pattern แล้วกด ✨ สร้าง Comment เพื่อให้ AI สร้างให้";
+"hint.mock" = "ต้นแบบ: เพิ่ม/แก้ไข/ลบ/สลับ เป็นการจำลองเท่านั้น";
+"hint.reorder" = "ลาก Row เพื่อจัดเรียงลำดับ (ปิดใช้งานขณะค้นหา)";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "เปิดที่เก็บ";
+"openRepo.noRecent" = "ยังไม่มีที่เก็บที่เปิดล่าสุด";
+
+/* MARK: - Raw Preview */
+"raw.title" = "ดูไฟล์ต้นฉบับ";
+"raw.copied" = "คัดลอกแล้ว!";
+
+/* MARK: - Chat */
+"chat.title" = "AI Agent";
+"chat.placeholder" = "ถาม AI...";
+"chat.welcome" = "👋 สวัสดี! ฉันเป็น AI ผู้ช่วยของคุณ ถามฉันเกี่ยวกับ gitignore patterns ได้เลย";
+"chat.noApiKey" = "⚠️ กรุณาตั้งค่า AI API ใน Settings ก่อน";
+
+/* MARK: - Settings */
+"settings.title" = "ตั้งค่า AI API";
+"settings.provider" = "ผู้ให้บริการ";
+"settings.apiKey" = "API Key";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "โมเดล";
+"settings.loadModels" = "โหลดรายชื่อโมเดล";
+"settings.noModels" = "ไม่พบโมเดล";
+"settings.appleNote" = "ทำงานบนเครื่องด้วย Apple Intelligence (macOS 26 ขึ้นไป) ไม่ต้องใช้ API key หรือเลือกโมเดล";
+"settings.keychainNote" = "API key ถูกเก็บไว้ใน Keychain ของ macOS";
+
+/* MARK: - Navigation */
+"nav.back" = "ที่เก็บ";
+
+/* About & Help */
+"menu.help" = "วิธีใช้";
+"menu.about" = "เกี่ยวกับ";
+"about.version" = "เวอร์ชัน %@";
+"about.desc" = "จัดการไฟล์ .git/info/exclude แบบเห็นภาพ รูปแบบจะถูกละเว้นเฉพาะในเครื่องนี้ และไม่ถูก commit";
+"about.credit" = "สร้างด้วย Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "เพิ่มรูปแบบ";
+"help.add.desc" = "กด เพิ่ม (⌘N) เพื่อสร้างรูปแบบใหม่ ใช้ glob ได้ เช่น *.log หรือ build/";
+"help.toggle.title" = "เปิด / ปิดใช้งาน";
+"help.toggle.desc" = "กดวงกลมหน้าแถวเพื่อปิดรูปแบบโดยไม่ลบ จะถูกบันทึกเป็น #pattern";
+"help.reorder.title" = "เรียงลำดับ";
+"help.reorder.desc" = "ลากแถวเพื่อเรียงลำดับใหม่ ลากไม่ได้ระหว่างค้นหา";
+"help.import.title" = "นำเข้า";
+"help.import.desc" = "นำเข้าไฟล์ข้อความใดก็ได้ รวมถึง .gitignore — รวม: เพิ่มเฉพาะที่ยังไม่มี / แทนที่: เขียนทับทั้งหมด";
+"help.restore.title" = "กู้คืนเวอร์ชันก่อนหน้า";
+"help.restore.desc" = "ทุกครั้งที่บันทึกจะสำรองไฟล์ไว้ (exclude.bak) กดเพื่อย้อนการบันทึกล่าสุด กดอีกครั้งเพื่อยกเลิก";
+"help.preview.title" = "ดูไฟล์ต้นฉบับ";
+"help.preview.desc" = "ดูเนื้อหาที่จะถูกเขียนลง .git/info/exclude จริง รวมถึงบรรทัด comment ของคุณ";
+
+/* Sections */
+"btn.addSection" = "หัวข้อ";
+"section.placeholder" = "เพิ่มหัวข้อ…";
+"hint.addSection" = "เพิ่มบรรทัดว่างคั่นหมวด ลากไปวางตำแหน่งที่ต้องการแล้วพิมพ์ชื่อหัวข้อ (บันทึกเป็น # หัวข้อ)";
+"hint.dragSection" = "ลากเพื่อย้ายหมวดนี้";
+"help.sections.title" = "หมวดหมู่";
+"help.sections.desc" = "กด หัวข้อ เพื่อเพิ่มบรรทัดว่างคั่น ลากไปวางเหนือกลุ่มรูปแบบ แล้วพิมพ์ชื่อหัวข้อเพื่อจัดหมวด บรรทัด comment ก็ลากย้ายได้เช่นกัน";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Pattern ที่แนะนำ";
+"suggest.empty" = "ยังไม่มีคำแนะนำ รูปแบบจาก repository อื่นที่เปิดล่าสุดซึ่ง repository นี้ยังไม่มี จะแสดงที่นี่";
+"suggest.from" = "จาก %@";
+"suggest.add" = "เพิ่มรูปแบบนี้";
+"quick.suggest" = "แนะนำรูปแบบที่ repository นี้ควร ignore";
+"quick.explain" = "อธิบายว่ารูปแบบที่มีอยู่ทำอะไรบ้าง";
+"quick.redundant" = "มีรูปแบบไหนซ้ำซ้อนหรือทับซ้อนกันไหม";
+"quick.exceptOne" = "จะ ignore ทั้งโฟลเดอร์ยกเว้นไฟล์เดียวได้อย่างไร";
+"quick.organize" = "ช่วยจัดรูปแบบเป็นหมวดหมู่พร้อมหัวข้อ";
+
+/* Appearance */
+"menu.appearance" = "ธีม";
+"theme.system" = "ระบบ";
+"theme.light" = "สว่าง";
+"theme.dark" = "มืด";
+
+/* Collapsible panels */
+"a11y.collapsed" = "ย่ออยู่";
+"a11y.expanded" = "ขยายอยู่";
+"a11y.toggleHint" = "แสดงหรือซ่อนแผงนี้";
+
+/* Help: helpers */
+"help.tabs.title" = "Repository และแท็บ";
+"help.tabs.desc" = "กด + เพื่อเปิด repository เพิ่มเป็นแท็บ ลากแท็บเพื่อสลับตำแหน่ง แท็บที่เปิดไว้จะกลับมาเมื่อเปิดแอปครั้งถัดไป ลบรายการเก่าในหน้าต่างเปิด repository ได้ด้วย ✕";
+"help.suggestions.title" = "Pattern ที่แนะนำ";
+"help.suggestions.desc" = "รูปแบบที่ repository อื่นที่เปิดล่าสุดใช้ แต่ repository นี้ยังไม่มี กด ⊕ เพื่อเพิ่ม ย่อแผงได้ด้วยลูกศร";
+"help.ai.title" = "AI Agent";
+"help.ai.desc" = "ถามเกี่ยวกับรูปแบบของคุณ หรือกด Quick Message กดชื่อโมเดลเพื่อเปลี่ยนโมเดล กด ⚙ เพื่อเปลี่ยนผู้ให้บริการ ปุ่ม ✨ สร้าง Comment ใช้โมเดลเดียวกัน";
+
+/* Menu bar */
+"menu.repository" = "Repository";
+"menu.nextTab" = "แท็บถัดไป";
+"menu.previousTab" = "แท็บก่อนหน้า";
+"menu.newSection" = "เพิ่มหัวข้อใหม่";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” ไม่ใช่ Git repository — ลากโฟลเดอร์ที่มีโฟลเดอร์ .git อยู่ข้างใน";
+"error.title" = "เปิด Repository ไม่ได้";
+"hint.dropRepository" = "วางเพื่อเปิด repository";

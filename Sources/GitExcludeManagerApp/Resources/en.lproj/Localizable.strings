@@ -11,6 +11,15 @@
 "btn.settings" = "Settings";
 "btn.ok" = "OK";
 "btn.remove" = "Remove";
+"btn.send" = "Send";
+"btn.copy" = "Copy";
+"btn.close" = "Close";
+"btn.previewRaw" = "Preview Raw";
+"btn.openRepo" = "Open Repository";
+"btn.generateComment" = "✨ Generate Comment";
+"btn.restore" = "Restore Previous";
+"btn.merge" = "Merge";
+"btn.replace" = "Replace";
 
 /* MARK: - Placeholders */
 "placeholder.pattern" = "Enter ignore pattern (e.g., *.log)";
@@ -25,24 +34,29 @@
 "label.status" = "Status";
 "label.enabled" = "Enabled";
 "label.disabled" = "Disabled";
+"label.aiGenerating" = "Generating comment...";
+"label.recentRepos" = "Recent Repositories";
 
 /* MARK: - Status & Messages */
 "status.noPatterns" = "No patterns yet";
 "message.noPatterns" = "No patterns yet";
 "status.patternsCount" = "%d patterns (%d enabled)";
+"status.exported" = "Exported %@ — show in Finder";
 "status.noRepository" = "No repository selected";
 "status.selectRepository" = "Select a repository to begin";
 "status.connected" = "Connected";
 "status.disconnected" = "Disconnected";
+"ai.notConfigured" = "Not Set";
 
 /* MARK: - Dialogs */
 "dialog.deleteConfirm" = "Are you sure you want to delete this pattern?";
 "dialog.deleteTitle" = "Delete Pattern";
-"dialog.importConfirm" = "Replace existing patterns with imported ones?";
+"dialog.importConfirm" = "Found %d patterns. Merge adds only new ones; Replace overwrites all current patterns.";
 "dialog.importTitle" = "Import Patterns";
 
 /* MARK: - Errors */
 "error.invalidPattern" = "Pattern cannot be empty";
+"error.patternTooLong" = "Pattern must be 250 characters or fewer";
 "error.noRepository" = "Please select a Git repository first";
 "error.fileNotFound" = "Exclude file not found in repository";
 "error.permissionDenied" = "Permission denied. Check file permissions.";
@@ -56,7 +70,7 @@
 /* MARK: - Menu Items */
 "menu.edit" = "Edit";
 "menu.delete" = "Delete";
-"menu.toggle" = "Toggle";
+"menu.removeRecent" = "Remove from Recent";
 "menu.language" = "Language";
 
 /* MARK: - Window Titles */
@@ -64,3 +78,105 @@
 "window.editorTitle" = "Edit Pattern";
 "window.addTitle" = "Add Pattern";
 
+/* MARK: - Hints */
+"hint.generateComment" = "Auto-fill the Comment field based on the pattern name using AI";
+"hint.restore" = "Revert to the version before the last save. Click again to undo the restore.";
+"hint.generateCommentField" = "Type a pattern above, then click ✨ Generate Comment to auto-fill";
+"hint.mock" = "Prototype: Add/Edit/Delete/Toggle are mock-only.";
+"hint.reorder" = "Drag rows to reorder (disabled while searching).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Open Repository";
+"openRepo.noRecent" = "No recently opened repositories.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Raw File Preview";
+"raw.copied" = "Copied!";
+
+/* MARK: - Chat */
+"chat.title" = "AI Agent";
+"chat.placeholder" = "Ask AI...";
+"chat.welcome" = "👋 Hi! I'm your AI assistant. Ask me about gitignore patterns.";
+"chat.noApiKey" = "⚠️ Please configure AI API in Settings first.";
+
+/* MARK: - Settings */
+"settings.title" = "AI API Settings";
+"settings.provider" = "Provider";
+"settings.apiKey" = "API Key";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Model";
+"settings.loadModels" = "Load models";
+"settings.noModels" = "No models found.";
+"settings.appleNote" = "Runs on-device with Apple Intelligence (macOS 26+). No API key or model needed.";
+"settings.keychainNote" = "The API key is stored in your macOS Keychain.";
+
+/* MARK: - Navigation */
+"nav.back" = "Repositories";
+
+/* About & Help */
+"menu.help" = "Help";
+"menu.about" = "About";
+"about.version" = "Version %@";
+"about.desc" = "Manage your .git/info/exclude files visually. Patterns are ignored locally only and never committed.";
+"about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "Add a Pattern";
+"help.add.desc" = "Click Add (⌘N) to create a new ignore pattern. Glob syntax works, e.g. *.log or build/.";
+"help.toggle.title" = "Enable / Disable";
+"help.toggle.desc" = "Click the circle on a row to disable a pattern without deleting it. It is saved as #pattern.";
+"help.reorder.title" = "Reorder Patterns";
+"help.reorder.desc" = "Drag a row to reorder. Dragging is disabled while searching.";
+"help.import.title" = "Import";
+"help.import.desc" = "Import any text file, including .gitignore. Merge adds only new patterns; Replace overwrites all.";
+"help.restore.title" = "Restore Previous";
+"help.restore.desc" = "Every save keeps a backup (exclude.bak). Restore Previous reverts the last save; click again to undo.";
+"help.preview.title" = "Preview Raw";
+"help.preview.desc" = "See exactly what will be written to .git/info/exclude, including your comment lines.";
+
+/* Sections */
+"btn.addSection" = "Section";
+"section.placeholder" = "Add heading…";
+"hint.addSection" = "Add a blank-line section break. Drag it into place and type a heading (saved as # heading).";
+"hint.dragSection" = "Drag to move this section";
+"help.sections.title" = "Sections";
+"help.sections.desc" = "Click Section to add a blank-line break, drag it above a group of patterns and type a heading to organize them. Comment lines can be dragged too.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Pattern Suggestions";
+"suggest.empty" = "No suggestions yet. Patterns from your other recent repositories that this one doesn't have will appear here.";
+"suggest.from" = "from %@";
+"suggest.add" = "Add this pattern";
+"quick.suggest" = "Suggest patterns this repository should ignore";
+"quick.explain" = "Explain what my current patterns do";
+"quick.redundant" = "Are any of my patterns redundant or overlapping?";
+"quick.exceptOne" = "How do I ignore a folder except one file?";
+"quick.organize" = "Group my patterns into sections with headings";
+
+/* Appearance */
+"menu.appearance" = "Appearance";
+"theme.system" = "System";
+"theme.light" = "Light";
+"theme.dark" = "Dark";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Collapsed";
+"a11y.expanded" = "Expanded";
+"a11y.toggleHint" = "Shows or hides this panel";
+
+/* Help: helpers */
+"help.tabs.title" = "Repositories & Tabs";
+"help.tabs.desc" = "Click + to open more repositories as tabs. Drag a tab to reorder it; open tabs are restored next launch. Remove old entries from the Open Repository list with ✕.";
+"help.suggestions.title" = "Pattern Suggestions";
+"help.suggestions.desc" = "Patterns your other recent repositories use that this one doesn't. Click ⊕ to add one. Fold the panel with its arrow.";
+"help.ai.title" = "AI Agent";
+"help.ai.desc" = "Ask about your patterns or tap a Quick Message. Click the model name to switch models, ⚙ to change provider. ✨ Generate Comment uses the same model.";
+
+/* Menu bar */
+"menu.repository" = "Repository";
+"menu.nextTab" = "Show Next Tab";
+"menu.previousTab" = "Show Previous Tab";
+"menu.newSection" = "New Section";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” is not a Git repository. Drop a folder that contains a .git directory.";
+"error.title" = "Can’t Open Repository";
+"hint.dropRepository" = "Drop to open repository";
