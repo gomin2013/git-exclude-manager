@@ -1,255 +1,96 @@
-# Git Exclude Manager — Phase 1: Static UI Prototype
+<p align="center">
+  <img src="Packaging/Mascot.png" width="200" alt="Git Exclude Manager mascot: a red panda holding a hidden-eye sign">
+</p>
 
-A macOS menu bar application for managing `.git/info/exclude` files across Git repositories, with bilingual UI support (English/Thai).
+# Git Exclude Manager
 
-## 📚 Documentation
+A native macOS app for editing **`.git/info/exclude`** — the per-clone ignore file that is never committed.
+Keep your editor folders, local notes and secrets out of `git status` without touching the team's `.gitignore`.
+English and Thai UI.
 
-### Quick Start
-- **[⚡ Getting Started](.claude/docs/getting-started.md)** — Setup, architecture, and quick start guide
+<p align="center">
+  <img src="docs/images/screenshot.png" alt="Git Exclude Manager: patterns grouped into sections, pattern suggestions and the AI agent panel">
+</p>
 
-### Development
-- **[🔧 Development Guide](.claude/docs/development.md)** — Code style, patterns, testing, and CI/CD
-- **[✅ Phase 1 Complete](.claude/docs/phase1-complete.md)** — Implementation summary and deliverables
+## Features
 
-### Specifications
-- **[📋 Requirements](.claude/specs/requirements.md)** — Feature specifications (FR/NFR)
-- **[🎨 Design](.claude/specs/design.md)** — Detailed architecture & data models
-- **[💡 Decisions](.claude/specs/decisions.md)** — Architecture Decision Records (12 ADRs)
-- **[📅 Tasks](.claude/specs/tasks.md)** — Phase breakdown & roadmap
+- **Visual editor** — add, edit, enable/disable (`#pattern`), search and delete patterns. Every save is atomic
+  and keeps a backup; **Restore Previous** undoes the last save.
+- **Your file stays yours** — comments, blank lines and unknown lines are written back byte-for-byte.
+- **Sections** — blank lines become draggable section breaks with an optional `# heading`; drag anything to reorder.
+- **Multiple repositories** — browser-style tabs (drag to reorder, ⌘1…⌘9, ⌃Tab), restored on relaunch.
+- **Pattern Suggestions** — patterns your other repositories use that this one doesn't, one click to add.
+- **AI Agent (optional)** — chat about your patterns, Quick Messages and ✨ Generate Comment with
+  Apple Foundation Models, Ollama, OpenAI, Gemini or Claude. API keys live in the Keychain.
+- **Import / Export** — import any text file including `.gitignore` (merge or replace).
 
-### Strategic Context
-- **[🎯 Product Vision](.claude/steering/product.md)** — Product context & goals
-- **[🔧 Technical Context](.claude/steering/tech.md)** — Technology stack & patterns
-- **[⚠️ Constraints](.claude/steering/constraints.md)** — Limitations & trade-offs
-- **[🗺️ Roadmap](.claude/steering/roadmap.md)** — Development timeline
+## Install
 
-### Code Quality
-- **[🤖 CI/CD Pipeline](.github/workflows/ci.yml)** — Automated testing & validation
-- **[📖 Copilot Instructions](.github/copilot-instructions.md)** — AI coding guidelines
+### Download (recommended)
 
-## Phase 1 Status: Static Prototype
+1. Download `GitExcludeManager-x.y.z.dmg` from [**Releases**](../../releases/latest)
+   (optionally verify it: `shasum -a 256 -c SHA256SUMS.txt`).
+2. Open the DMG and drag **Git Exclude Manager** to **Applications**. Run it from Applications, not from the DMG.
+3. **First launch** — the app is not yet notarized by Apple, so macOS blocks it once:
+   - Open it, click **Done** on the warning, then go to **System Settings → Privacy & Security**,
+     scroll to *"Git Exclude Manager" was blocked* and click **Open Anyway**; or
+   - in Terminal: `xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`
+4. Allow the background helper when macOS asks (**System Settings → General → Login Items**).
+   It only reads and writes the `.git/info/exclude` files you open.
 
-This is the **Phase 1 static prototype** — a visual mockup with no backend functionality. The goal is to validate the UI/UX design before implementing file I/O and XPC communication.
+### Build from source
 
-### What Works in Phase 1
-
-✅ **Standard Dock application** — App runs as a normal macOS app with Dock icon  
-✅ **Static UI layout** — Repository picker, search bar, pattern list, editor form  
-✅ **Bilingual strings** — English and Thai localization files  
-✅ **Language switching** — Menu-based language selection (English/Thai) with persistence  
-✅ **Mock data** — Sample patterns and repositories for preview  
-✅ **SwiftUI previews** — All views render correctly in Xcode Live Preview  
-✅ **Disabled interactions** — Buttons and inputs are `.disabled(true)` to indicate prototype status  
-
-### What's NOT Implemented Yet
-
-❌ File I/O (reading/writing `.git/info/exclude`)  
-❌ XPC communication with helper daemon  
-❌ Actual pattern persistence  
-❌ Repository browsing  
-❌ Import/export functionality  
-❌ Settings/preferences  
-
----
-
-## Project Structure
-
-```
-Sources/
-├── GitExcludeManagerApp/          # Main macOS app
-│   ├── ViewModels/                # App logic stubs (PatternsViewModel, etc.)
-│   ├── Views/                     # SwiftUI components
-│   │   ├── PatternsView.swift     # Main content view
-│   │   ├── PatternRow.swift       # Individual pattern row
-│   │   ├── EditorView.swift       # Add/edit pattern form
-│   │   ├── RepositoryPickerView.swift
-│   │   └── SearchBar.swift
-│   ├── GitExcludeManagerApp.swift # @main entry point with WindowGroup
-│   └── Info.plist
-├── GitExcludeManagerHelper/       # XPC helper daemon (stub)
-│   ├── main.swift                 # Placeholder for Phase 2
-│   └── Info.plist
-├── Shared/                        # Cross-target types
-│   ├── Models/
-│   │   └── GitExcludeModels.swift # GitExcludePattern, GitRepository
-│   └── HelperProtocol.swift       # XPC protocol (stubs)
-Tests/
-├── GitExcludeManagerTests.swift   # Unit tests (basic stubs)
-Resources/
-├── en.lproj/Localizable.strings   # English UI strings
-└── th.lproj/Localizable.strings   # Thai UI strings
-Package.swift                       # SPM package definition
-```
-
----
-
-## Building & Running Phase 1
-
-### Prerequisites
-- macOS 15.0+
-- Xcode 16+
-- Swift 5.9+
-
-### Build Steps
-
-1. **Clone or open the project:**
-   ```bash
-   cd /Users/abd-th-012/Documents/SwiftUI/git-exclude-manager
-   ```
-
-2. **Build the package:**
-   ```bash
-   swift build
-   ```
-
-3. **Run the app:**
-   ```bash
-   swift run GitExcludeManager
-   ```
-
-   The app will launch and appear in the menu bar (status bar, top right).
-
-### Run Tests
+Requires macOS 14+ and Xcode 16+ (Xcode 26 to regenerate the macOS 26 icon).
 
 ```bash
-swift test
+git clone <this repo> && cd git-exclude-manager
+scripts/build-app.sh && open build/GitExcludeManager.app
 ```
 
----
+Apps you build yourself are not quarantined, so there is no Gatekeeper prompt.
 
-## Viewing the Prototype
+## Requirements
 
-### In Xcode
+- macOS 14 Sonoma or later
+- AI is optional: cloud providers need your own API key; Ollama needs `ollama serve`;
+  Apple Foundation Models needs macOS 26 with Apple Intelligence enabled
 
-1. Open any view file (e.g., `PatternsView.swift`)
-2. Click **Resume** in the Live Preview panel (lower right)
-3. The UI renders in real time
+## Privacy
 
-### Switching Language (Local Testing)
+Files are read and written locally by a user-level helper — no root, no telemetry.
+With a **cloud** AI provider, the chat sends the repository name and the current `.git/info/exclude`
+content to that provider. Choose Ollama or Apple Foundation Models to keep everything on-device.
 
-To preview Thai localization:
-1. System Preferences → General → Language & Region → Preferred Languages
-2. Add **Thai** and set as primary
-3. Restart Xcode or the app
-4. UI strings will display in Thai
+## Development
 
----
-
-## Design Notes
-
-### UI Layout
-
-**Menu Bar Window:**
-- Repository Picker (show current repo path, "Browse..." button)
-- Search Bar (filter patterns by text)
-- Pattern List (scrollable, 5 sample patterns)
-  - Each row shows: toggle button, pattern text, comment (if any), menu button (edit/delete)
-- Status Bar (pattern count, add/import/export buttons)
-
-### Mock Data
-
-Five sample patterns are pre-loaded:
-1. `*.log` — Log files (enabled)
-2. `node_modules/` — NPM dependencies (enabled)
-3. `.env` — Environment variables (enabled)
-4. `build/` — Build output (disabled/commented)
-5. `.DS_Store` — macOS files (enabled)
-
-### Localization
-
-All UI strings are defined in `Localizable.strings` files:
-- **English:** `Resources/en.lproj/Localizable.strings`
-- **Thai:** `Resources/th.lproj/Localizable.strings`
-
-Add new strings using `NSLocalizedString()` calls in code.
-
----
-
-## Next Steps (Phase 2)
-
-Once Phase 1 UI is validated, Phase 2 will:
-- Implement real file I/O for `.git/info/exclude`
-- Build XPC protocol and helper daemon
-- Connect UI to data models and services
-- Add persistence (UserDefaults for last repo)
-- Implement pattern parsing and validation
-
----
-
-## Architecture Overview
-
-```
-┌─────────────────────────────────────┐
-│  GitExcludeManagerApp (Dock App)    │
-│                                     │
-│  PatternsView (UI)                  │
-│  └── PatternsViewModel (stubs)      │
-│                                     │
-│  RepositoryPickerView               │
-│  └── RepositoryViewModel (stubs)    │
-│                                     │
-│  Commands (Language Menu)           │
-│  └── LanguageService                │
-└──────────────┬──────────────────────┘
-               │
-               │ Phase 2: XPC
-               ↓
-┌─────────────────────────────────────┐
-│  GitExcludeManagerHelper (Daemon)   │
-│  HelperService (Phase 2 impl)       │
-│  File I/O operations                │
-└─────────────────────────────────────┘
+```bash
+swift build && swift test                 # 80+ tests: parser, file I/O, XPC round trip, view models, AI clients
+scripts/build-app.sh                      # build/GitExcludeManager.app (ad-hoc signed, helper registered on launch)
+scripts/make-dmg.sh                       # build/GitExcludeManager-<version>.dmg
+swift scripts/make-icon.swift             # regenerate icons from Packaging/source/
 ```
 
----
+| Path | What |
+|---|---|
+| `Sources/Shared` | Models, `.git/info/exclude` parser/serializer, file service, XPC protocol |
+| `Sources/GitExcludeManagerHelper` | User-level LaunchAgent that does the file I/O over XPC |
+| `Sources/GitExcludeManagerApp` | SwiftUI app: views, view models, AI service, en/th strings |
+| `Packaging/` | App icon (Icon Composer + `.icns`), mascot, AI source renders |
+
+**Releasing:** bump `CFBundleShortVersionString` in both `Info.plist` files, update `CHANGELOG.md`, then
+`git tag v1.2.3 && git push origin v1.2.3`. GitHub Actions builds the DMG and opens a **draft** release.
 
 ## Troubleshooting
 
-**Build fails with Swift compiler errors:**
-- Ensure all `.swift` files are in the correct source directories
-- Check `Package.swift` for target configuration
-- Run `swift package describe` to verify package structure
-
-**App doesn't appear in Dock:**
-- Ensure `Info.plist` does NOT contain `LSUIElement = YES` (which would hide Dock)
-- Verify `CFBundlePackageType` is set to `APPL` in `Info.plist`
-- Check Console.app for error messages
-- Make sure `GitExcludeManagerApp` scheme is selected in Xcode
-
-**Language switching not persisting:**
-- Verify `UserDefaults` key `"app.language"` is being written correctly
-- Check System Preferences → General → Language to see system language
-- Clear UserDefaults: `defaults delete com.gitexcludemanager.app`
-
-**Localization strings not showing:**
-- Verify `.strings` files are in `Resources/{en,th}.lproj/`
-- Check file encoding is UTF-8 with BOM
-- Rebuild the project after editing `.strings` files
-- Verify all string keys exist in both English and Thai files
-
----
+- **"Connection failed" errors** — the helper isn't registered. Quit and reopen the app from `/Applications`;
+  check **System Settings → General → Login Items** that *Git Exclude Manager* is allowed.
+- **AI says "not configured"** — open the ⚙ in the AI Agent panel and pick a provider/model.
+- **Reset all app settings** — `defaults delete com.gitexcludemanager.app`
 
 ## Contributing
 
-This is a collaborative prototype. To add features or improve the UI:
-1. Edit views in `Sources/GitExcludeManagerApp/Views/`
-2. Update `.strings` files if adding new UI text
-3. Keep Phase 1 backend stubs (don't implement XPC yet)
-4. Test in Live Preview before committing
-
----
+Issues and pull requests are welcome. Please add tests for new behavior and make sure `swift test` passes.
 
 ## License
 
-© 2026. All rights reserved.
-
----
-
-## Support
-
-For questions or issues with the prototype:
-- Review `.claude/specs/` for design decisions and requirements
-- Check `.claude/docs/` for detailed documentation
-- Read `.claude/docs/QUICKSTART.md` for quick answers
-- See `.claude/docs/PHASE1-CHECKLIST.md` for completion status
-
+[MIT](LICENSE) © 2026 Watthajak Jinasam
