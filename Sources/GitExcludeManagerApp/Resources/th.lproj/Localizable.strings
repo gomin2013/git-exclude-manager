@@ -180,3 +180,14 @@
 "error.notRepository" = "“%@” ไม่ใช่ Git repository — ลากโฟลเดอร์ที่มีโฟลเดอร์ .git อยู่ข้างใน";
 "error.title" = "เปิด Repository ไม่ได้";
 "hint.dropRepository" = "วางเพื่อเปิด repository";
+
+/* Pattern Clipboard */
+"clipboard.title" = "คลิปบอร์ดรูปแบบ";
+"clipboard.empty" = "เลือกรูปแบบ (⌘-คลิก / ⇧-คลิก) แล้วกด ⌘C เพื่อเก็บไว้ที่นี่ จากนั้นสลับ repository แล้ววาง";
+"clipboard.pasteAll" = "วางทั้งหมดใน repository นี้";
+"clipboard.paste" = "วางใน repository นี้";
+"clipboard.remove" = "เอาออกจากคลิปบอร์ด";
+"clipboard.clear" = "ล้างคลิปบอร์ด";
+"menu.copyToClipboard" = "คัดลอกไปที่คลิปบอร์ดรูปแบบ";
+"help.clipboard.title" = "คลิปบอร์ดรูปแบบ";
+"help.clipboard.desc" = "⌘-คลิก หรือ ⇧-คลิก เพื่อเลือกหลายรูปแบบ กด ⌘C เพื่อเก็บ (จาก repository ไหนก็ได้) แล้ววางใน repository อื่น — เพิ่มเฉพาะที่ยังไม่มี ⌘V วางบรรทัดรูปแบบที่คัดลอกมาจากที่อื่นได้ด้วย";

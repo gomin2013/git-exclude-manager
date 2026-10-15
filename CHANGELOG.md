@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.0.1 — 2026-10-15
+
+### Added
+
+- **Pattern Clipboard** — a new panel at the top of the right column. Select several patterns with
+  ⌘-click / ⇧-click, press **⌘C** (or right-click → *Copy to Pattern Clipboard*) to collect them from any
+  repository, then switch repository and **Paste all** (or ⊕ one at a time). Only patterns the repository
+  doesn't have yet are added, in one save. Copied patterns also go to the system pasteboard as plain lines.
+- **⌘V** pastes pattern lines from anywhere (another repository, a `.gitignore`, an editor); comments and
+  blank lines are ignored.
+- Help: new *Pattern Clipboard* topic.
+
+### Changed
+
+- The pattern list and right-column panels are now separate views (`PatternListView`, `ClipboardPanel`,
+  `SidePanels`, `RepositoryTabBar`); SwiftLint runs with `--strict` in CI.
+
 ## v1.0.0 — 2026-10-15
 
 First public release of **Git Exclude Manager**, a native macOS app for editing `.git/info/exclude` —

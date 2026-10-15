@@ -180,3 +180,14 @@
 "error.notRepository" = "“%@” is not a Git repository. Drop a folder that contains a .git directory.";
 "error.title" = "Can’t Open Repository";
 "hint.dropRepository" = "Drop to open repository";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Pattern Clipboard";
+"clipboard.empty" = "Select patterns (⌘-click / ⇧-click) and press ⌘C to collect them here, then switch repository and paste.";
+"clipboard.pasteAll" = "Paste all into this repository";
+"clipboard.paste" = "Paste into this repository";
+"clipboard.remove" = "Remove from clipboard";
+"clipboard.clear" = "Clear clipboard";
+"menu.copyToClipboard" = "Copy to Pattern Clipboard";
+"help.clipboard.title" = "Pattern Clipboard";
+"help.clipboard.desc" = "⌘-click or ⇧-click to select several patterns, ⌘C to collect them (from any repository), then paste into another repository — only missing patterns are added. ⌘V also pastes pattern lines copied from anywhere.";

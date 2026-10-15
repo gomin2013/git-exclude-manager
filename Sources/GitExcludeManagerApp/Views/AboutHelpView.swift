@@ -48,6 +48,7 @@ struct HelpList: View {
         ("arrow.uturn.backward", "help.restore"),
         ("eye", "help.preview"),
         ("square.on.square", "help.tabs"),
+        ("doc.on.clipboard", "help.clipboard"),
         ("lightbulb", "help.suggestions"),
         ("sparkles", "help.ai")
     ]

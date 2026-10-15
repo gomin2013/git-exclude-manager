@@ -19,6 +19,8 @@ English and Thai UI.
 - **Your file stays yours** — comments, blank lines and unknown lines are written back byte-for-byte.
 - **Sections** — blank lines become draggable section breaks with an optional `# heading`; drag anything to reorder.
 - **Multiple repositories** — browser-style tabs (drag to reorder, ⌘1…⌘9, ⌃Tab), restored on relaunch.
+- **Pattern Clipboard** — ⌘-click / ⇧-click to select patterns, ⌘C to collect them, paste into another
+  repository (only missing ones are added).
 - **Pattern Suggestions** — patterns your other repositories use that this one doesn't, one click to add.
 - **AI Agent (optional)** — chat about your patterns, Quick Messages and ✨ Generate Comment with
   Apple Foundation Models, Ollama, OpenAI, Gemini or Claude. API keys live in the Keychain.

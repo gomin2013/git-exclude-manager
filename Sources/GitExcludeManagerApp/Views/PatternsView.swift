@@ -18,6 +18,7 @@ struct PatternsView: View {
     @State private var showingAbout = false
     @State private var isDropTargeted = false
     /// Right-column panels can be folded; remembered across launches.
+    @AppStorage("ui.clipboardCollapsed") private var clipboardCollapsed = false
     @AppStorage("ui.suggestionsCollapsed") private var suggestionsCollapsed = false
     @AppStorage("ui.chatCollapsed") private var chatCollapsed = false
     @AppStorage("ui.helpCollapsed") private var helpCollapsed = true  // folded by default: don't squeeze the chat
@@ -37,6 +38,8 @@ struct PatternsView: View {
                 patternPanel
                     .frame(minWidth: 340)
                 VStack(spacing: 0) {
+                    ClipboardPanel(patternsVM: patternsVM, isCollapsed: $clipboardCollapsed)
+                    Divider()
                     SuggestionsPanel(
                         patternsVM: patternsVM,
                         isCollapsed: $suggestionsCollapsed,
@@ -184,7 +187,14 @@ struct PatternsView: View {
             searchRow
             actionRow
             Divider()
-            patternListContent
+            PatternListView(
+                patternsVM: patternsVM,
+                onEdit: { patternToEdit = $0 },
+                onDelete: {
+                    patternToDelete = $0
+                    showingDeleteConfirm = true
+                }
+            )
             Divider()
             statusBar
         }
@@ -301,44 +311,6 @@ struct PatternsView: View {
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
         .font(.callout)
-    }
-
-    @ViewBuilder
-    private var patternListContent: some View {
-        if patternsVM.isLoading {
-            ProgressView()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        } else if patternsVM.filteredPatterns.isEmpty {
-            Text(localized("message.noPatterns"))
-                .font(.callout)
-                .foregroundStyle(.secondary)
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        } else {
-            List {
-                ForEach(patternsVM.filteredPatterns) { pattern in
-                    PatternRow(
-                        pattern: pattern,
-                        onToggle: { patternsVM.togglePattern(pattern.id) },
-                        onEdit: { patternToEdit = pattern },
-                        onDelete: {
-                            patternToDelete = pattern.id
-                            showingDeleteConfirm = true
-                        },
-                        onRename: { patternsVM.renameSection(pattern.id, to: $0) }
-                    )
-                    .listRowInsets(EdgeInsets(top: 4, leading: 8, bottom: 4, trailing: 8))
-                    .listRowSeparator(.hidden)
-                    // Filtered indices don't map to file order, so reorder only when not searching.
-                    .moveDisabled(!patternsVM.searchText.isEmpty || pattern.isGitDefaultHeader)
-                }
-                .onMove(perform: moveRows)
-            }
-            .listStyle(.plain)
-        }
-    }
-
-    private func moveRows(from source: IndexSet, to destination: Int) {
-        patternsVM.movePatterns(from: source, to: destination)
     }
 
     private var statusBar: some View {
