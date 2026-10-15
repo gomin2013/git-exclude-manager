@@ -3,6 +3,13 @@ import AppKit
 import SwiftUI  // Array.move(fromOffsets:toOffset:)
 import Shared
 
+/// A pattern copied into the Pattern Clipboard, with the repository it came from.
+struct ClipboardItem: Identifiable, Equatable {
+    let pattern: GitExcludePattern
+    let repo: String
+    var id: UUID { pattern.id }
+}
+
 /// A pattern other repositories use that the current one doesn't have yet.
 struct PatternSuggestion: Identifiable, Equatable {
     let pattern: String
@@ -22,6 +29,8 @@ public class PatternsViewModel: ObservableObject {
     @Published var isSaving: Bool = false
     /// Patterns read from an import file, waiting for the user to pick merge or replace.
     @Published var pendingImport: [GitExcludePattern]?
+    /// Patterns collected with ⌘C across repositories (session only), pasted into another repo.
+    @Published var clipboard: [ClipboardItem] = []
     /// Exclude-file items of the *other* recent repositories, keyed by repo name.
     @Published var suggestionSources: [String: [GitExcludePattern]] = [:]
     /// Set after a successful export; the status bar shows it briefly.
@@ -75,6 +84,52 @@ public class PatternsViewModel: ObservableObject {
 
     func addSuggestion(_ suggestion: PatternSuggestion) {
         addPattern(GitExcludePattern(pattern: suggestion.pattern, comment: suggestion.comment))
+    }
+
+    // MARK: - Pattern Clipboard
+
+    /// Adds the selected *patterns* (sections/comments skipped) in file order; already-collected text is kept once.
+    /// Returns them as exclude-file text for the system pasteboard (the view writes it — keeps tests off the
+    /// user's real clipboard).
+    @discardableResult
+    func copyToClipboard(_ ids: Set<UUID>, from repo: String) -> String {
+        let selected = patterns.filter { ids.contains($0.id) && $0.kind == .pattern }
+        let collected = Set(clipboard.map(\.pattern.pattern))
+        clipboard += selected
+            .filter { !collected.contains($0.pattern) }
+            .map { ClipboardItem(pattern: $0, repo: repo) }
+        return ExcludeParserService.serialize(selected)
+    }
+
+    /// Appends clipboard patterns this repository doesn't have yet; one save. Returns how many were added.
+    @discardableResult
+    func paste(_ items: [ClipboardItem]) -> Int {
+        merge(items.map(\.pattern))
+    }
+
+    /// ⌘V: any text (another repo, a .gitignore) — pattern lines are added, comments/blank lines ignored.
+    @discardableResult
+    func pasteText(_ text: String) -> Int {
+        merge(ExcludeParserService.parse(content: text))
+    }
+
+    func removeFromClipboard(_ id: UUID) {
+        clipboard.removeAll { $0.id == id }
+    }
+
+    func clearClipboard() {
+        clipboard.removeAll()
+    }
+
+    private func merge(_ incoming: [GitExcludePattern]) -> Int {
+        var existing = Set(patterns.filter { $0.kind == .pattern }.map(\.pattern))
+        let fresh = incoming.filter { existing.insert($0.pattern).inserted }   // also dedupes within incoming
+        guard !fresh.isEmpty else { return 0 }
+        patterns += fresh.map {
+            GitExcludePattern(pattern: $0.pattern, isEnabled: $0.isEnabled, comment: $0.comment)  // new ids
+        }
+        savePatterns()
+        return fresh.count
     }
 
     /// Missing repo or file → no items (suggestions are best-effort).
