@@ -12,6 +12,9 @@ English and Thai UI.
   <img src="docs/images/screenshot.png" alt="Git Exclude Manager: patterns grouped into sections, pattern suggestions and the AI agent panel">
 </p>
 
+Same window layout as [Hosts Manager](https://github.com/gomin2013/hosts-manager) — a sibling app for editing
+`/etc/hosts` ([website](https://gomin2013.github.io/hosts-manager/)). If you use one, you already know the other.
+
 ## Features
 
 - **Visual editor** — add, edit, enable/disable (`#pattern`), search and delete patterns. Every save is atomic

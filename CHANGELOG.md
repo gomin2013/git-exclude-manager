@@ -1,5 +1,18 @@
 # Changelog
 
+## v1.0.2 — 2026-10-17
+
+### Added
+
+- **Website** — [gomin2013.github.io/git-exclude-manager](https://gomin2013.github.io/git-exclude-manager/)
+  (Home, Download, About, Privacy Policy, Terms of Use), English and Thai, served from `main` → `/docs`.
+  The Download page links the latest release's DMG.
+- README: link to the sibling app [Hosts Manager](https://github.com/gomin2013/hosts-manager) and its website.
+
+### Changed
+
+- No app changes; version bumped so the release matches the website.
+
 ## v1.0.1 — 2026-10-15
 
 ### Added
