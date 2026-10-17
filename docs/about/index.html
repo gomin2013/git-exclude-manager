@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Git Exclude Manager · Why and how it works</title>
+  <meta name="description" content="Why Git Exclude Manager exists, how its user-level helper edits .git/info/exclude safely, and its sibling app Hosts Manager.">
+  <link rel="canonical" href="https://gomin2013.github.io/git-exclude-manager/about/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Git Exclude Manager">
+  <meta property="og:title" content="About Git Exclude Manager · Why and how it works">
+  <meta property="og:description" content="Why Git Exclude Manager exists, how its user-level helper edits .git/info/exclude safely, and its sibling app Hosts Manager.">
+  <meta property="og:url" content="https://gomin2013.github.io/git-exclude-manager/about/">
+  <meta property="og:image" content="https://gomin2013.github.io/git-exclude-manager/assets/img/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f7f7f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d10" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../assets/img/gem-icon.png">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="../assets/site.css">
+  <script>try{var l=localStorage.getItem("gem.lang")||((navigator.language||"").slice(0,2)==="th"?"th":"en");if(l==="th"){document.documentElement.classList.add("th");document.documentElement.lang="th"}}catch(e){}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Git Exclude Manager", "item": "https://gomin2013.github.io/git-exclude-manager/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://gomin2013.github.io/git-exclude-manager/about/" }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../"><img src="../assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="../#features" class="hide-sm"><span class="en">Features</span><span class="th">ฟีเจอร์</span></a>
+        <a href="../download/"><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="./" aria-current="page"><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener" class="hide-sm">GitHub</a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="th" aria-pressed="false">TH</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="wrap">
+        <h1 class="reveal"><span class="en">The ignore file nobody remembers</span><span class="th">ไฟล์ ignore ที่ไม่ค่อยมีใครรู้จัก</span></h1>
+        <p class="lede reveal" data-d="1"><span class="en">Every git clone has a .git/info/exclude. It works like .gitignore but is never committed, so it is the right place for files that only matter to you.</span><span class="th">ทุก git clone มีไฟล์ .git/info/exclude ทำงานเหมือน .gitignore แต่ไม่ถูก commit จึงเหมาะกับไฟล์ที่สำคัญแค่กับคุณคนเดียว</span></p>
+      </div>
+    </section>
+
+    <section style="padding-top:16px">
+      <div class="wrap split-2">
+        <div class="prose reveal">
+          <h2><span class="en">Why it exists</span><span class="th">ทำไมถึงสร้างแอปนี้</span></h2>
+          <p><span class="en">Your editor settings, a scratch folder, CLAUDE.local.md, a .env with local keys. Adding them to the team's .gitignore is noise in code review, and leaving them out means one careless git add away from a leak. The exclude file solves this, but it is hidden inside .git and easy to forget.</span><span class="th">ไฟล์ตั้งค่า editor โฟลเดอร์ทดลอง CLAUDE.local.md หรือ .env ที่มี key ส่วนตัว ถ้าใส่ใน .gitignore ของทีมก็รก code review ถ้าไม่ใส่ก็เสี่ยงหลุดเพราะ git add พลาดครั้งเดียว ไฟล์ exclude แก้ปัญหานี้ได้ แต่ซ่อนอยู่ใน .git จนลืมกันง่าย</span></p>
+          <p><span class="en">Git Exclude Manager puts that file in a normal Mac window, for every repository you work on, and keeps the file you already have byte for byte.</span><span class="th">Git Exclude Manager เปิดไฟล์นี้ในหน้าต่าง Mac ธรรมดา สำหรับทุก repository ที่คุณทำงานอยู่ และเก็บไฟล์เดิมของคุณไว้เหมือนเดิมทุกไบต์</span></p>
+
+          <h2><span class="en">How it works</span><span class="th">ทำงานอย่างไร</span></h2>
+          <p><span class="en">A small helper, registered with macOS as a LaunchAgent, does the reading and writing. The app sends it the new content over XPC. The helper checks the folder is a git repository, keeps the previous file as exclude.bak and writes atomically.</span><span class="th">helper ตัวเล็กที่ลงทะเบียนกับ macOS เป็น LaunchAgent ทำหน้าที่อ่านและเขียนไฟล์ แอปส่งเนื้อหาใหม่ผ่าน XPC แล้ว helper จะตรวจว่าโฟลเดอร์เป็น git repository เก็บไฟล์เดิมไว้เป็น exclude.bak และเขียนแบบ atomic</span></p>
+          <p><span class="en">Exclude files are yours, so the helper runs as your user and never as root. It only accepts connections from Git Exclude Manager itself.</span><span class="th">ไฟล์ exclude เป็นของคุณเอง helper จึงรันด้วยสิทธิ์ผู้ใช้ของคุณ ไม่ใช่ root และรับการเชื่อมต่อจาก Git Exclude Manager เท่านั้น</span></p>
+
+          <h2><span class="en">Open source</span><span class="th">โอเพนซอร์ส</span></h2>
+          <p><span class="en">Git Exclude Manager is written in Swift and SwiftUI, covered by more than 80 tests and released under the MIT License. Bug reports, ideas and pull requests are welcome on</span><span class="th">Git Exclude Manager เขียนด้วย Swift และ SwiftUI มีเทสต์มากกว่า 80 รายการ เผยแพร่ภายใต้สัญญาอนุญาต MIT แจ้งบั๊ก เสนอไอเดีย หรือส่ง pull request ได้ที่</span> <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener">GitHub</a>.</p>
+        </div>
+        <figure class="reveal" data-d="1" style="margin:0">
+          <img class="shot" src="../assets/img/gem-main.png" width="1582" height="1161" loading="lazy"
+               alt="Git Exclude Manager main window with repository tabs, sections and the AI Agent panel">
+          <img src="../assets/img/gem-suggestions.png" width="340" height="315" loading="lazy"
+               alt="Pattern Clipboard and Pattern Suggestions panels" style="margin-top:24px;border-radius:12px;box-shadow:var(--shadow);max-width:60%">
+        </figure>
+      </div>
+    </section>
+
+    <section id="hosts-manager">
+      <div class="wrap">
+        <div class="sibling reveal">
+          <div>
+            <p class="eyebrow"><span class="en">Sibling app</span><span class="th">แอปพี่น้อง</span></p>
+            <div class="who">
+              <img src="../assets/img/hm-icon.png" width="56" height="56" alt="">
+              <h2 style="font-size:30px">Hosts Manager</h2>
+            </div>
+            <p><span class="en">Hosts Manager grew out of Git Exclude Manager and edits /etc/hosts the same way. Same window, same sections and drag, same AI Agent. If you use one, you already know the other.</span><span class="th">Hosts Manager ต่อยอดมาจาก Git Exclude Manager และแก้ /etc/hosts ด้วยวิธีเดียวกัน หน้าต่างเดียวกัน แบ่งหมวดและลากได้เหมือนกัน มี AI Agent เหมือนกัน ใช้เป็นตัวหนึ่งก็ใช้อีกตัวได้ทันที</span></p>
+            <div class="cta-row" style="margin-top:22px">
+              <a class="btn btn-ghost" href="https://gomin2013.github.io/hosts-manager/"><i class="ph ph-arrow-square-out" aria-hidden="true"></i><span class="en">Explore Hosts Manager</span><span class="th">ดู Hosts Manager</span></a>
+            </div>
+          </div>
+          <img class="shot" src="../assets/img/hm-main-dark.png" width="1432" height="972" loading="lazy"
+               alt="Hosts Manager window with sections of /etc/hosts entries">
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <div class="closing-inner reveal">
+          <img src="../assets/img/gem-mascot.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <h2><span class="en">Made by Watthajak Jinasam</span><span class="th">พัฒนาโดย Watthajak Jinasam</span></h2>
+            <p class="lede"><span class="en">Built so local files stop showing up in git status. The red panda holds up a hidden-eye sign: out of sight, still on disk.</span><span class="th">สร้างขึ้นเพื่อให้ไฟล์ส่วนตัวเลิกโผล่ใน git status แพนด้าแดงถือป้ายรูปตาปิด มองไม่เห็นแต่ยังอยู่ในเครื่อง</span></p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="../download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download for Mac</span><span class="th">ดาวน์โหลดสำหรับ Mac</span></a>
+              <a class="btn btn-ghost" href="https://github.com/gomin2013"><i class="ph ph-github-logo" aria-hidden="true"></i>@gomin2013</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <a class="brand" href="../"><img src="../assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
+      <nav aria-label="Footer">
+        <a href="../download/"><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="./" aria-current="page"><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="../privacy-policy/"><span class="en">Privacy Policy</span><span class="th">นโยบายความเป็นส่วนตัว</span></a>
+        <a href="../terms-of-use/"><span class="en">Terms of Use</span><span class="th">ข้อกำหนดการใช้งาน</span></a>
+        <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <small><span class="en">© 2026 Watthajak Jinasam. Released under the MIT License. Not affiliated with Apple or Git.</span><span class="th">© 2026 Watthajak Jinasam เผยแพร่ภายใต้สัญญาอนุญาต MIT ไม่มีส่วนเกี่ยวข้องกับ Apple หรือ Git</span></small>
+    </div>
+  </footer>
+  <script src="../assets/site.js" defer></script>
+</body>
+</html>
