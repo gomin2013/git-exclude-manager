@@ -17,6 +17,21 @@ final class PatternClipboardTests: XCTestCase {
         XCTAssertEqual(viewModel.clipboard[1].pattern.comment, "secrets")
     }
 
+    func testClosingTheLastRepositoryKeepsTheClipboardOnly() {
+        let viewModel = PatternsViewModel()
+        viewModel.selectedRepository = GitRepository(path: "/tmp/web-app", name: "web-app")
+        viewModel.patterns = ExcludeParserService.parseItems(content: "*.log\n")
+        viewModel.copyToClipboard(Set(viewModel.patterns.map(\.id)), from: "web-app")
+        viewModel.suggestionSources = ["api": ExcludeParserService.parseItems(content: "coverage/\n")]
+
+        viewModel.closeRepository()
+
+        XCTAssertNil(viewModel.selectedRepository, "nothing left for a panel to save into")
+        XCTAssertEqual(viewModel.patterns, [])
+        XCTAssertEqual(viewModel.suggestions.count, 0)
+        XCTAssertEqual(viewModel.clipboard.map(\.pattern.pattern), ["*.log"], "carried between repos")
+    }
+
     func testCopyAccumulatesAcrossReposWithoutDuplicates() {
         let viewModel = PatternsViewModel()
         viewModel.patterns = ExcludeParserService.parseItems(content: "*.log\n")

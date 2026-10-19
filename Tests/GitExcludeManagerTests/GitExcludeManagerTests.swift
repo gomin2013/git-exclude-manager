@@ -24,8 +24,8 @@ class GitExcludeManagerTests: XCTestCase {
             comment: "Dependencies"
         )
 
-        let expectedLine = "node_modules/ # Dependencies"
-        XCTAssertEqual(pattern.lineInFile, expectedLine)
+        XCTAssertEqual(pattern.lineInFile, "node_modules/")
+        XCTAssertEqual(pattern.linesInFile, ["## Dependencies", "node_modules/"])  // git has no end-of-line comments
     }
 
     func testGitExcludePatternDisabledFormat() {

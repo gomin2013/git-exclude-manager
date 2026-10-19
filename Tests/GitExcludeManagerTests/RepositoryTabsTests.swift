@@ -38,14 +38,17 @@ final class RepositoryTabsTests: XCTestCase {
         XCTAssertEqual(viewModel.selectedRepository?.path, repoA.path)
     }
 
-    func testLastTabCannotBeClosed() throws {
+    func testClosingTheLastTabLeavesNoRepositoryOpen() throws {
         let viewModel = RepositoryViewModel(defaults: defaults)
         let repoA = try makeRepo()
         viewModel.selectRepository(url: repoA)
 
         viewModel.closeRepository(path: repoA.path)
 
-        XCTAssertEqual(viewModel.openRepositories.count, 1)
+        XCTAssertEqual(viewModel.openRepositories, [])
+        XCTAssertNil(viewModel.selectedRepository, "→ Welcome screen")
+        XCTAssertEqual(RepositoryViewModel(defaults: defaults).openRepositories, [], "and still none after relaunch")
+        XCTAssertEqual(viewModel.recentRepositories.map(\.path), [repoA.path], "still one click away under Recent")
     }
 
     func testRelaunchRestoresTabsOrderAndSelection() throws {
