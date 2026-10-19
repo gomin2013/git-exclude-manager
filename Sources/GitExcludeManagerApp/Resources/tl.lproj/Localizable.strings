@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Idagdag";
+"btn.edit" = "I-edit";
+"btn.delete" = "Burahin";
+"btn.cancel" = "Kanselahin";
+"btn.save" = "I-save";
+"btn.browse" = "Mag-browse...";
+"btn.export" = "I-export";
+"btn.import" = "I-import";
+"btn.quit" = "Umalis";
+"btn.settings" = "Mga Setting";
+"btn.ok" = "OK";
+"btn.remove" = "Alisin";
+"btn.send" = "Ipadala";
+"btn.copy" = "Kopyahin";
+"btn.close" = "Isara";
+"btn.previewRaw" = "I-preview ang Raw";
+"btn.openRepo" = "Buksan ang Repository";
+"btn.generateComment" = "Gumawa ng Komento";
+"btn.restore" = "Ibalik ang Nauna";
+"btn.merge" = "Pagsamahin";
+"btn.replace" = "Palitan";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Maglagay ng ignore pattern (hal., *.log)";
+"placeholder.comment" = "Opsyonal na komento";
+"placeholder.search" = "Maghanap ng pattern...";
+"placeholder.repositoryPath" = "Pumili ng Git repository";
+
+/* MARK: - Labels */
+"label.pattern" = "Pattern";
+"label.comment" = "Komento";
+"label.repository" = "Repository";
+"label.status" = "Status";
+"label.enabled" = "Naka-enable";
+"label.disabled" = "Naka-disable";
+"label.aiGenerating" = "Gumagawa ng komento...";
+"label.recentRepos" = "Mga Kamakailang Repository";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Wala pang pattern";
+"message.noPatterns" = "Wala pang pattern";
+"status.patternsCount" = "%d pattern (%d naka-enable)";
+"status.exported" = "Na-export ang %@ — ipakita sa Finder";
+"status.noRepository" = "Walang napiling repository";
+"status.selectRepository" = "Pumili ng repository para magsimula";
+"status.connected" = "Nakakonekta";
+"status.disconnected" = "Nakadiskonekta";
+"ai.notConfigured" = "Hindi Naitakda";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Sigurado ka bang gusto mong burahin ang pattern na ito?";
+"dialog.deleteTitle" = "Burahin ang Pattern";
+"dialog.importConfirm" = "May %d pattern na nahanap. Ang Pagsamahin ay nagdaragdag ng mga bago lang; ang Palitan ay papalit sa lahat ng kasalukuyang pattern.";
+"dialog.importTitle" = "I-import ang mga Pattern";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Hindi maaaring walang laman ang pattern";
+"error.patternTooLong" = "Dapat 250 character o mas kaunti ang pattern";
+"error.noRepository" = "Pumili muna ng Git repository";
+"error.fileNotFound" = "Hindi nahanap ang exclude file sa repository";
+"error.permissionDenied" = "Tinanggihan ang pahintulot. Tingnan ang mga pahintulot ng file.";
+"error.fileReadError" = "Hindi nabasa ang exclude file";
+"error.fileWriteError" = "Hindi naisulat ang exclude file";
+"error.invalidRepository" = "Hindi wastong Git repository";
+"error.connectionFailed" = "Nabigo ang koneksyon sa helper service";
+"error.invalidData" = "Di-wastong data ang natanggap";
+"error.unknown" = "May naganap na hindi kilalang error";
+
+/* MARK: - Menu Items */
+"menu.edit" = "I-edit";
+"menu.delete" = "Burahin";
+"menu.removeRecent" = "Alisin sa Kamakailan";
+"menu.language" = "Wika";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "I-edit ang Pattern";
+"window.addTitle" = "Magdagdag ng Pattern";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Magmungkahi ng komento — gamit ang AI kapag naka-set up, ang pattern na ito lang ang ipapadala";
+"hint.restore" = "Bumalik sa bersyon bago ang huling save. I-click muli para i-undo ang pagbabalik.";
+"hint.generateCommentField" = "Mag-type ng pattern sa itaas, pagkatapos ay i-click ang ✨ Gumawa ng Komento para awtomatikong mapunan";
+"hint.mock" = "Prototype: Mock lang ang Magdagdag/Mag-edit/Magbura/Mag-toggle.";
+"hint.reorder" = "I-drag ang mga row para ayusin ang pagkakasunod (naka-disable habang naghahanap).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Buksan ang Repository";
+"openRepo.noRecent" = "Walang kamakailang binuksang repository.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Preview ng Raw File";
+"raw.copied" = "Nakopya!";
+
+/* MARK: - Chat */
+"chat.title" = "AI Agent";
+"chat.placeholder" = "Magtanong sa AI...";
+"chat.welcome" = "👋 Kumusta! Ako ang iyong AI assistant. Magtanong ka tungkol sa mga gitignore pattern.";
+"chat.noApiKey" = "⚠️ Pakisaayos muna ang AI API sa Mga Setting.";
+"chat.intro" = "Magtanong tungkol sa mga ignore pattern ng repository na ito. Ipinapadala kasama ng bawat tanong ang iyong exclude file.";
+"chat.tryAsking" = "Subukang itanong";
+"chat.setUp" = "I-set Up ang AI Provider…";
+"chat.step.attached" = "Naka-attach ang .git/info/exclude · %ld linya";
+"chat.step.waiting" = "Naghihintay sa %@";
+"chat.step.thinking" = "Nag-iisip";
+"chat.step.writing" = "Isinusulat ang sagot";
+"chat.thought" = "Nag-isip nang %ld s";
+"chat.seconds" = "%ld s";
+"btn.stop" = "Ihinto";
+
+/* MARK: - Settings */
+"settings.title" = "Mga Setting ng AI API";
+"settings.provider" = "Provider";
+"settings.apiKey" = "API Key";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Model";
+"settings.loadModels" = "I-load ang mga model";
+"settings.noModels" = "Walang nahanap na model.";
+"settings.appleNote" = "Tumatakbo sa device gamit ang Apple Intelligence (macOS 26+). Hindi kailangan ng API key o model.";
+"settings.keychainNote" = "Ang API key ay iniimbak sa iyong macOS Keychain.";
+
+/* MARK: - Navigation */
+"nav.back" = "Mga Repository";
+
+/* About & Help */
+"menu.help" = "Tulong";
+"link.website" = "Website";
+"menu.helpWindow" = "Tulong sa Git Exclude Manager";
+"menu.about" = "Tungkol";
+"about.version" = "Bersyon %@";
+"about.desc" = "Pamahalaan nang biswal ang iyong mga .git/info/exclude file. Lokal lang binabalewala ang mga pattern at hindi kailanman nako-commit.";
+"about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "Magdagdag ng Pattern";
+"help.add.desc" = "I-click ang Idagdag (⌘N) para gumawa ng bagong ignore pattern. Gumagana ang glob syntax, hal. *.log o build/.";
+"help.toggle.title" = "I-enable / I-disable";
+"help.toggle.desc" = "I-click ang bilog sa isang row para i-disable ang isang pattern nang hindi ito binubura. Nase-save ito bilang #pattern.";
+"help.reorder.title" = "Ayusin ang Pagkakasunod ng mga Pattern";
+"help.reorder.desc" = "I-drag ang isang row para ayusin ang pagkakasunod. Naka-disable ang pag-drag habang naghahanap.";
+"help.import.title" = "I-import";
+"help.import.desc" = "Mag-import ng anumang text file, kasama ang .gitignore. Ang Pagsamahin ay nagdaragdag ng mga bagong pattern lang; ang Palitan ay papalit sa lahat.";
+"help.history.title" = "History";
+"help.history.desc" = "Nakalista sa History ang bawat edit (huling 30). I-click ang isa para bumalik dito, o i-click ang basurahan nito para alisin ito; i-pin ang mga estadong gusto mong itago — awtomatikong naka-pin ang file noong binuksan. Ibinabalik pa rin ng Repository › Ibalik ang Nauna ang huling save mula sa backup (exclude.bak).";
+"help.preview.title" = "I-preview ang Raw";
+"help.preview.desc" = "Tingnan nang eksakto kung ano ang isusulat sa .git/info/exclude, kasama ang iyong mga linya ng komento.";
+
+/* Sections */
+"btn.addSection" = "Seksyon";
+"section.placeholder" = "Magdagdag ng heading…";
+"hint.addSection" = "Magdagdag ng seksyon na may blank line. I-drag ito sa lugar nito at mag-type ng heading (nase-save bilang # heading).";
+"hint.dragSection" = "I-drag para ilipat ang seksyong ito";
+"hint.renameSection" = "I-double-click o pindutin ang Return para palitan ang pangalan";
+"help.sections.title" = "Mga Seksyon";
+"help.sections.desc" = "I-click ang Seksyon para magdagdag ng blank-line break, i-drag ito sa itaas ng isang grupo ng mga pattern at mag-type ng heading para maayos ang mga ito. Maaari ding i-drag ang mga linya ng komento.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Mga Mungkahing Pattern";
+"suggest.empty" = "Wala pang mungkahi. Lalabas dito ang mga pattern mula sa iba mong kamakailang repository na wala sa isang ito.";
+"suggest.from" = "mula sa %@";
+"suggest.add" = "Idagdag ang pattern na ito";
+"quick.suggest" = "Magmungkahi ng mga pattern na dapat balewalain ng repository na ito";
+"quick.explain" = "Ipaliwanag kung ano ang ginagawa ng kasalukuyan kong mga pattern";
+"quick.redundant" = "May mga pattern ko bang paulit-ulit o nagpapatong?";
+"quick.exceptOne" = "Paano ko babalewalain ang isang folder maliban sa isang file?";
+"quick.organize" = "Ipangkat ang mga pattern ko sa mga seksyon na may heading";
+
+/* Appearance */
+"menu.appearance" = "Hitsura";
+"theme.system" = "System";
+"theme.light" = "Maliwanag";
+"theme.dark" = "Madilim";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Nakatiklop";
+"a11y.expanded" = "Nakabukas";
+"a11y.toggleHint" = "Ipinapakita o itinatago ang panel na ito";
+
+/* Help: helpers */
+"help.tabs.title" = "Mga Repository at Tab";
+"help.tabs.desc" = "I-click ang + para magbukas ng mas maraming repository bilang mga tab. I-drag ang isang tab para ayusin ang pagkakasunod nito; ibabalik ang mga bukas na tab sa susunod na pagbukas. Alisin ang mga lumang entry sa listahan ng Buksan ang Repository gamit ang ✕.";
+"help.suggestions.title" = "Mga Mungkahing Pattern";
+"help.suggestions.desc" = "Mga pattern na ginagamit ng iba mong kamakailang repository na wala sa isang ito. I-click ang ⊕ para magdagdag ng isa. Itiklop ang panel gamit ang arrow nito.";
+"help.ai.title" = "AI Agent";
+"help.ai.desc" = "Magtanong tungkol sa iyong mga pattern o pumili ng Quick Message. I-click ang pangalan ng model para magpalit ng model, ⚙ para magpalit ng provider. Ang ✨ Gumawa ng Komento ay gumagamit ng parehong model.";
+
+/* Menu bar */
+"menu.repository" = "Repository";
+"menu.nextTab" = "Ipakita ang Susunod na Tab";
+"menu.previousTab" = "Ipakita ang Nakaraang Tab";
+"menu.newSection" = "Bagong Seksyon";
+
+/* Drag & drop repositories */
+"error.notRepository" = "Ang “%@” ay hindi Git repository. I-drop ang folder na may .git directory.";
+"error.title" = "Hindi Mabuksan ang Repository";
+"hint.dropRepository" = "I-drop para buksan ang repository";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Pattern Clipboard";
+"clipboard.empty" = "Pumili ng mga pattern (⌘-click / ⇧-click) at pindutin ang ⌘C para kolektahin ang mga ito rito, pagkatapos ay lumipat ng repository at i-paste.";
+"clipboard.pasteAll" = "I-paste lahat sa repository na ito";
+"clipboard.paste" = "I-paste sa repository na ito";
+"clipboard.remove" = "Alisin sa clipboard";
+"clipboard.clear" = "I-clear ang clipboard";
+"menu.copyToClipboard" = "Kopyahin sa Pattern Clipboard";
+"help.clipboard.title" = "Pattern Clipboard";
+"help.clipboard.desc" = "⌘-click o ⇧-click para pumili ng ilang pattern, ⌘C para kolektahin ang mga ito (mula sa anumang repository), pagkatapos ay i-paste sa ibang repository — mga kulang na pattern lang ang idinaragdag. Nagpa-paste rin ang ⌘V ng mga linya ng pattern na kinopya mula saanman.";
+
+/* History panel */
+"history.title" = "History";
+"history.opened" = "Binuksan";
+"history.add" = "Idagdag ang %@";
+"history.edit" = "I-edit ang %@";
+"history.delete" = "Burahin ang %@";
+"history.turnOn" = "I-on ang %@";
+"history.turnOff" = "I-off ang %@";
+"history.addSection" = "Magdagdag ng seksyon";
+"history.rename" = "Palitan ang pangalan ng seksyon sa %@";
+"history.untitledSection" = "walang pamagat na seksyon";
+"history.move" = "Ayusin ang pagkakasunod";
+"history.paste" = "I-paste ang %ld pattern";
+"history.import" = "I-import ang %ld pattern";
+"history.restore" = "Ibalik ang “%@”";
+"history.pinned" = "Naka-pin";
+"history.recent" = "Kamakailan";
+"history.pin" = "I-pin";
+"history.unpin" = "I-unpin";
+"history.pinCurrent" = "I-pin ang Kasalukuyang Estado";
+"history.hint" = "I-click ang isang estado para bumalik dito. Papalitan ng susunod mong edit ang mga malabo.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Default na header ng Git";
+"empty.noRepo.desc" = "Pumili ng Git repository, o i-drop dito ang folder nito.";
+"empty.noPatterns.desc" = "Itinatago ng mga pattern dito ang mga file sa clone na ito lang — hindi kailanman makikita ng mga ka-team mo ang mga ito.";
+"btn.clear" = "I-clear";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Accent Color";
+"theme.gradient" = "Gradient Theme";
+"theme.noGradient" = "Walang Gradient";
+"accent.system" = "System";
+"accent.followSystem" = "System (sundin ang macOS)";
+"btn.hide" = "Itago";
+"a11y.hidePanel" = "Itago ang %@";
+"accent.red" = "Pula";
+"accent.orange" = "Kahel";
+"accent.amber" = "Amber";
+"accent.olive" = "Olibo";
+"accent.lime" = "Lime";
+"accent.green" = "Berde";
+"accent.emerald" = "Esmeralda";
+"accent.teal" = "Teal";
+"accent.cyan" = "Cyan";
+"accent.blue" = "Asul";
+"accent.indigo" = "Indigo";
+"accent.violet" = "Violet";
+"accent.purple" = "Lila";
+"accent.magenta" = "Magenta";
+"accent.pink" = "Rosas";
+"accent.graphite" = "Graphite";
+"gradient.none" = "Wala";
+"gradient.ocean" = "Karagatan";
+"gradient.ember" = "Baga";
+"gradient.lavender" = "Lavender";
+"gradient.watermelon" = "Pakwan";
+"gradient.lagoon" = "Lawa";
+"gradient.meadow" = "Parang";
+"gradient.dusk" = "Dapithapon";
+"gradient.peach" = "Peach";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Alisin sa History";
+"language.search" = "Maghanap ng wika";
+"language.noResults" = "Walang wikang tumutugma sa “%@”";

@@ -35,11 +35,21 @@ public class PatternsViewModel: ObservableObject {
     @Published var suggestionSources: [String: [GitExcludePattern]] = [:]
     /// Set after a successful export; the status bar shows it briefly.
     @Published var lastExportURL: URL?
+    /// Section whose heading is being typed. List(selection:) swallows clicks on an always-visible TextField,
+    /// so the field only appears (focused) for this one: a new section, double-click, or Return.
+    @Published var editingSectionID: UUID?
+    /// History panel (EditHistory.swift): this file's recent states + pinned snapshots; other tabs' kept by key.
+    @Published var history = EditHistory()
+    var historyByKey: [String: EditHistory] = [:]
+    var historyKey = ""
 
     private let xpcService: XPCService
+    /// `-demo`: exclude files by repository path, in memory — read and written here instead of through the helper.
+    private(set) var demoFiles: [String: [GitExcludePattern]]?
 
-    public init(xpcService: XPCService = XPCService()) {
+    public init(xpcService: XPCService = XPCService(), demoFiles: [String: [GitExcludePattern]]? = nil) {
         self.xpcService = xpcService
+        self.demoFiles = demoFiles
     }
 
     // MARK: - Computed Properties
@@ -128,13 +138,14 @@ public class PatternsViewModel: ObservableObject {
         patterns += fresh.map {
             GitExcludePattern(pattern: $0.pattern, isEnabled: $0.isEnabled, comment: $0.comment)  // new ids
         }
-        savePatterns()
+        commit(localized("history.paste", args: fresh.count))
         return fresh.count
     }
 
     /// Missing repo or file → no items (suggestions are best-effort).
     private func readItems(repoPath: String) async -> [GitExcludePattern] {
-        await withCheckedContinuation { continuation in
+        if let demoFiles { return demoFiles[repoPath] ?? [] }
+        return await withCheckedContinuation { continuation in
             Task {
                 await xpcService.readExcludeFile(repoPath: repoPath) { result in
                     let items = (try? result.get()).flatMap { try? ExcludeParserService.parseItems(data: $0) }
@@ -162,13 +173,15 @@ public class PatternsViewModel: ObservableObject {
     /// Adds a new pattern and persists to file.
     func addPattern(_ pattern: GitExcludePattern) {
         self.patterns.append(pattern)
-        savePatterns()
+        commit(localized("history.add", args: pattern.pattern))
     }
 
-    /// Appends an untitled section break; the user drags it into place and names it inline.
+    /// Appends an untitled section break with its heading open for typing; the user drags it into place.
     func addSection() {
-        patterns.append(GitExcludePattern(pattern: "", kind: .section))
-        savePatterns()
+        let section = GitExcludePattern(pattern: "", kind: .section)
+        patterns.append(section)
+        editingSectionID = section.id
+        commit(localized("history.addSection"))
     }
 
     /// Sets a section heading ("" removes it).
@@ -177,7 +190,7 @@ public class PatternsViewModel: ObservableObject {
         let trimmed = title.trimmingCharacters(in: .whitespaces)
         guard patterns[index].pattern != trimmed else { return }
         patterns[index].pattern = trimmed
-        savePatterns()
+        commit(localized("history.rename", args: trimmed.isEmpty ? localized("history.untitledSection") : trimmed))
     }
 
     /// Edits an existing pattern and persists to file.
@@ -188,29 +201,44 @@ public class PatternsViewModel: ObservableObject {
             self.patterns[index].comment = pattern.comment
             self.patterns[index].modifiedAt = Date()
         }
-        savePatterns()
+        commit(localized("history.edit", args: pattern.pattern))
+    }
+
+    /// What a history label calls an item: the pattern, a section's heading, or a comment's first line.
+    static func historyName(_ item: GitExcludePattern) -> String {
+        switch item.kind {
+        case .pattern: return item.pattern
+        case .section: return item.pattern.isEmpty ? localized("history.untitledSection") : item.pattern
+        case .comment: return String(item.pattern.prefix { $0 != "\n" })
+        }
     }
 
     /// Deletes a pattern by ID and persists to file.
     func deletePattern(_ patternID: UUID) {
+        let name = patterns.first { $0.id == patternID }.map(Self.historyName) ?? ""
         self.patterns.removeAll { $0.id == patternID }
-        savePatterns()
+        commit(localized("history.delete", args: name))
     }
 
     /// Toggles enabled/disabled state and persists to file.
     func togglePattern(_ patternID: UUID) {
-        if let index = self.patterns.firstIndex(where: { $0.id == patternID }) {
-            self.patterns[index].isEnabled.toggle()
-            self.patterns[index].modifiedAt = Date()
-        }
-        savePatterns()
+        guard let index = self.patterns.firstIndex(where: { $0.id == patternID }) else { return }
+        self.patterns[index].isEnabled.toggle()
+        self.patterns[index].modifiedAt = Date()
+        let item = patterns[index]
+        commit(localized(item.isEnabled ? "history.turnOn" : "history.turnOff", args: item.pattern))
     }
 
     /// Loads patterns from `.git/info/exclude` via XPC helper.
     func loadPatterns(from repository: GitRepository) {
         selectedRepository = repository
-        isLoading = true
         errorMessage = nil
+        if let demoFiles {
+            patterns = demoFiles[repository.path] ?? []
+            startHistory(key: repository.path)
+            return
+        }
+        isLoading = true
 
         Task {
             await xpcService.readExcludeFile(repoPath: repository.path) { result in
@@ -222,7 +250,14 @@ public class PatternsViewModel: ObservableObject {
                     case .success(let data):
                         do {
                             self.patterns = try ExcludeParserService.parseItems(data: data)
+                            self.startHistory(key: repository.path)
                             self.errorMessage = nil
+                            // v1.0 wrote `pattern # comment`, which git reads as one pattern that matches nothing.
+                            // Rewrite it right away (the helper keeps the old file as exclude.bak).
+                            if let text = String(bytes: data, encoding: .utf8),
+                               ExcludeParserService.hasInlineComments(content: text) {
+                                self.savePatterns()
+                            }
                         } catch let helperError as HelperError {
                             self.errorMessage = helperError.localizedDescription
                         } catch {
@@ -290,7 +325,7 @@ public class PatternsViewModel: ObservableObject {
         guard !source.contains(where: { patterns[$0].isGitDefaultHeader }) else { return }
         let floor = patterns.first?.isGitDefaultHeader == true ? 1 : 0
         patterns.move(fromOffsets: source, toOffset: max(destination, floor))
-        savePatterns()
+        commit(localized("history.move"))
     }
 
     /// Applies an import. Merge appends only patterns not already present (existing ones win).
@@ -303,13 +338,13 @@ public class PatternsViewModel: ObservableObject {
             patterns += imported.filter { $0.kind == .pattern && !existing.contains($0.pattern) }
         }
         pendingImport = nil
-        savePatterns()
+        commit(localized("history.import", args: imported.count))
     }
 
     /// Reverts the exclude file to the version before the last save, then reloads.
     /// Calling it again swaps back (the restore itself is backed up).
     func restorePreviousVersion() {
-        guard let repository = selectedRepository else { return }
+        guard let repository = selectedRepository, demoFiles == nil else { return }
 
         Task {
             await xpcService.restoreBackup(repoPath: repository.path) { result in
@@ -333,8 +368,13 @@ public class PatternsViewModel: ObservableObject {
     // MARK: - Private Methods
 
     /// Serializes current patterns and writes to file via XPC helper.
-    private func savePatterns() {
+    /// Writes without recording history — `commit(_:)` records; jumping through history writes only.
+    func savePatterns() {
         guard let repository = selectedRepository else { return }
+        if demoFiles != nil {
+            demoFiles?[repository.path] = patterns
+            return
+        }
 
         isSaving = true
         let content = ExcludeParserService.serialize(patterns)

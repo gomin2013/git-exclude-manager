@@ -1,10 +1,12 @@
-// Builds app artwork from Packaging/source/ (AI renders, see .claude/docs/design/logo.md):
+// Builds app artwork from Packaging/source/ (AI renders: icon.png = the Liquid Glass robot icon cropped to its
+// squircle, mascot.png = the waving glass robot for the website; see .claude/docs/design/logo/v1.1.0.md):
 //   Packaging/AppIcon.icon  — Icon Composer document (open/edit in Xcode's Icon Composer.app)
 //   Packaging/Assets.car    — compiled from AppIcon.icon by actool; macOS 26+ (CFBundleIconName)
 //   Packaging/AppIcon.icns  — macOS 14–15 (CFBundleIconFile): mascot 128–1024 px, flat eye-slash 16–64 px
 // macOS 26 draws any legacy .icns inside a gray platter (verified: even full-bleed art); only an
 // Icon Composer icon in Assets.car gets the system squircle + glass treatment.
 //   Packaging/Mascot.png    — transparent mascot for README / release page (512 px, halo trimmed)
+//   docs/favicon.png        — website tab icon: the flat eye-slash at 64 px, same as the small .icns sizes
 // Usage: swift scripts/make-icon.swift
 import AppKit
 
@@ -101,6 +103,7 @@ for points in [16, 32, 128, 256, 512] {
     }
 }
 try png(renderMascotIcon(1024), packaging.appendingPathComponent("AppIcon-1024.png"))
+try png(renderFlatIcon(64), root.appendingPathComponent("docs/favicon.png"))
 
 let iconutil = Process()
 iconutil.executableURL = URL(fileURLWithPath: "/usr/bin/iconutil")
@@ -121,10 +124,10 @@ let fullBleed = makeContext(1024, 1024)
 fullBleed.interpolationQuality = .high
 fullBleed.draw(mascotTile.cropping(to: CGRect(x: 0, y: 0, width: mascotTile.width, height: mascotTile.height)
     .insetBy(dx: cornerTrim, dy: cornerTrim))!, in: CGRect(x: 0, y: 0, width: 1024, height: 1024))
-try png(fullBleed.makeImage()!, iconDocument.appendingPathComponent("Assets/panda.png"))
+try png(fullBleed.makeImage()!, iconDocument.appendingPathComponent("Assets/icon.png"))
 try Data("""
 {
-  "groups" : [ { "layers" : [ { "image-name" : "panda.png", "name" : "panda" } ] } ],
+  "groups" : [ { "layers" : [ { "image-name" : "icon.png", "name" : "icon" } ] } ],
   "supported-platforms" : { "squares" : "shared" }
 }
 
@@ -179,4 +182,4 @@ canvas.draw(mascot.cropping(to: content)!,
             in: CGRect(x: (512 - drawn.width) / 2, y: (512 - drawn.height) / 2, width: drawn.width, height: drawn.height))
 try png(canvas.makeImage()!, packaging.appendingPathComponent("Mascot.png"))
 
-print("Wrote AppIcon.icon, Assets.car, AppIcon.icns, AppIcon-1024.png, Mascot.png in \(packaging.path)")
+print("Wrote AppIcon.icon, Assets.car, AppIcon.icns, AppIcon-1024.png, Mascot.png in \(packaging.path) + docs/favicon.png")

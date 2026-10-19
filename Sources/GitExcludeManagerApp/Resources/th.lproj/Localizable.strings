@@ -16,20 +16,20 @@
 "btn.close" = "ปิด";
 "btn.previewRaw" = "ดูไฟล์ต้นฉบับ";
 "btn.openRepo" = "เปิดที่เก็บ";
-"btn.generateComment" = "✨ สร้าง Comment";
+"btn.generateComment" = "สร้างหมายเหตุ";
 "btn.restore" = "กู้คืนเวอร์ชันก่อนหน้า";
 "btn.merge" = "รวม";
 "btn.replace" = "แทนที่";
 
 /* MARK: - Placeholders */
 "placeholder.pattern" = "ป้อนรูปแบบการละเว้น (เช่น *.log)";
-"placeholder.comment" = "ความเห็นเพิ่มเติม (ไม่บังคับ)";
+"placeholder.comment" = "หมายเหตุ (ไม่บังคับ)";
 "placeholder.search" = "ค้นหารูปแบบ...";
 "placeholder.repositoryPath" = "เลือกที่เก็บ Git";
 
 /* MARK: - Labels */
 "label.pattern" = "รูปแบบ";
-"label.comment" = "ความเห็น";
+"label.comment" = "หมายเหตุ";
 "label.repository" = "ที่เก็บ";
 "label.status" = "สถานะ";
 "label.enabled" = "เปิดใช้งาน";
@@ -79,7 +79,7 @@
 "window.addTitle" = "เพิ่มรูปแบบ";
 
 /* MARK: - Hints */
-"hint.generateComment" = "AI จะสร้างข้อความ Comment ให้อัตโนมัติจากชื่อ Pattern";
+"hint.generateComment" = "แนะนำหมายเหตุ — ถ้าตั้งค่า AI ไว้ จะส่งไปเฉพาะรูปแบบนี้";
 "hint.restore" = "ย้อนกลับไปเวอร์ชันก่อนบันทึกล่าสุด กดอีกครั้งเพื่อยกเลิกการกู้คืน";
 "hint.generateCommentField" = "กรอก Pattern แล้วกด ✨ สร้าง Comment เพื่อให้ AI สร้างให้";
 "hint.mock" = "ต้นแบบ: เพิ่ม/แก้ไข/ลบ/สลับ เป็นการจำลองเท่านั้น";
@@ -98,6 +98,16 @@
 "chat.placeholder" = "ถาม AI...";
 "chat.welcome" = "👋 สวัสดี! ฉันเป็น AI ผู้ช่วยของคุณ ถามฉันเกี่ยวกับ gitignore patterns ได้เลย";
 "chat.noApiKey" = "⚠️ กรุณาตั้งค่า AI API ใน Settings ก่อน";
+"chat.intro" = "ถามเรื่องรูปแบบการ ignore ของ repository นี้ ไฟล์ exclude จะถูกส่งไปพร้อมทุกคำถาม";
+"chat.tryAsking" = "ลองถาม";
+"chat.setUp" = "ตั้งค่าผู้ให้บริการ AI…";
+"chat.step.attached" = "แนบ .git/info/exclude · %ld บรรทัด";
+"chat.step.waiting" = "รอคำตอบจาก %@";
+"chat.step.thinking" = "กำลังคิด";
+"chat.step.writing" = "กำลังเขียนคำตอบ";
+"chat.thought" = "คิด %ld วินาที";
+"chat.seconds" = "%ld วินาที";
+"btn.stop" = "หยุด";
 
 /* MARK: - Settings */
 "settings.title" = "ตั้งค่า AI API";
@@ -115,6 +125,8 @@
 
 /* About & Help */
 "menu.help" = "วิธีใช้";
+"link.website" = "เว็บไซต์";
+"menu.helpWindow" = "วิธีใช้ Git Exclude Manager";
 "menu.about" = "เกี่ยวกับ";
 "about.version" = "เวอร์ชัน %@";
 "about.desc" = "จัดการไฟล์ .git/info/exclude แบบเห็นภาพ รูปแบบจะถูกละเว้นเฉพาะในเครื่องนี้ และไม่ถูก commit";
@@ -127,8 +139,8 @@
 "help.reorder.desc" = "ลากแถวเพื่อเรียงลำดับใหม่ ลากไม่ได้ระหว่างค้นหา";
 "help.import.title" = "นำเข้า";
 "help.import.desc" = "นำเข้าไฟล์ข้อความใดก็ได้ รวมถึง .gitignore — รวม: เพิ่มเฉพาะที่ยังไม่มี / แทนที่: เขียนทับทั้งหมด";
-"help.restore.title" = "กู้คืนเวอร์ชันก่อนหน้า";
-"help.restore.desc" = "ทุกครั้งที่บันทึกจะสำรองไฟล์ไว้ (exclude.bak) กดเพื่อย้อนการบันทึกล่าสุด กดอีกครั้งเพื่อยกเลิก";
+"help.history.title" = "ประวัติ";
+"help.history.desc" = "ทุกการแก้ไขอยู่ในประวัติ (30 รายการล่าสุด) คลิกเพื่อย้อนกลับไปได้ กดถังขยะเพื่อลบออก และปักหมุดสถานะที่อยากเก็บไว้ ไฟล์ตอนเปิดถูกปักหมุดให้แล้ว ส่วนเมนู Repository › กู้คืนเวอร์ชันก่อนหน้า ยังย้อนการบันทึกครั้งล่าสุดจากไฟล์สำรอง (exclude.bak) ได้";
 "help.preview.title" = "ดูไฟล์ต้นฉบับ";
 "help.preview.desc" = "ดูเนื้อหาที่จะถูกเขียนลง .git/info/exclude จริง รวมถึงบรรทัด comment ของคุณ";
 
@@ -137,6 +149,7 @@
 "section.placeholder" = "เพิ่มหัวข้อ…";
 "hint.addSection" = "เพิ่มบรรทัดว่างคั่นหมวด ลากไปวางตำแหน่งที่ต้องการแล้วพิมพ์ชื่อหัวข้อ (บันทึกเป็น # หัวข้อ)";
 "hint.dragSection" = "ลากเพื่อย้ายหมวดนี้";
+"hint.renameSection" = "ดับเบิลคลิกหรือกด Return เพื่อเปลี่ยนชื่อ";
 "help.sections.title" = "หมวดหมู่";
 "help.sections.desc" = "กด หัวข้อ เพื่อเพิ่มบรรทัดว่างคั่น ลากไปวางเหนือกลุ่มรูปแบบ แล้วพิมพ์ชื่อหัวข้อเพื่อจัดหมวด บรรทัด comment ก็ลากย้ายได้เช่นกัน";
 
@@ -191,3 +204,70 @@
 "menu.copyToClipboard" = "คัดลอกไปที่คลิปบอร์ดรูปแบบ";
 "help.clipboard.title" = "คลิปบอร์ดรูปแบบ";
 "help.clipboard.desc" = "⌘-คลิก หรือ ⇧-คลิก เพื่อเลือกหลายรูปแบบ กด ⌘C เพื่อเก็บ (จาก repository ไหนก็ได้) แล้ววางใน repository อื่น — เพิ่มเฉพาะที่ยังไม่มี ⌘V วางบรรทัดรูปแบบที่คัดลอกมาจากที่อื่นได้ด้วย";
+
+/* History panel */
+"history.title" = "ประวัติ";
+"history.opened" = "เปิดไฟล์";
+"history.add" = "เพิ่ม %@";
+"history.edit" = "แก้ไข %@";
+"history.delete" = "ลบ %@";
+"history.turnOn" = "เปิด %@";
+"history.turnOff" = "ปิด %@";
+"history.addSection" = "เพิ่มหมวด";
+"history.rename" = "เปลี่ยนชื่อหมวดเป็น %@";
+"history.untitledSection" = "หมวดไม่มีชื่อ";
+"history.move" = "จัดลำดับใหม่";
+"history.paste" = "วาง %ld รูปแบบ";
+"history.import" = "นำเข้า %ld รูปแบบ";
+"history.restore" = "คืนเป็น “%@”";
+"history.pinned" = "ปักหมุด";
+"history.recent" = "ล่าสุด";
+"history.pin" = "ปักหมุด";
+"history.unpin" = "เลิกปักหมุด";
+"history.pinCurrent" = "ปักหมุดสถานะปัจจุบัน";
+"history.hint" = "คลิกสถานะเพื่อย้อนกลับไป การแก้ไขครั้งถัดไปจะแทนที่รายการที่จางอยู่";
+
+/* v1.1 main window */
+"label.gitHeader" = "ส่วนหัวที่ git สร้างไว้";
+"empty.noRepo.desc" = "เลือก Git repository หรือลากโฟลเดอร์มาวางที่นี่";
+"empty.noPatterns.desc" = "รูปแบบในนี้ซ่อนไฟล์เฉพาะเครื่องนี้ เพื่อนร่วมทีมจะไม่เห็น";
+"btn.clear" = "ล้าง";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "สีหลัก";
+"theme.gradient" = "ธีมไล่สี";
+"theme.noGradient" = "ไม่ใช้ไล่สี";
+"accent.system" = "ระบบ";
+"accent.followSystem" = "ระบบ (ตาม macOS)";
+"btn.hide" = "ซ่อน";
+"a11y.hidePanel" = "ซ่อน %@";
+"accent.red" = "แดง";
+"accent.orange" = "ส้ม";
+"accent.amber" = "อำพัน";
+"accent.olive" = "มะกอก";
+"accent.lime" = "เขียวมะนาว";
+"accent.green" = "เขียว";
+"accent.emerald" = "มรกต";
+"accent.teal" = "เขียวหัวเป็ด";
+"accent.cyan" = "ฟ้าน้ำทะเล";
+"accent.blue" = "น้ำเงิน";
+"accent.indigo" = "คราม";
+"accent.violet" = "ม่วงอ่อน";
+"accent.purple" = "ม่วง";
+"accent.magenta" = "บานเย็น";
+"accent.pink" = "ชมพู";
+"accent.graphite" = "กราไฟต์";
+"gradient.none" = "ไม่มี";
+"gradient.ocean" = "มหาสมุทร";
+"gradient.ember" = "ถ่านแดง";
+"gradient.lavender" = "ลาเวนเดอร์";
+"gradient.watermelon" = "แตงโม";
+"gradient.lagoon" = "ลากูน";
+"gradient.meadow" = "ทุ่งหญ้า";
+"gradient.dusk" = "สนธยา";
+"gradient.peach" = "พีช";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "ลบออกจากประวัติ";
+"language.search" = "ค้นหาภาษา";
+"language.noResults" = "ไม่พบภาษาที่ตรงกับ “%@”";

@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Añadir";
+"btn.edit" = "Editar";
+"btn.delete" = "Eliminar";
+"btn.cancel" = "Cancelar";
+"btn.save" = "Guardar";
+"btn.browse" = "Examinar...";
+"btn.export" = "Exportar";
+"btn.import" = "Importar";
+"btn.quit" = "Salir";
+"btn.settings" = "Ajustes";
+"btn.ok" = "OK";
+"btn.remove" = "Quitar";
+"btn.send" = "Enviar";
+"btn.copy" = "Copiar";
+"btn.close" = "Cerrar";
+"btn.previewRaw" = "Vista previa sin formato";
+"btn.openRepo" = "Abrir repositorio";
+"btn.generateComment" = "Generar comentario";
+"btn.restore" = "Restaurar anterior";
+"btn.merge" = "Combinar";
+"btn.replace" = "Reemplazar";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Introduce un patrón de exclusión (p. ej., *.log)";
+"placeholder.comment" = "Comentario opcional";
+"placeholder.search" = "Buscar patrones...";
+"placeholder.repositoryPath" = "Selecciona un repositorio de Git";
+
+/* MARK: - Labels */
+"label.pattern" = "Patrón";
+"label.comment" = "Comentario";
+"label.repository" = "Repositorio";
+"label.status" = "Estado";
+"label.enabled" = "Activado";
+"label.disabled" = "Desactivado";
+"label.aiGenerating" = "Generando comentario...";
+"label.recentRepos" = "Repositorios recientes";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Aún no hay patrones";
+"message.noPatterns" = "Aún no hay patrones";
+"status.patternsCount" = "%d patrones (%d activados)";
+"status.exported" = "Se exportó %@ — mostrar en Finder";
+"status.noRepository" = "Ningún repositorio seleccionado";
+"status.selectRepository" = "Selecciona un repositorio para empezar";
+"status.connected" = "Conectado";
+"status.disconnected" = "Desconectado";
+"ai.notConfigured" = "Sin configurar";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "¿Seguro que quieres eliminar este patrón?";
+"dialog.deleteTitle" = "Eliminar patrón";
+"dialog.importConfirm" = "Se encontraron %d patrones. Combinar añade solo los nuevos; Reemplazar sobrescribe todos los patrones actuales.";
+"dialog.importTitle" = "Importar patrones";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "El patrón no puede estar vacío";
+"error.patternTooLong" = "El patrón debe tener 250 caracteres o menos";
+"error.noRepository" = "Selecciona primero un repositorio de Git";
+"error.fileNotFound" = "No se encontró el archivo de exclusión en el repositorio";
+"error.permissionDenied" = "Permiso denegado. Revisa los permisos del archivo.";
+"error.fileReadError" = "No se pudo leer el archivo de exclusión";
+"error.fileWriteError" = "No se pudo escribir el archivo de exclusión";
+"error.invalidRepository" = "No es un repositorio de Git válido";
+"error.connectionFailed" = "Falló la conexión con el servicio auxiliar";
+"error.invalidData" = "Se recibieron datos no válidos";
+"error.unknown" = "Se produjo un error desconocido";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Editar";
+"menu.delete" = "Eliminar";
+"menu.removeRecent" = "Quitar de recientes";
+"menu.language" = "Idioma";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Editar patrón";
+"window.addTitle" = "Añadir patrón";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Sugiere un comentario: con IA si está configurada, solo se envía este patrón";
+"hint.restore" = "Vuelve a la versión anterior al último guardado. Haz clic de nuevo para deshacer la restauración.";
+"hint.generateCommentField" = "Escribe un patrón arriba y haz clic en ✨ Generar comentario para rellenarlo automáticamente";
+"hint.mock" = "Prototipo: Añadir/Editar/Eliminar/Activar son solo simulados.";
+"hint.reorder" = "Arrastra las filas para reordenarlas (desactivado durante la búsqueda).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Abrir repositorio";
+"openRepo.noRecent" = "No hay repositorios abiertos recientemente.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Vista previa del archivo sin formato";
+"raw.copied" = "¡Copiado!";
+
+/* MARK: - Chat */
+"chat.title" = "Agente de IA";
+"chat.placeholder" = "Pregunta a la IA...";
+"chat.welcome" = "👋 ¡Hola! Soy tu asistente de IA. Pregúntame sobre patrones de gitignore.";
+"chat.noApiKey" = "⚠️ Configura primero la API de IA en Ajustes.";
+"chat.intro" = "Pregunta sobre los patrones de exclusión de este repositorio. Tu archivo de exclusión se envía con cada pregunta.";
+"chat.tryAsking" = "Prueba a preguntar";
+"chat.setUp" = "Configurar proveedor de IA…";
+"chat.step.attached" = ".git/info/exclude adjunto · %ld líneas";
+"chat.step.waiting" = "Esperando a %@";
+"chat.step.thinking" = "Pensando";
+"chat.step.writing" = "Escribiendo la respuesta";
+"chat.thought" = "Pensó durante %ld s";
+"chat.seconds" = "%ld s";
+"btn.stop" = "Detener";
+
+/* MARK: - Settings */
+"settings.title" = "Ajustes de la API de IA";
+"settings.provider" = "Proveedor";
+"settings.apiKey" = "Clave de API";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Modelo";
+"settings.loadModels" = "Cargar modelos";
+"settings.noModels" = "No se encontraron modelos.";
+"settings.appleNote" = "Se ejecuta en el dispositivo con Apple Intelligence (macOS 26 o posterior). No requiere clave de API ni modelo.";
+"settings.keychainNote" = "La clave de API se guarda en el Llavero de tu macOS.";
+
+/* MARK: - Navigation */
+"nav.back" = "Repositorios";
+
+/* About & Help */
+"menu.help" = "Ayuda";
+"link.website" = "Sitio web";
+"menu.helpWindow" = "Ayuda de Git Exclude Manager";
+"menu.about" = "Acerca de";
+"about.version" = "Versión %@";
+"about.desc" = "Gestiona visualmente tus archivos .git/info/exclude. Los patrones se ignoran solo en local y nunca se confirman.";
+"about.credit" = "Creado con Swift + SwiftUI · macOS 14 o posterior\n© 2026 Watthajak Jinasam — Licencia MIT";
+"help.add.title" = "Añadir un patrón";
+"help.add.desc" = "Haz clic en Añadir (⌘N) para crear un nuevo patrón de exclusión. Funciona la sintaxis glob, p. ej. *.log o build/.";
+"help.toggle.title" = "Activar / Desactivar";
+"help.toggle.desc" = "Haz clic en el círculo de una fila para desactivar un patrón sin eliminarlo. Se guarda como #pattern.";
+"help.reorder.title" = "Reordenar patrones";
+"help.reorder.desc" = "Arrastra una fila para reordenarla. Arrastrar está desactivado durante la búsqueda.";
+"help.import.title" = "Importar";
+"help.import.desc" = "Importa cualquier archivo de texto, incluido .gitignore. Combinar añade solo los patrones nuevos; Reemplazar sobrescribe todos.";
+"help.history.title" = "Historial";
+"help.history.desc" = "Cada edición aparece en el Historial (las últimas 30). Haz clic en una para volver a ella, o haz clic en su papelera para quitarla; fija los estados que quieras conservar: el archivo tal como se abrió ya está fijado. Repositorio › Restaurar anterior sigue revirtiendo el último guardado desde la copia de respaldo (exclude.bak).";
+"help.preview.title" = "Vista previa sin formato";
+"help.preview.desc" = "Consulta exactamente lo que se escribirá en .git/info/exclude, incluidas tus líneas de comentario.";
+
+/* Sections */
+"btn.addSection" = "Sección";
+"section.placeholder" = "Añadir encabezado…";
+"hint.addSection" = "Añade una separación de sección con una línea en blanco. Arrástrala a su sitio y escribe un encabezado (se guarda como # encabezado).";
+"hint.dragSection" = "Arrastra para mover esta sección";
+"hint.renameSection" = "Haz doble clic o pulsa Retorno para renombrar";
+"help.sections.title" = "Secciones";
+"help.sections.desc" = "Haz clic en Sección para añadir una separación con una línea en blanco, arrástrala encima de un grupo de patrones y escribe un encabezado para organizarlos. Las líneas de comentario también se pueden arrastrar.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Sugerencias de patrones";
+"suggest.empty" = "Aún no hay sugerencias. Aquí aparecerán los patrones de tus otros repositorios recientes que este no tiene.";
+"suggest.from" = "de %@";
+"suggest.add" = "Añadir este patrón";
+"quick.suggest" = "Sugiere patrones que este repositorio debería ignorar";
+"quick.explain" = "Explica qué hacen mis patrones actuales";
+"quick.redundant" = "¿Hay patrones míos redundantes o que se solapen?";
+"quick.exceptOne" = "¿Cómo ignoro una carpeta excepto un archivo?";
+"quick.organize" = "Agrupa mis patrones en secciones con encabezados";
+
+/* Appearance */
+"menu.appearance" = "Apariencia";
+"theme.system" = "Sistema";
+"theme.light" = "Claro";
+"theme.dark" = "Oscuro";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Contraído";
+"a11y.expanded" = "Expandido";
+"a11y.toggleHint" = "Muestra u oculta este panel";
+
+/* Help: helpers */
+"help.tabs.title" = "Repositorios y pestañas";
+"help.tabs.desc" = "Haz clic en + para abrir más repositorios como pestañas. Arrastra una pestaña para reordenarla; las pestañas abiertas se restauran en el siguiente inicio. Quita entradas antiguas de la lista Abrir repositorio con ✕.";
+"help.suggestions.title" = "Sugerencias de patrones";
+"help.suggestions.desc" = "Patrones que usan tus otros repositorios recientes y este no. Haz clic en ⊕ para añadir uno. Pliega el panel con su flecha.";
+"help.ai.title" = "Agente de IA";
+"help.ai.desc" = "Pregunta sobre tus patrones o toca un mensaje rápido. Haz clic en el nombre del modelo para cambiarlo, en ⚙ para cambiar de proveedor. ✨ Generar comentario usa el mismo modelo.";
+
+/* Menu bar */
+"menu.repository" = "Repositorio";
+"menu.nextTab" = "Mostrar pestaña siguiente";
+"menu.previousTab" = "Mostrar pestaña anterior";
+"menu.newSection" = "Nueva sección";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” no es un repositorio de Git. Suelta una carpeta que contenga un directorio .git.";
+"error.title" = "No se puede abrir el repositorio";
+"hint.dropRepository" = "Suelta para abrir el repositorio";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Portapapeles de patrones";
+"clipboard.empty" = "Selecciona patrones (clic con ⌘ / ⇧) y pulsa ⌘C para reunirlos aquí; luego cambia de repositorio y pega.";
+"clipboard.pasteAll" = "Pegar todo en este repositorio";
+"clipboard.paste" = "Pegar en este repositorio";
+"clipboard.remove" = "Quitar del portapapeles";
+"clipboard.clear" = "Borrar portapapeles";
+"menu.copyToClipboard" = "Copiar al portapapeles de patrones";
+"help.clipboard.title" = "Portapapeles de patrones";
+"help.clipboard.desc" = "Haz clic con ⌘ o con ⇧ para seleccionar varios patrones, ⌘C para reunirlos (de cualquier repositorio) y pégalos en otro repositorio: solo se añaden los patrones que faltan. ⌘V también pega líneas de patrones copiadas de cualquier sitio.";
+
+/* History panel */
+"history.title" = "Historial";
+"history.opened" = "Abierto";
+"history.add" = "Añadir %@";
+"history.edit" = "Editar %@";
+"history.delete" = "Eliminar %@";
+"history.turnOn" = "Activar %@";
+"history.turnOff" = "Desactivar %@";
+"history.addSection" = "Añadir sección";
+"history.rename" = "Renombrar sección a %@";
+"history.untitledSection" = "sección sin título";
+"history.move" = "Reordenar";
+"history.paste" = "Pegar %ld patrones";
+"history.import" = "Importar %ld patrones";
+"history.restore" = "Restaurar “%@”";
+"history.pinned" = "Fijados";
+"history.recent" = "Recientes";
+"history.pin" = "Fijar";
+"history.unpin" = "Dejar de fijar";
+"history.pinCurrent" = "Fijar estado actual";
+"history.hint" = "Haz clic en un estado para volver a él. Tu próxima edición sustituye a los atenuados.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Encabezado predeterminado de Git";
+"empty.noRepo.desc" = "Elige un repositorio de Git o suelta aquí su carpeta.";
+"empty.noPatterns.desc" = "Los patrones de aquí ocultan archivos solo en este clon: tus compañeros nunca los ven.";
+"btn.clear" = "Borrar";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Color de énfasis";
+"theme.gradient" = "Tema de degradado";
+"theme.noGradient" = "Sin degradado";
+"accent.system" = "Sistema";
+"accent.followSystem" = "Sistema (seguir macOS)";
+"btn.hide" = "Ocultar";
+"a11y.hidePanel" = "Ocultar %@";
+"accent.red" = "Rojo";
+"accent.orange" = "Naranja";
+"accent.amber" = "Ámbar";
+"accent.olive" = "Oliva";
+"accent.lime" = "Lima";
+"accent.green" = "Verde";
+"accent.emerald" = "Esmeralda";
+"accent.teal" = "Verde azulado";
+"accent.cyan" = "Cian";
+"accent.blue" = "Azul";
+"accent.indigo" = "Índigo";
+"accent.violet" = "Violeta";
+"accent.purple" = "Morado";
+"accent.magenta" = "Magenta";
+"accent.pink" = "Rosa";
+"accent.graphite" = "Grafito";
+"gradient.none" = "Ninguno";
+"gradient.ocean" = "Océano";
+"gradient.ember" = "Brasa";
+"gradient.lavender" = "Lavanda";
+"gradient.watermelon" = "Sandía";
+"gradient.lagoon" = "Laguna";
+"gradient.meadow" = "Pradera";
+"gradient.dusk" = "Crepúsculo";
+"gradient.peach" = "Melocotón";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Quitar del historial";
+"language.search" = "Buscar idiomas";
+"language.noResults" = "Ningún idioma coincide con “%@”";

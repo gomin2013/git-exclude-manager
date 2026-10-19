@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "추가";
+"btn.edit" = "편집";
+"btn.delete" = "삭제";
+"btn.cancel" = "취소";
+"btn.save" = "저장";
+"btn.browse" = "찾아보기...";
+"btn.export" = "내보내기";
+"btn.import" = "가져오기";
+"btn.quit" = "종료";
+"btn.settings" = "설정";
+"btn.ok" = "확인";
+"btn.remove" = "제거";
+"btn.send" = "보내기";
+"btn.copy" = "복사";
+"btn.close" = "닫기";
+"btn.previewRaw" = "원본 미리보기";
+"btn.openRepo" = "저장소 열기";
+"btn.generateComment" = "주석 생성";
+"btn.restore" = "이전 상태로 복원";
+"btn.merge" = "병합";
+"btn.replace" = "교체";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "무시할 패턴 입력(예: *.log)";
+"placeholder.comment" = "주석(선택 사항)";
+"placeholder.search" = "패턴 검색...";
+"placeholder.repositoryPath" = "Git 저장소 선택";
+
+/* MARK: - Labels */
+"label.pattern" = "패턴";
+"label.comment" = "주석";
+"label.repository" = "저장소";
+"label.status" = "상태";
+"label.enabled" = "켬";
+"label.disabled" = "끔";
+"label.aiGenerating" = "주석 생성 중...";
+"label.recentRepos" = "최근 저장소";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "아직 패턴 없음";
+"message.noPatterns" = "아직 패턴 없음";
+"status.patternsCount" = "패턴 %d개(%d개 켜짐)";
+"status.exported" = "%@ 내보냄 — Finder에서 보기";
+"status.noRepository" = "선택된 저장소 없음";
+"status.selectRepository" = "시작하려면 저장소를 선택하세요";
+"status.connected" = "연결됨";
+"status.disconnected" = "연결 끊김";
+"ai.notConfigured" = "설정 안 됨";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "이 패턴을 삭제하시겠습니까?";
+"dialog.deleteTitle" = "패턴 삭제";
+"dialog.importConfirm" = "패턴 %d개를 찾았습니다. 병합은 새 패턴만 추가하고, 교체는 현재 패턴을 모두 덮어씁니다.";
+"dialog.importTitle" = "패턴 가져오기";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "패턴은 비워 둘 수 없습니다";
+"error.patternTooLong" = "패턴은 250자 이하여야 합니다";
+"error.noRepository" = "먼저 Git 저장소를 선택하세요";
+"error.fileNotFound" = "저장소에서 exclude 파일을 찾을 수 없습니다";
+"error.permissionDenied" = "권한이 거부되었습니다. 파일 권한을 확인하세요.";
+"error.fileReadError" = "exclude 파일을 읽지 못했습니다";
+"error.fileWriteError" = "exclude 파일을 쓰지 못했습니다";
+"error.invalidRepository" = "올바른 Git 저장소가 아닙니다";
+"error.connectionFailed" = "도우미 서비스 연결에 실패했습니다";
+"error.invalidData" = "올바르지 않은 데이터를 받았습니다";
+"error.unknown" = "알 수 없는 오류가 발생했습니다";
+
+/* MARK: - Menu Items */
+"menu.edit" = "편집";
+"menu.delete" = "삭제";
+"menu.removeRecent" = "최근 항목에서 제거";
+"menu.language" = "언어";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "패턴 편집";
+"window.addTitle" = "패턴 추가";
+
+/* MARK: - Hints */
+"hint.generateComment" = "주석을 제안합니다 — AI가 설정된 경우 이 패턴만 전송됩니다";
+"hint.restore" = "마지막 저장 이전 버전으로 되돌립니다. 다시 클릭하면 복원을 취소합니다.";
+"hint.generateCommentField" = "위에 패턴을 입력한 다음 ✨ 주석 생성을 클릭하면 자동으로 채워집니다";
+"hint.mock" = "프로토타입: 추가/편집/삭제/켜기·끄기는 모의 동작입니다.";
+"hint.reorder" = "행을 드래그하여 순서를 바꿉니다(검색 중에는 사용할 수 없음).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "저장소 열기";
+"openRepo.noRecent" = "최근에 연 저장소가 없습니다.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "원본 파일 미리보기";
+"raw.copied" = "복사됨!";
+
+/* MARK: - Chat */
+"chat.title" = "AI 에이전트";
+"chat.placeholder" = "AI에게 질문...";
+"chat.welcome" = "👋 안녕하세요! 저는 AI 어시스턴트입니다. gitignore 패턴에 대해 물어보세요.";
+"chat.noApiKey" = "⚠️ 먼저 설정에서 AI API를 구성하세요.";
+"chat.intro" = "이 저장소의 무시 패턴에 대해 질문하세요. 질문할 때마다 exclude 파일이 함께 전송됩니다.";
+"chat.tryAsking" = "이렇게 물어보세요";
+"chat.setUp" = "AI 제공자 설정…";
+"chat.step.attached" = ".git/info/exclude 첨부됨 · %ld줄";
+"chat.step.waiting" = "%@ 대기 중";
+"chat.step.thinking" = "생각 중";
+"chat.step.writing" = "답변 작성 중";
+"chat.thought" = "%ld초 동안 생각함";
+"chat.seconds" = "%ld초";
+"btn.stop" = "중단";
+
+/* MARK: - Settings */
+"settings.title" = "AI API 설정";
+"settings.provider" = "제공자";
+"settings.apiKey" = "API 키";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "모델";
+"settings.loadModels" = "모델 불러오기";
+"settings.noModels" = "모델을 찾을 수 없습니다.";
+"settings.appleNote" = "Apple Intelligence로 기기에서 실행됩니다(macOS 26 이상). API 키나 모델이 필요하지 않습니다.";
+"settings.keychainNote" = "API 키는 macOS Keychain에 저장됩니다.";
+
+/* MARK: - Navigation */
+"nav.back" = "저장소";
+
+/* About & Help */
+"menu.help" = "도움말";
+"link.website" = "웹사이트";
+"menu.helpWindow" = "Git Exclude Manager 도움말";
+"menu.about" = "정보";
+"about.version" = "버전 %@";
+"about.desc" = ".git/info/exclude 파일을 시각적으로 관리하세요. 패턴은 로컬에서만 무시되며 커밋되지 않습니다.";
+"about.credit" = "Swift + SwiftUI로 제작 · macOS 14 이상\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "패턴 추가";
+"help.add.desc" = "추가(⌘N)를 클릭하여 새 무시 패턴을 만드세요. glob 구문을 사용할 수 있습니다. 예: *.log 또는 build/.";
+"help.toggle.title" = "켜기 / 끄기";
+"help.toggle.desc" = "행의 원을 클릭하면 패턴을 삭제하지 않고 끌 수 있습니다. #pattern으로 저장됩니다.";
+"help.reorder.title" = "패턴 순서 변경";
+"help.reorder.desc" = "행을 드래그하여 순서를 바꿉니다. 검색하는 동안에는 드래그할 수 없습니다.";
+"help.import.title" = "가져오기";
+"help.import.desc" = ".gitignore를 포함한 모든 텍스트 파일을 가져올 수 있습니다. 병합은 새 패턴만 추가하고, 교체는 모두 덮어씁니다.";
+"help.history.title" = "기록";
+"help.history.desc" = "모든 편집이 기록에 나열됩니다(최근 30개). 하나를 클릭하면 해당 상태로 돌아가고, 휴지통을 클릭하면 제거됩니다. 보관하려는 상태는 고정하세요 — 열었을 때의 파일은 자동으로 고정됩니다. 저장소 › 이전 상태로 복원은 백업(exclude.bak)에서 마지막 저장을 되돌립니다.";
+"help.preview.title" = "원본 미리보기";
+"help.preview.desc" = "주석 줄을 포함하여 .git/info/exclude에 기록될 내용을 정확히 확인합니다.";
+
+/* Sections */
+"btn.addSection" = "섹션";
+"section.placeholder" = "제목 추가…";
+"hint.addSection" = "빈 줄 섹션 구분선을 추가합니다. 원하는 위치로 드래그하고 제목을 입력하세요(# 제목으로 저장됨).";
+"hint.dragSection" = "드래그하여 이 섹션 이동";
+"hint.renameSection" = "이름을 바꾸려면 더블 클릭하거나 Return 키를 누르세요";
+"help.sections.title" = "섹션";
+"help.sections.desc" = "섹션을 클릭하여 빈 줄 구분선을 추가하고, 패턴 그룹 위로 드래그한 다음 제목을 입력해 정리하세요. 주석 줄도 드래그할 수 있습니다.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "패턴 제안";
+"suggest.empty" = "아직 제안이 없습니다. 최근 사용한 다른 저장소에는 있지만 이 저장소에는 없는 패턴이 여기에 표시됩니다.";
+"suggest.from" = "%@에서";
+"suggest.add" = "이 패턴 추가";
+"quick.suggest" = "이 저장소에서 무시해야 할 패턴을 제안해 줘";
+"quick.explain" = "현재 패턴이 하는 일을 설명해 줘";
+"quick.redundant" = "중복되거나 겹치는 패턴이 있나요?";
+"quick.exceptOne" = "파일 하나만 제외하고 폴더를 무시하려면 어떻게 하나요?";
+"quick.organize" = "패턴을 제목이 있는 섹션으로 묶어 줘";
+
+/* Appearance */
+"menu.appearance" = "화면 모드";
+"theme.system" = "시스템";
+"theme.light" = "라이트";
+"theme.dark" = "다크";
+
+/* Collapsible panels */
+"a11y.collapsed" = "접힘";
+"a11y.expanded" = "펼침";
+"a11y.toggleHint" = "이 패널을 표시하거나 숨깁니다";
+
+/* Help: helpers */
+"help.tabs.title" = "저장소 및 탭";
+"help.tabs.desc" = "+를 클릭하여 더 많은 저장소를 탭으로 여세요. 탭을 드래그하면 순서가 바뀌며, 열려 있던 탭은 다음 실행 시 복원됩니다. 저장소 열기 목록의 오래된 항목은 ✕로 제거하세요.";
+"help.suggestions.title" = "패턴 제안";
+"help.suggestions.desc" = "최근 사용한 다른 저장소에는 있지만 이 저장소에는 없는 패턴입니다. ⊕를 클릭하여 추가하세요. 화살표로 패널을 접을 수 있습니다.";
+"help.ai.title" = "AI 에이전트";
+"help.ai.desc" = "패턴에 대해 질문하거나 빠른 메시지를 탭하세요. 모델 이름을 클릭하여 모델을 전환하고, ⚙를 클릭하여 제공자를 변경하세요. ✨ 주석 생성도 같은 모델을 사용합니다.";
+
+/* Menu bar */
+"menu.repository" = "저장소";
+"menu.nextTab" = "다음 탭 보기";
+"menu.previousTab" = "이전 탭 보기";
+"menu.newSection" = "새 섹션";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@”은(는) Git 저장소가 아닙니다. .git 디렉터리가 있는 폴더를 드롭하세요.";
+"error.title" = "저장소를 열 수 없음";
+"hint.dropRepository" = "여기에 놓아 저장소 열기";
+
+/* Pattern Clipboard */
+"clipboard.title" = "패턴 클립보드";
+"clipboard.empty" = "패턴을 선택(⌘-클릭 / ⇧-클릭)하고 ⌘C를 눌러 여기에 모은 다음, 저장소를 전환하여 붙여넣으세요.";
+"clipboard.pasteAll" = "모두 이 저장소에 붙여넣기";
+"clipboard.paste" = "이 저장소에 붙여넣기";
+"clipboard.remove" = "클립보드에서 제거";
+"clipboard.clear" = "클립보드 지우기";
+"menu.copyToClipboard" = "패턴 클립보드에 복사";
+"help.clipboard.title" = "패턴 클립보드";
+"help.clipboard.desc" = "⌘-클릭 또는 ⇧-클릭으로 여러 패턴을 선택하고 ⌘C로 모은 다음(어느 저장소에서든) 다른 저장소에 붙여넣으세요 — 없는 패턴만 추가됩니다. ⌘V는 다른 곳에서 복사한 패턴 줄도 붙여넣습니다.";
+
+/* History panel */
+"history.title" = "기록";
+"history.opened" = "열었을 때";
+"history.add" = "%@ 추가";
+"history.edit" = "%@ 편집";
+"history.delete" = "%@ 삭제";
+"history.turnOn" = "%@ 켜기";
+"history.turnOff" = "%@ 끄기";
+"history.addSection" = "섹션 추가";
+"history.rename" = "섹션 이름을 %@(으)로 변경";
+"history.untitledSection" = "제목 없는 섹션";
+"history.move" = "순서 변경";
+"history.paste" = "패턴 %ld개 붙여넣기";
+"history.import" = "패턴 %ld개 가져오기";
+"history.restore" = "“%@” 복원";
+"history.pinned" = "고정됨";
+"history.recent" = "최근";
+"history.pin" = "고정";
+"history.unpin" = "고정 해제";
+"history.pinCurrent" = "현재 상태 고정";
+"history.hint" = "상태를 클릭하면 해당 상태로 돌아갑니다. 다음 편집을 하면 흐리게 표시된 상태는 대체됩니다.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Git 기본 헤더";
+"empty.noRepo.desc" = "Git 저장소를 선택하거나 폴더를 여기에 드롭하세요.";
+"empty.noPatterns.desc" = "여기의 패턴은 이 클론에서만 파일을 숨기며, 팀원에게는 보이지 않습니다.";
+"btn.clear" = "지우기";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "강조 색상";
+"theme.gradient" = "그레이디언트 테마";
+"theme.noGradient" = "그레이디언트 없음";
+"accent.system" = "시스템";
+"accent.followSystem" = "시스템(macOS 따르기)";
+"btn.hide" = "숨기기";
+"a11y.hidePanel" = "%@ 숨기기";
+"accent.red" = "빨강";
+"accent.orange" = "주황";
+"accent.amber" = "호박색";
+"accent.olive" = "올리브";
+"accent.lime" = "라임";
+"accent.green" = "초록";
+"accent.emerald" = "에메랄드";
+"accent.teal" = "청록";
+"accent.cyan" = "시안";
+"accent.blue" = "파랑";
+"accent.indigo" = "남색";
+"accent.violet" = "보라";
+"accent.purple" = "자주";
+"accent.magenta" = "마젠타";
+"accent.pink" = "분홍";
+"accent.graphite" = "그래파이트";
+"gradient.none" = "없음";
+"gradient.ocean" = "바다";
+"gradient.ember" = "불씨";
+"gradient.lavender" = "라벤더";
+"gradient.watermelon" = "수박";
+"gradient.lagoon" = "석호";
+"gradient.meadow" = "초원";
+"gradient.dusk" = "황혼";
+"gradient.peach" = "복숭아";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "기록에서 제거";
+"language.search" = "언어 검색";
+"language.noResults" = "“%@”와(과) 일치하는 언어 없음";

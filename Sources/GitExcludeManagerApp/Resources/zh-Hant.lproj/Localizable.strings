@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "加入";
+"btn.edit" = "編輯";
+"btn.delete" = "刪除";
+"btn.cancel" = "取消";
+"btn.save" = "儲存";
+"btn.browse" = "瀏覽⋯";
+"btn.export" = "匯出";
+"btn.import" = "匯入";
+"btn.quit" = "結束";
+"btn.settings" = "設定";
+"btn.ok" = "好";
+"btn.remove" = "移除";
+"btn.send" = "傳送";
+"btn.copy" = "拷貝";
+"btn.close" = "關閉";
+"btn.previewRaw" = "預覽原始內容";
+"btn.openRepo" = "打開儲存庫";
+"btn.generateComment" = "產生註解";
+"btn.restore" = "還原上一個版本";
+"btn.merge" = "合併";
+"btn.replace" = "取代";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "輸入忽略模式（例如 *.log）";
+"placeholder.comment" = "註解（選填）";
+"placeholder.search" = "搜尋模式⋯";
+"placeholder.repositoryPath" = "選擇 Git 儲存庫";
+
+/* MARK: - Labels */
+"label.pattern" = "模式";
+"label.comment" = "註解";
+"label.repository" = "儲存庫";
+"label.status" = "狀態";
+"label.enabled" = "已啟用";
+"label.disabled" = "已停用";
+"label.aiGenerating" = "正在產生註解⋯";
+"label.recentRepos" = "最近使用的儲存庫";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "尚無模式";
+"message.noPatterns" = "尚無模式";
+"status.patternsCount" = "%d 個模式（%d 個已啟用）";
+"status.exported" = "已匯出 %@ — 在 Finder 中顯示";
+"status.noRepository" = "未選擇儲存庫";
+"status.selectRepository" = "選擇儲存庫以開始";
+"status.connected" = "已連接";
+"status.disconnected" = "已中斷連接";
+"ai.notConfigured" = "未設定";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "你確定要刪除此模式嗎？";
+"dialog.deleteTitle" = "刪除模式";
+"dialog.importConfirm" = "找到 %d 個模式。「合併」只會加入新的模式；「取代」會覆寫目前所有模式。";
+"dialog.importTitle" = "匯入模式";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "模式不得為空白";
+"error.patternTooLong" = "模式不得超過 250 個字元";
+"error.noRepository" = "請先選擇 Git 儲存庫";
+"error.fileNotFound" = "在儲存庫中找不到排除檔案";
+"error.permissionDenied" = "權限被拒。請檢查檔案權限。";
+"error.fileReadError" = "無法讀取排除檔案";
+"error.fileWriteError" = "無法寫入排除檔案";
+"error.invalidRepository" = "不是有效的 Git 儲存庫";
+"error.connectionFailed" = "輔助服務連接失敗";
+"error.invalidData" = "收到無效的資料";
+"error.unknown" = "發生未知的錯誤";
+
+/* MARK: - Menu Items */
+"menu.edit" = "編輯";
+"menu.delete" = "刪除";
+"menu.removeRecent" = "從最近使用項目中移除";
+"menu.language" = "語言";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "編輯模式";
+"window.addTitle" = "加入模式";
+
+/* MARK: - Hints */
+"hint.generateComment" = "建議註解 — 若已設定 AI，只會傳送這個模式";
+"hint.restore" = "回復到上次儲存之前的版本。再按一次即可復原這次還原。";
+"hint.generateCommentField" = "請先在上方輸入模式，然後按一下 ✨ 產生註解 以自動填入";
+"hint.mock" = "原型：加入／編輯／刪除／切換皆僅為模擬。";
+"hint.reorder" = "拖移列即可重新排序（搜尋時停用）。";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "打開儲存庫";
+"openRepo.noRecent" = "沒有最近打開的儲存庫。";
+
+/* MARK: - Raw Preview */
+"raw.title" = "原始檔案預覽";
+"raw.copied" = "已拷貝！";
+
+/* MARK: - Chat */
+"chat.title" = "AI 助理";
+"chat.placeholder" = "詢問 AI⋯";
+"chat.welcome" = "👋 嗨！我是你的 AI 助理。你可以詢問我有關 gitignore 模式的問題。";
+"chat.noApiKey" = "⚠️ 請先在設定中設定 AI API。";
+"chat.intro" = "詢問有關此儲存庫忽略模式的問題。每次提問都會一併傳送你的排除檔案。";
+"chat.tryAsking" = "試著詢問";
+"chat.setUp" = "設定 AI 提供者⋯";
+"chat.step.attached" = "已附上 .git/info/exclude · %ld 行";
+"chat.step.waiting" = "正在等待 %@";
+"chat.step.thinking" = "思考中";
+"chat.step.writing" = "正在撰寫回答";
+"chat.thought" = "思考了 %ld 秒";
+"chat.seconds" = "%ld 秒";
+"btn.stop" = "停止";
+
+/* MARK: - Settings */
+"settings.title" = "AI API 設定";
+"settings.provider" = "提供者";
+"settings.apiKey" = "API 金鑰";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "模型";
+"settings.loadModels" = "載入模型";
+"settings.noModels" = "找不到模型。";
+"settings.appleNote" = "透過 Apple Intelligence 在裝置上執行（macOS 26 以上）。不需要 API 金鑰或模型。";
+"settings.keychainNote" = "API 金鑰會儲存在你的 macOS 鑰匙圈中。";
+
+/* MARK: - Navigation */
+"nav.back" = "儲存庫";
+
+/* About & Help */
+"menu.help" = "輔助說明";
+"link.website" = "網站";
+"menu.helpWindow" = "Git Exclude Manager 輔助說明";
+"menu.about" = "關於";
+"about.version" = "版本 %@";
+"about.desc" = "以視覺化方式管理你的 .git/info/exclude 檔案。模式只會在本機被忽略，且不會被提交。";
+"about.credit" = "使用 Swift + SwiftUI 打造 · macOS 14 以上\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "加入模式";
+"help.add.desc" = "按一下「加入」（⌘N）即可建立新的忽略模式。支援 glob 語法，例如 *.log 或 build/。";
+"help.toggle.title" = "啟用／停用";
+"help.toggle.desc" = "按一下列上的圓圈即可停用模式而不刪除。它會以 #pattern 儲存。";
+"help.reorder.title" = "重新排序模式";
+"help.reorder.desc" = "拖移列即可重新排序。搜尋時無法拖移。";
+"help.import.title" = "匯入";
+"help.import.desc" = "可匯入任何文字檔案，包含 .gitignore。「合併」只會加入新的模式；「取代」會覆寫全部。";
+"help.history.title" = "歷史記錄";
+"help.history.desc" = "每次編輯都會列在歷史記錄中（最近 30 筆）。按一下即可回到該步驟，或按一下其垃圾桶以移除；釘選你想保留的狀態 — 打開時的檔案會自動為你釘選。「儲存庫 › 還原上一個版本」仍可從備份（exclude.bak）回復上次儲存。";
+"help.preview.title" = "預覽原始內容";
+"help.preview.desc" = "查看將寫入 .git/info/exclude 的確切內容，包含你的註解行。";
+
+/* Sections */
+"btn.addSection" = "區段";
+"section.placeholder" = "加入標題⋯";
+"hint.addSection" = "加入空白行區段分隔。將它拖移到適當位置並輸入標題（以 # 標題 儲存）。";
+"hint.dragSection" = "拖移以移動此區段";
+"hint.renameSection" = "按兩下或按下 Return 鍵以重新命名";
+"help.sections.title" = "區段";
+"help.sections.desc" = "按一下「區段」以加入空白行分隔，將它拖移到一組模式上方並輸入標題，即可整理這些模式。註解行也可以拖移。";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "模式建議";
+"suggest.empty" = "尚無建議。你其他最近使用的儲存庫中有、但此儲存庫沒有的模式會顯示在這裡。";
+"suggest.from" = "來自 %@";
+"suggest.add" = "加入此模式";
+"quick.suggest" = "建議此儲存庫應忽略的模式";
+"quick.explain" = "說明我目前的模式有什麼作用";
+"quick.redundant" = "我的模式中有沒有多餘或重疊的？";
+"quick.exceptOne" = "如何忽略一個檔案夾，但保留其中一個檔案？";
+"quick.organize" = "將我的模式依標題分成區段";
+
+/* Appearance */
+"menu.appearance" = "外觀";
+"theme.system" = "系統";
+"theme.light" = "淺色";
+"theme.dark" = "深色";
+
+/* Collapsible panels */
+"a11y.collapsed" = "已收合";
+"a11y.expanded" = "已展開";
+"a11y.toggleHint" = "顯示或隱藏此面板";
+
+/* Help: helpers */
+"help.tabs.title" = "儲存庫與標籤頁";
+"help.tabs.desc" = "按一下 + 即可在標籤頁中打開更多儲存庫。拖移標籤頁即可重新排序；已打開的標籤頁會在下次啟動時恢復。使用 ✕ 可從「打開儲存庫」列表中移除舊的項目。";
+"help.suggestions.title" = "模式建議";
+"help.suggestions.desc" = "你其他最近使用的儲存庫有、但此儲存庫沒有的模式。按一下 ⊕ 即可加入。使用面板的箭頭可收合面板。";
+"help.ai.title" = "AI 助理";
+"help.ai.desc" = "詢問有關你的模式的問題，或點選快速訊息。按一下模型名稱即可切換模型，按 ⚙ 可更換提供者。✨ 產生註解 使用相同的模型。";
+
+/* Menu bar */
+"menu.repository" = "儲存庫";
+"menu.nextTab" = "顯示下一個標籤頁";
+"menu.previousTab" = "顯示上一個標籤頁";
+"menu.newSection" = "新增區段";
+
+/* Drag & drop repositories */
+"error.notRepository" = "「%@」不是 Git 儲存庫。請拖放內含 .git 目錄的檔案夾。";
+"error.title" = "無法打開儲存庫";
+"hint.dropRepository" = "放開以打開儲存庫";
+
+/* Pattern Clipboard */
+"clipboard.title" = "模式剪貼簿";
+"clipboard.empty" = "選取模式（按住 ⌘ 或 ⇧ 並按一下）後按 ⌘C，即可收集到這裡，然後切換儲存庫並貼上。";
+"clipboard.pasteAll" = "全部貼到此儲存庫";
+"clipboard.paste" = "貼到此儲存庫";
+"clipboard.remove" = "從剪貼簿中移除";
+"clipboard.clear" = "清除剪貼簿";
+"menu.copyToClipboard" = "拷貝到模式剪貼簿";
+"help.clipboard.title" = "模式剪貼簿";
+"help.clipboard.desc" = "按住 ⌘ 或 ⇧ 並按一下可選取多個模式，按 ⌘C 收集它們（可來自任何儲存庫），然後貼到另一個儲存庫 — 只會加入缺少的模式。⌘V 也可貼上從任何地方拷貝的模式行。";
+
+/* History panel */
+"history.title" = "歷史記錄";
+"history.opened" = "打開時";
+"history.add" = "加入 %@";
+"history.edit" = "編輯 %@";
+"history.delete" = "刪除 %@";
+"history.turnOn" = "開啟 %@";
+"history.turnOff" = "關閉 %@";
+"history.addSection" = "加入區段";
+"history.rename" = "將區段重新命名為 %@";
+"history.untitledSection" = "未命名的區段";
+"history.move" = "重新排序";
+"history.paste" = "貼上 %ld 個模式";
+"history.import" = "匯入 %ld 個模式";
+"history.restore" = "還原「%@」";
+"history.pinned" = "已釘選";
+"history.recent" = "最近";
+"history.pin" = "釘選";
+"history.unpin" = "取消釘選";
+"history.pinCurrent" = "釘選目前狀態";
+"history.hint" = "按一下狀態即可回到該狀態。你的下一次編輯會取代變暗的狀態。";
+
+/* v1.1 main window */
+"label.gitHeader" = "Git 預設標頭";
+"empty.noRepo.desc" = "選擇 Git 儲存庫，或將其檔案夾拖放到這裡。";
+"empty.noPatterns.desc" = "這裡的模式只會在此複本中隱藏檔案 — 你的團隊成員不會看到。";
+"btn.clear" = "清除";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "強調色";
+"theme.gradient" = "漸層主題";
+"theme.noGradient" = "無漸層";
+"accent.system" = "系統";
+"accent.followSystem" = "系統（跟隨 macOS）";
+"btn.hide" = "隱藏";
+"a11y.hidePanel" = "隱藏 %@";
+"accent.red" = "紅色";
+"accent.orange" = "橙色";
+"accent.amber" = "琥珀色";
+"accent.olive" = "橄欖色";
+"accent.lime" = "萊姆色";
+"accent.green" = "綠色";
+"accent.emerald" = "翡翠綠";
+"accent.teal" = "藍綠色";
+"accent.cyan" = "青色";
+"accent.blue" = "藍色";
+"accent.indigo" = "靛藍色";
+"accent.violet" = "紫羅蘭色";
+"accent.purple" = "紫色";
+"accent.magenta" = "洋紅色";
+"accent.pink" = "粉紅色";
+"accent.graphite" = "石墨色";
+"gradient.none" = "無";
+"gradient.ocean" = "海洋";
+"gradient.ember" = "餘燼";
+"gradient.lavender" = "薰衣草";
+"gradient.watermelon" = "西瓜";
+"gradient.lagoon" = "潟湖";
+"gradient.meadow" = "草地";
+"gradient.dusk" = "黃昏";
+"gradient.peach" = "蜜桃";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "從歷史記錄中移除";
+"language.search" = "搜尋語言";
+"language.noResults" = "沒有符合「%@」的語言";

@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "追加";
+"btn.edit" = "編集";
+"btn.delete" = "削除";
+"btn.cancel" = "キャンセル";
+"btn.save" = "保存";
+"btn.browse" = "選択...";
+"btn.export" = "書き出す";
+"btn.import" = "読み込む";
+"btn.quit" = "終了";
+"btn.settings" = "設定";
+"btn.ok" = "OK";
+"btn.remove" = "削除";
+"btn.send" = "送信";
+"btn.copy" = "コピー";
+"btn.close" = "閉じる";
+"btn.previewRaw" = "元のファイルをプレビュー";
+"btn.openRepo" = "リポジトリを開く";
+"btn.generateComment" = "コメントを生成";
+"btn.restore" = "直前の状態に戻す";
+"btn.merge" = "統合";
+"btn.replace" = "置き換える";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "除外パターンを入力(例: *.log)";
+"placeholder.comment" = "コメント(任意)";
+"placeholder.search" = "パターンを検索...";
+"placeholder.repositoryPath" = "Gitリポジトリを選択";
+
+/* MARK: - Labels */
+"label.pattern" = "パターン";
+"label.comment" = "コメント";
+"label.repository" = "リポジトリ";
+"label.status" = "ステータス";
+"label.enabled" = "有効";
+"label.disabled" = "無効";
+"label.aiGenerating" = "コメントを生成中...";
+"label.recentRepos" = "最近使ったリポジトリ";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "パターンはまだありません";
+"message.noPatterns" = "パターンはまだありません";
+"status.patternsCount" = "%d件のパターン(%d件が有効)";
+"status.exported" = "%@を書き出しました — Finderで表示";
+"status.noRepository" = "リポジトリが選択されていません";
+"status.selectRepository" = "リポジトリを選択して開始";
+"status.connected" = "接続済み";
+"status.disconnected" = "未接続";
+"ai.notConfigured" = "未設定";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "このパターンを削除しますか?";
+"dialog.deleteTitle" = "パターンを削除";
+"dialog.importConfirm" = "%d件のパターンが見つかりました。「統合」は新しいパターンのみを追加し、「置き換える」は現在のパターンをすべて上書きします。";
+"dialog.importTitle" = "パターンを読み込む";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "パターンを空にすることはできません";
+"error.patternTooLong" = "パターンは250文字以内にしてください";
+"error.noRepository" = "先にGitリポジトリを選択してください";
+"error.fileNotFound" = "リポジトリに除外ファイルが見つかりません";
+"error.permissionDenied" = "アクセス権がありません。ファイルのアクセス権を確認してください。";
+"error.fileReadError" = "除外ファイルを読み込めませんでした";
+"error.fileWriteError" = "除外ファイルに書き込めませんでした";
+"error.invalidRepository" = "有効なGitリポジトリではありません";
+"error.connectionFailed" = "ヘルパーサービスへの接続に失敗しました";
+"error.invalidData" = "無効なデータを受信しました";
+"error.unknown" = "不明なエラーが発生しました";
+
+/* MARK: - Menu Items */
+"menu.edit" = "編集";
+"menu.delete" = "削除";
+"menu.removeRecent" = "最近使った項目から削除";
+"menu.language" = "言語";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "パターンを編集";
+"window.addTitle" = "パターンを追加";
+
+/* MARK: - Hints */
+"hint.generateComment" = "コメントを提案します。AIが設定されている場合はAIを使用し、送信されるのはこのパターンのみです";
+"hint.restore" = "直前に保存する前のバージョンに戻します。もう一度クリックすると、元に戻す操作を取り消します。";
+"hint.generateCommentField" = "上にパターンを入力し、✨ コメントを生成をクリックすると自動入力されます";
+"hint.mock" = "プロトタイプ: 追加/編集/削除/切り替えは模擬動作のみです。";
+"hint.reorder" = "行をドラッグして並べ替えます(検索中は無効)。";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "リポジトリを開く";
+"openRepo.noRecent" = "最近開いたリポジトリはありません。";
+
+/* MARK: - Raw Preview */
+"raw.title" = "元のファイルのプレビュー";
+"raw.copied" = "コピーしました";
+
+/* MARK: - Chat */
+"chat.title" = "AIエージェント";
+"chat.placeholder" = "AIに質問...";
+"chat.welcome" = "👋 こんにちは!AIアシスタントです。gitignoreのパターンについて質問してください。";
+"chat.noApiKey" = "⚠️ 先に設定でAI APIを構成してください。";
+"chat.intro" = "このリポジトリの除外パターンについて質問できます。質問のたびに、除外ファイルも一緒に送信されます。";
+"chat.tryAsking" = "質問の例";
+"chat.setUp" = "AIプロバイダを設定…";
+"chat.step.attached" = ".git/info/excludeを添付しました · %ld行";
+"chat.step.waiting" = "%@の応答を待機中";
+"chat.step.thinking" = "考え中";
+"chat.step.writing" = "回答を作成中";
+"chat.thought" = "%ld秒間考えました";
+"chat.seconds" = "%ld秒";
+"btn.stop" = "停止";
+
+/* MARK: - Settings */
+"settings.title" = "AI API設定";
+"settings.provider" = "プロバイダ";
+"settings.apiKey" = "APIキー";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "モデル";
+"settings.loadModels" = "モデルを読み込む";
+"settings.noModels" = "モデルが見つかりません。";
+"settings.appleNote" = "Apple Intelligenceを使用してデバイス上で実行されます(macOS 26以降)。APIキーやモデルは不要です。";
+"settings.keychainNote" = "APIキーはmacOSのキーチェーンに保存されます。";
+
+/* MARK: - Navigation */
+"nav.back" = "リポジトリ";
+
+/* About & Help */
+"menu.help" = "ヘルプ";
+"link.website" = "ウェブサイト";
+"menu.helpWindow" = "Git Exclude Managerヘルプ";
+"menu.about" = "このアプリについて";
+"about.version" = "バージョン%@";
+"about.desc" = ".git/info/excludeファイルを視覚的に管理します。パターンはローカルでのみ無視され、コミットされることはありません。";
+"about.credit" = "Swift + SwiftUIで開発 · macOS 14以降\n© 2026 Watthajak Jinasam — MITライセンス";
+"help.add.title" = "パターンを追加する";
+"help.add.desc" = "「追加」(⌘N)をクリックして、新しい除外パターンを作成します。グロブ構文が使えます(例: *.logやbuild/)。";
+"help.toggle.title" = "有効 / 無効";
+"help.toggle.desc" = "行の丸をクリックすると、パターンを削除せずに無効にできます。#patternとして保存されます。";
+"help.reorder.title" = "パターンを並べ替える";
+"help.reorder.desc" = "行をドラッグして並べ替えます。検索中はドラッグできません。";
+"help.import.title" = "読み込み";
+"help.import.desc" = ".gitignoreを含め、任意のテキストファイルを読み込めます。「統合」は新しいパターンのみを追加し、「置き換える」はすべてを上書きします。";
+"help.history.title" = "履歴";
+"help.history.desc" = "編集内容はすべて履歴(最新30件)に記録されます。項目をクリックするとその状態に戻り、ゴミ箱をクリックすると削除できます。残したい状態はピン留めしてください。開いた時点のファイルは自動でピン留めされます。「リポジトリ › 直前の状態に戻す」では、引き続きバックアップ(exclude.bak)から直前の保存を元に戻せます。";
+"help.preview.title" = "元のファイルをプレビュー";
+"help.preview.desc" = "コメント行を含め、.git/info/excludeに書き込まれる内容をそのまま確認できます。";
+
+/* Sections */
+"btn.addSection" = "セクション";
+"section.placeholder" = "見出しを追加…";
+"hint.addSection" = "空行のセクション区切りを追加します。好きな位置にドラッグして、見出しを入力してください(# 見出しとして保存されます)。";
+"hint.dragSection" = "ドラッグしてこのセクションを移動";
+"hint.renameSection" = "ダブルクリックするかReturnキーを押して名前を変更";
+"help.sections.title" = "セクション";
+"help.sections.desc" = "「セクション」をクリックして空行の区切りを追加し、パターンのグループの上にドラッグして、見出しを入力すると整理できます。コメント行もドラッグできます。";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "パターンの候補";
+"suggest.empty" = "候補はまだありません。最近使った他のリポジトリにあり、このリポジトリにはないパターンがここに表示されます。";
+"suggest.from" = "%@から";
+"suggest.add" = "このパターンを追加";
+"quick.suggest" = "このリポジトリで無視すべきパターンを提案して";
+"quick.explain" = "現在のパターンの動作を説明して";
+"quick.redundant" = "冗長または重複しているパターンはありますか?";
+"quick.exceptOne" = "1つのファイルを除いてフォルダを無視するには?";
+"quick.organize" = "パターンを見出し付きのセクションにまとめて";
+
+/* Appearance */
+"menu.appearance" = "外観";
+"theme.system" = "システム";
+"theme.light" = "ライト";
+"theme.dark" = "ダーク";
+
+/* Collapsible panels */
+"a11y.collapsed" = "折りたたみ済み";
+"a11y.expanded" = "展開済み";
+"a11y.toggleHint" = "このパネルを表示または非表示にします";
+
+/* Help: helpers */
+"help.tabs.title" = "リポジトリとタブ";
+"help.tabs.desc" = "+をクリックすると、リポジトリを別のタブで開けます。タブをドラッグして並べ替えられ、開いているタブは次回の起動時に復元されます。「リポジトリを開く」リストの古い項目は✕で削除できます。";
+"help.suggestions.title" = "パターンの候補";
+"help.suggestions.desc" = "最近使った他のリポジトリにあり、このリポジトリにはないパターンです。⊕をクリックして追加します。矢印でパネルを折りたたみます。";
+"help.ai.title" = "AIエージェント";
+"help.ai.desc" = "パターンについて質問するか、クイックメッセージをクリックします。モデル名をクリックするとモデルを切り替え、⚙でプロバイダを変更できます。✨ コメントを生成にも同じモデルが使われます。";
+
+/* Menu bar */
+"menu.repository" = "リポジトリ";
+"menu.nextTab" = "次のタブを表示";
+"menu.previousTab" = "前のタブを表示";
+"menu.newSection" = "新規セクション";
+
+/* Drag & drop repositories */
+"error.notRepository" = "「%@」はGitリポジトリではありません。.gitディレクトリを含むフォルダをドロップしてください。";
+"error.title" = "リポジトリを開けません";
+"hint.dropRepository" = "ドロップしてリポジトリを開く";
+
+/* Pattern Clipboard */
+"clipboard.title" = "パターンクリップボード";
+"clipboard.empty" = "パターンを選択(⌘クリック / ⇧クリック)して⌘Cを押すとここに集められます。リポジトリを切り替えてからペーストしてください。";
+"clipboard.pasteAll" = "すべてこのリポジトリにペースト";
+"clipboard.paste" = "このリポジトリにペースト";
+"clipboard.remove" = "クリップボードから削除";
+"clipboard.clear" = "クリップボードを消去";
+"menu.copyToClipboard" = "パターンクリップボードにコピー";
+"help.clipboard.title" = "パターンクリップボード";
+"help.clipboard.desc" = "⌘クリックまたは⇧クリックで複数のパターンを選択し、⌘Cで(どのリポジトリからでも)集めてから、別のリポジトリにペーストします。ペーストされるのは不足しているパターンのみです。⌘Vでは、他の場所からコピーしたパターン行もペーストできます。";
+
+/* History panel */
+"history.title" = "履歴";
+"history.opened" = "開いた時点";
+"history.add" = "%@を追加";
+"history.edit" = "%@を編集";
+"history.delete" = "%@を削除";
+"history.turnOn" = "%@をオンにする";
+"history.turnOff" = "%@をオフにする";
+"history.addSection" = "セクションを追加";
+"history.rename" = "セクション名を%@に変更";
+"history.untitledSection" = "名称未設定のセクション";
+"history.move" = "並べ替え";
+"history.paste" = "%ld件のパターンをペースト";
+"history.import" = "%ld件のパターンを読み込み";
+"history.restore" = "「%@」に戻す";
+"history.pinned" = "ピン留め済み";
+"history.recent" = "最近";
+"history.pin" = "ピン留め";
+"history.unpin" = "ピン留めを解除";
+"history.pinCurrent" = "現在の状態をピン留め";
+"history.hint" = "状態をクリックするとその状態に戻ります。次に編集すると、薄く表示されている状態は置き換えられます。";
+
+/* v1.1 main window */
+"label.gitHeader" = "Gitのデフォルトヘッダ";
+"empty.noRepo.desc" = "Gitリポジトリを選択するか、そのフォルダをここにドロップしてください。";
+"empty.noPatterns.desc" = "ここのパターンは、このクローン内のファイルのみを非表示にします。チームメイトには表示されません。";
+"btn.clear" = "消去";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "アクセントカラー";
+"theme.gradient" = "グラデーションテーマ";
+"theme.noGradient" = "グラデーションなし";
+"accent.system" = "システム";
+"accent.followSystem" = "システム(macOSに従う)";
+"btn.hide" = "非表示";
+"a11y.hidePanel" = "%@を非表示";
+"accent.red" = "レッド";
+"accent.orange" = "オレンジ";
+"accent.amber" = "アンバー";
+"accent.olive" = "オリーブ";
+"accent.lime" = "ライム";
+"accent.green" = "グリーン";
+"accent.emerald" = "エメラルド";
+"accent.teal" = "ティール";
+"accent.cyan" = "シアン";
+"accent.blue" = "ブルー";
+"accent.indigo" = "インディゴ";
+"accent.violet" = "バイオレット";
+"accent.purple" = "パープル";
+"accent.magenta" = "マゼンタ";
+"accent.pink" = "ピンク";
+"accent.graphite" = "グラファイト";
+"gradient.none" = "なし";
+"gradient.ocean" = "オーシャン";
+"gradient.ember" = "エンバー";
+"gradient.lavender" = "ラベンダー";
+"gradient.watermelon" = "ウォーターメロン";
+"gradient.lagoon" = "ラグーン";
+"gradient.meadow" = "メドウ";
+"gradient.dusk" = "ダスク";
+"gradient.peach" = "ピーチ";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "履歴から削除";
+"language.search" = "言語を検索";
+"language.noResults" = "「%@」に一致する言語はありません";

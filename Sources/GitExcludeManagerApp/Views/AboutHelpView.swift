@@ -1,9 +1,7 @@
 import SwiftUI
 
-/// About and Help sheets opened from the Settings dropdown — matches .prototype aboutDialog / helpDialog
+/// Shown in the About panel of the tool window (Settings is split into Language / About for now).
 struct AboutView: View {
-    var onDismiss: () -> Void = {}
-
     @EnvironmentObject private var languageService: LanguageService
 
     private var version: String {
@@ -29,8 +27,7 @@ struct AboutView: View {
                 .multilineTextAlignment(.center)
         }
         .padding(24)
-        .frame(width: 360)
-        .overlay(alignment: .topTrailing) { CloseButton(action: onDismiss).padding(12) }
+        .frame(maxWidth: .infinity)
     }
 }
 
@@ -45,7 +42,7 @@ struct HelpList: View {
         ("checkmark.circle", "help.toggle"),
         ("line.3.horizontal", "help.reorder"),
         ("arrow.down.doc", "help.import"),
-        ("arrow.uturn.backward", "help.restore"),
+        ("clock.arrow.circlepath", "help.history"),
         ("eye", "help.preview"),
         ("square.on.square", "help.tabs"),
         ("doc.on.clipboard", "help.clipboard"),

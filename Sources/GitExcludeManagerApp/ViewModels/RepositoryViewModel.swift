@@ -17,10 +17,23 @@ public class RepositoryViewModel: ObservableObject {
     private static let selectedTabKey = "app.selectedTab"
 
     private let defaults: UserDefaults
+    /// `-demo`: sample repositories that don't exist on disk — skip the .git check, keep tabs out of real settings.
+    private let isDemo: Bool
 
     public init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
+        self.isDemo = false
         loadRecentRepositories()
+    }
+
+    init(demo repositories: [GitRepository]) {
+        let suite = "com.gitexcludemanager.demo"
+        UserDefaults.standard.removePersistentDomain(forName: suite)
+        self.defaults = UserDefaults(suiteName: suite) ?? .standard
+        self.isDemo = true
+        recentRepositories = repositories
+        openRepositories = repositories
+        selectedRepository = repositories.first
     }
 
     // MARK: - Public Interface
@@ -28,7 +41,7 @@ public class RepositoryViewModel: ObservableObject {
     /// Selects a repository by URL, validates it, and persists to recents.
     func selectRepository(url: URL) {
         let path = url.path
-        guard GitRepository.isValidRepository(at: path) else {
+        guard isDemo || GitRepository.isValidRepository(at: path) else {
             self.errorMessage = localized("error.notRepository", args: url.lastPathComponent)
             return
         }
@@ -84,7 +97,6 @@ public class RepositoryViewModel: ObservableObject {
 
     /// Closes a tab. The last tab stays open; closing the active tab activates the first remaining one.
     func closeRepository(path: String) {
-        guard openRepositories.count > 1 else { return }
         openRepositories.removeAll { $0.path == path }
         if selectedRepository?.path == path {
             selectedRepository = openRepositories.first
@@ -108,18 +120,20 @@ public class RepositoryViewModel: ObservableObject {
     /// Also restores tabs (order + selection); tabs whose repo no longer exists are dropped.
     func loadRecentRepositories() {
         // Read saved tabs before assigning anything: the didSet observers below overwrite them.
-        let savedTabs = defaults.stringArray(forKey: Self.openTabsKey) ?? []
+        let savedTabs = defaults.stringArray(forKey: Self.openTabsKey)
         let savedSelection = defaults.string(forKey: Self.selectedTabKey)
 
         recentRepositories = defaults.data(forKey: Self.recentRepositoriesKey)
             .flatMap { try? JSONDecoder().decode([GitRepository].self, from: $0) } ?? []
 
-        let tabs = savedTabs
+        let tabs = (savedTabs ?? [])
             .filter { GitRepository.isValidRepository(at: $0) }
             .map { path in
                 recentRepositories.first { $0.path == path } ?? GitRepository(path: path, lastAccessedAt: Date())
             }
-        openRepositories = tabs.isEmpty ? Array(recentRepositories.prefix(1)) : tabs
+        // No saved tabs at all = first launch after v1.0 (no tabs then): open the most recent repository, as v1.0 did.
+        // An empty list = the user closed every tab: leave it empty, so the Welcome screen shows.
+        openRepositories = savedTabs == nil ? Array(recentRepositories.prefix(1)) : tabs
         selectedRepository = openRepositories.first { $0.path == savedSelection } ?? openRepositories.first
     }
 

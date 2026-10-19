@@ -5,6 +5,10 @@ import Shared
 struct ClipboardPanel: View {
     @ObservedObject var patternsVM: PatternsViewModel
     @Binding var isCollapsed: Bool
+    /// `.clear` when the panel sits on a glass / material surface (redesign D).
+    var panelBackground = Color(.windowBackgroundColor)
+    /// Shown alone in a tool window (redesign D): no fold header — the window has its own title — and full height.
+    var isToolWindow = false
 
     @EnvironmentObject private var languageService: LanguageService
 
@@ -14,7 +18,7 @@ struct ClipboardPanel: View {
         let items = patternsVM.clipboard
         VStack(alignment: .leading, spacing: 0) {
             HStack(spacing: 10) {
-                CollapseToggle(title: localized("clipboard.title"), isCollapsed: $isCollapsed)
+                if !isToolWindow { CollapseToggle(title: localized("clipboard.title"), isCollapsed: $isCollapsed) }
                 Spacer()
                 if !items.isEmpty {
                     Text("\(items.count)")
@@ -54,10 +58,10 @@ struct ClipboardPanel: View {
                     .padding(.horizontal, 8)
                     .padding(.bottom, 8)
                 }
-                .frame(maxHeight: min(CGFloat(items.count) * 38 + 8, 160))
+                .frame(maxHeight: isToolWindow ? .infinity : min(CGFloat(items.count) * 38 + 8, 160))
             }
         }
-        .background(Color(.windowBackgroundColor))
+        .background(panelBackground)
     }
 
     private func row(_ item: ClipboardItem) -> some View {

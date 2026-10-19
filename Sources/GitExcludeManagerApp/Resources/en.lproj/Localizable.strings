@@ -16,7 +16,7 @@
 "btn.close" = "Close";
 "btn.previewRaw" = "Preview Raw";
 "btn.openRepo" = "Open Repository";
-"btn.generateComment" = "✨ Generate Comment";
+"btn.generateComment" = "Generate Comment";
 "btn.restore" = "Restore Previous";
 "btn.merge" = "Merge";
 "btn.replace" = "Replace";
@@ -79,7 +79,7 @@
 "window.addTitle" = "Add Pattern";
 
 /* MARK: - Hints */
-"hint.generateComment" = "Auto-fill the Comment field based on the pattern name using AI";
+"hint.generateComment" = "Suggest a comment — with AI when set up, only this pattern is sent";
 "hint.restore" = "Revert to the version before the last save. Click again to undo the restore.";
 "hint.generateCommentField" = "Type a pattern above, then click ✨ Generate Comment to auto-fill";
 "hint.mock" = "Prototype: Add/Edit/Delete/Toggle are mock-only.";
@@ -98,6 +98,16 @@
 "chat.placeholder" = "Ask AI...";
 "chat.welcome" = "👋 Hi! I'm your AI assistant. Ask me about gitignore patterns.";
 "chat.noApiKey" = "⚠️ Please configure AI API in Settings first.";
+"chat.intro" = "Ask about this repository's ignore patterns. Your exclude file is sent along with each question.";
+"chat.tryAsking" = "Try asking";
+"chat.setUp" = "Set Up AI Provider…";
+"chat.step.attached" = "Attached .git/info/exclude · %ld lines";
+"chat.step.waiting" = "Waiting for %@";
+"chat.step.thinking" = "Thinking";
+"chat.step.writing" = "Writing the answer";
+"chat.thought" = "Thought for %ld s";
+"chat.seconds" = "%ld s";
+"btn.stop" = "Stop";
 
 /* MARK: - Settings */
 "settings.title" = "AI API Settings";
@@ -115,6 +125,8 @@
 
 /* About & Help */
 "menu.help" = "Help";
+"link.website" = "Website";
+"menu.helpWindow" = "Git Exclude Manager Help";
 "menu.about" = "About";
 "about.version" = "Version %@";
 "about.desc" = "Manage your .git/info/exclude files visually. Patterns are ignored locally only and never committed.";
@@ -127,8 +139,8 @@
 "help.reorder.desc" = "Drag a row to reorder. Dragging is disabled while searching.";
 "help.import.title" = "Import";
 "help.import.desc" = "Import any text file, including .gitignore. Merge adds only new patterns; Replace overwrites all.";
-"help.restore.title" = "Restore Previous";
-"help.restore.desc" = "Every save keeps a backup (exclude.bak). Restore Previous reverts the last save; click again to undo.";
+"help.history.title" = "History";
+"help.history.desc" = "Every edit is listed in History (last 30). Click one to go back to it, or click its trash to remove it; pin states you want to keep — the file as opened is pinned for you. Repository › Restore Previous still reverts the last save from the backup (exclude.bak).";
 "help.preview.title" = "Preview Raw";
 "help.preview.desc" = "See exactly what will be written to .git/info/exclude, including your comment lines.";
 
@@ -137,6 +149,7 @@
 "section.placeholder" = "Add heading…";
 "hint.addSection" = "Add a blank-line section break. Drag it into place and type a heading (saved as # heading).";
 "hint.dragSection" = "Drag to move this section";
+"hint.renameSection" = "Double-click or press Return to rename";
 "help.sections.title" = "Sections";
 "help.sections.desc" = "Click Section to add a blank-line break, drag it above a group of patterns and type a heading to organize them. Comment lines can be dragged too.";
 
@@ -191,3 +204,70 @@
 "menu.copyToClipboard" = "Copy to Pattern Clipboard";
 "help.clipboard.title" = "Pattern Clipboard";
 "help.clipboard.desc" = "⌘-click or ⇧-click to select several patterns, ⌘C to collect them (from any repository), then paste into another repository — only missing patterns are added. ⌘V also pastes pattern lines copied from anywhere.";
+
+/* History panel */
+"history.title" = "History";
+"history.opened" = "Opened";
+"history.add" = "Add %@";
+"history.edit" = "Edit %@";
+"history.delete" = "Delete %@";
+"history.turnOn" = "Turn on %@";
+"history.turnOff" = "Turn off %@";
+"history.addSection" = "Add section";
+"history.rename" = "Rename section to %@";
+"history.untitledSection" = "untitled section";
+"history.move" = "Reorder";
+"history.paste" = "Paste %ld patterns";
+"history.import" = "Import %ld patterns";
+"history.restore" = "Restore “%@”";
+"history.pinned" = "Pinned";
+"history.recent" = "Recent";
+"history.pin" = "Pin";
+"history.unpin" = "Unpin";
+"history.pinCurrent" = "Pin Current State";
+"history.hint" = "Click a state to go back to it. Your next edit replaces the dimmed ones.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Git default header";
+"empty.noRepo.desc" = "Choose a Git repository, or drop its folder here.";
+"empty.noPatterns.desc" = "Patterns here hide files in this clone only — teammates never see them.";
+"btn.clear" = "Clear";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Accent Color";
+"theme.gradient" = "Gradient Theme";
+"theme.noGradient" = "No Gradient";
+"accent.system" = "System";
+"accent.followSystem" = "System (follow macOS)";
+"btn.hide" = "Hide";
+"a11y.hidePanel" = "Hide %@";
+"accent.red" = "Red";
+"accent.orange" = "Orange";
+"accent.amber" = "Amber";
+"accent.olive" = "Olive";
+"accent.lime" = "Lime";
+"accent.green" = "Green";
+"accent.emerald" = "Emerald";
+"accent.teal" = "Teal";
+"accent.cyan" = "Cyan";
+"accent.blue" = "Blue";
+"accent.indigo" = "Indigo";
+"accent.violet" = "Violet";
+"accent.purple" = "Purple";
+"accent.magenta" = "Magenta";
+"accent.pink" = "Pink";
+"accent.graphite" = "Graphite";
+"gradient.none" = "None";
+"gradient.ocean" = "Ocean";
+"gradient.ember" = "Ember";
+"gradient.lavender" = "Lavender";
+"gradient.watermelon" = "Watermelon";
+"gradient.lagoon" = "Lagoon";
+"gradient.meadow" = "Meadow";
+"gradient.dusk" = "Dusk";
+"gradient.peach" = "Peach";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Remove from History";
+"language.search" = "Search languages";
+"language.noResults" = "No languages match “%@”";

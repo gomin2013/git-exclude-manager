@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Tambah";
+"btn.edit" = "Edit";
+"btn.delete" = "Padam";
+"btn.cancel" = "Batal";
+"btn.save" = "Simpan";
+"btn.browse" = "Semak Imbas...";
+"btn.export" = "Eksport";
+"btn.import" = "Import";
+"btn.quit" = "Keluar";
+"btn.settings" = "Seting";
+"btn.ok" = "OK";
+"btn.remove" = "Alih Keluar";
+"btn.send" = "Hantar";
+"btn.copy" = "Salin";
+"btn.close" = "Tutup";
+"btn.previewRaw" = "Pratonton Mentah";
+"btn.openRepo" = "Buka Repositori";
+"btn.generateComment" = "Jana Komen";
+"btn.restore" = "Pulihkan Sebelumnya";
+"btn.merge" = "Gabung";
+"btn.replace" = "Ganti";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Masukkan corak abaian (cth., *.log)";
+"placeholder.comment" = "Komen pilihan";
+"placeholder.search" = "Cari corak...";
+"placeholder.repositoryPath" = "Pilih repositori Git";
+
+/* MARK: - Labels */
+"label.pattern" = "Corak";
+"label.comment" = "Komen";
+"label.repository" = "Repositori";
+"label.status" = "Status";
+"label.enabled" = "Didayakan";
+"label.disabled" = "Dilumpuhkan";
+"label.aiGenerating" = "Menjana komen...";
+"label.recentRepos" = "Repositori Terkini";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Belum ada corak";
+"message.noPatterns" = "Belum ada corak";
+"status.patternsCount" = "%d corak (%d didayakan)";
+"status.exported" = "%@ dieksport — tunjuk dalam Finder";
+"status.noRepository" = "Tiada repositori dipilih";
+"status.selectRepository" = "Pilih repositori untuk bermula";
+"status.connected" = "Bersambung";
+"status.disconnected" = "Terputus";
+"ai.notConfigured" = "Belum Ditetapkan";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Adakah anda pasti mahu memadam corak ini?";
+"dialog.deleteTitle" = "Padam Corak";
+"dialog.importConfirm" = "%d corak ditemui. Gabung hanya menambah corak baharu; Ganti menimpa semua corak semasa.";
+"dialog.importTitle" = "Import Corak";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Corak tidak boleh kosong";
+"error.patternTooLong" = "Corak mestilah 250 aksara atau kurang";
+"error.noRepository" = "Sila pilih repositori Git dahulu";
+"error.fileNotFound" = "Fail exclude tidak ditemui dalam repositori";
+"error.permissionDenied" = "Kebenaran ditolak. Semak kebenaran fail.";
+"error.fileReadError" = "Gagal membaca fail exclude";
+"error.fileWriteError" = "Gagal menulis fail exclude";
+"error.invalidRepository" = "Bukan repositori Git yang sah";
+"error.connectionFailed" = "Sambungan perkhidmatan pembantu gagal";
+"error.invalidData" = "Data tidak sah diterima";
+"error.unknown" = "Ralat tidak diketahui berlaku";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Edit";
+"menu.delete" = "Padam";
+"menu.removeRecent" = "Alih Keluar daripada Terkini";
+"menu.language" = "Bahasa";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Edit Corak";
+"window.addTitle" = "Tambah Corak";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Cadangkan komen — dengan AI jika disediakan, hanya corak ini dihantar";
+"hint.restore" = "Kembalikan kepada versi sebelum simpanan terakhir. Klik lagi untuk membatalkan pemulihan.";
+"hint.generateCommentField" = "Taip corak di atas, kemudian klik ✨ Jana Komen untuk isi automatik";
+"hint.mock" = "Prototaip: Tambah/Edit/Padam/Togol hanya olok-olok.";
+"hint.reorder" = "Seret baris untuk menyusun semula (dimatikan semasa mencari).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Buka Repositori";
+"openRepo.noRecent" = "Tiada repositori dibuka baru-baru ini.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Pratonton Fail Mentah";
+"raw.copied" = "Disalin!";
+
+/* MARK: - Chat */
+"chat.title" = "Ejen AI";
+"chat.placeholder" = "Tanya AI...";
+"chat.welcome" = "👋 Hai! Saya pembantu AI anda. Tanya saya tentang corak gitignore.";
+"chat.noApiKey" = "⚠️ Sila konfigurasikan API AI dalam Seting dahulu.";
+"chat.intro" = "Tanya tentang corak abaian repositori ini. Fail exclude anda dihantar bersama setiap soalan.";
+"chat.tryAsking" = "Cuba tanya";
+"chat.setUp" = "Sediakan Penyedia AI…";
+"chat.step.attached" = ".git/info/exclude dilampirkan · %ld baris";
+"chat.step.waiting" = "Menunggu %@";
+"chat.step.thinking" = "Berfikir";
+"chat.step.writing" = "Menulis jawapan";
+"chat.thought" = "Berfikir selama %ld s";
+"chat.seconds" = "%ld s";
+"btn.stop" = "Henti";
+
+/* MARK: - Settings */
+"settings.title" = "Seting API AI";
+"settings.provider" = "Penyedia";
+"settings.apiKey" = "Kunci API";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Model";
+"settings.loadModels" = "Muatkan model";
+"settings.noModels" = "Tiada model ditemui.";
+"settings.appleNote" = "Berjalan pada peranti dengan Apple Intelligence (macOS 26+). Tiada kunci API atau model diperlukan.";
+"settings.keychainNote" = "Kunci API disimpan dalam Keychain macOS anda.";
+
+/* MARK: - Navigation */
+"nav.back" = "Repositori";
+
+/* About & Help */
+"menu.help" = "Bantuan";
+"link.website" = "Laman web";
+"menu.helpWindow" = "Bantuan Git Exclude Manager";
+"menu.about" = "Perihal";
+"about.version" = "Versi %@";
+"about.desc" = "Urus fail .git/info/exclude anda secara visual. Corak hanya diabaikan secara setempat dan tidak pernah di-commit.";
+"about.credit" = "Dibina dengan Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — Lesen MIT";
+"help.add.title" = "Tambah Corak";
+"help.add.desc" = "Klik Tambah (⌘N) untuk mencipta corak abaian baharu. Sintaks glob berfungsi, cth. *.log atau build/.";
+"help.toggle.title" = "Dayakan / Lumpuhkan";
+"help.toggle.desc" = "Klik bulatan pada baris untuk melumpuhkan corak tanpa memadamnya. Ia disimpan sebagai #pattern.";
+"help.reorder.title" = "Susun Semula Corak";
+"help.reorder.desc" = "Seret baris untuk menyusun semula. Seretan dimatikan semasa mencari.";
+"help.import.title" = "Import";
+"help.import.desc" = "Import mana-mana fail teks, termasuk .gitignore. Gabung hanya menambah corak baharu; Ganti menimpa semua.";
+"help.history.title" = "Sejarah";
+"help.history.desc" = "Setiap suntingan disenaraikan dalam Sejarah (30 terakhir). Klik satu untuk kembali kepadanya, atau klik tong sampahnya untuk mengalihkannya; semat keadaan yang mahu disimpan — fail semasa dibuka disematkan untuk anda. Repositori › Pulihkan Sebelumnya masih memulihkan simpanan terakhir daripada sandaran (exclude.bak).";
+"help.preview.title" = "Pratonton Mentah";
+"help.preview.desc" = "Lihat tepat apa yang akan ditulis ke .git/info/exclude, termasuk baris komen anda.";
+
+/* Sections */
+"btn.addSection" = "Seksyen";
+"section.placeholder" = "Tambah tajuk…";
+"hint.addSection" = "Tambah pemisah seksyen baris kosong. Seret ke tempatnya dan taip tajuk (disimpan sebagai # heading).";
+"hint.dragSection" = "Seret untuk alih seksyen ini";
+"hint.renameSection" = "Klik dua kali atau tekan Return untuk menamakan semula";
+"help.sections.title" = "Seksyen";
+"help.sections.desc" = "Klik Seksyen untuk menambah pemisah baris kosong, seret ke atas sekumpulan corak dan taip tajuk untuk menyusunnya. Baris komen juga boleh diseret.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Cadangan Corak";
+"suggest.empty" = "Belum ada cadangan. Corak daripada repositori terkini anda yang lain yang tiada dalam repositori ini akan muncul di sini.";
+"suggest.from" = "daripada %@";
+"suggest.add" = "Tambah corak ini";
+"quick.suggest" = "Cadangkan corak yang patut diabaikan oleh repositori ini";
+"quick.explain" = "Terangkan fungsi corak semasa saya";
+"quick.redundant" = "Adakah mana-mana corak saya berlebihan atau bertindih?";
+"quick.exceptOne" = "Bagaimana untuk mengabaikan folder kecuali satu fail?";
+"quick.organize" = "Kumpulkan corak saya ke dalam seksyen dengan tajuk";
+
+/* Appearance */
+"menu.appearance" = "Penampilan";
+"theme.system" = "Sistem";
+"theme.light" = "Cerah";
+"theme.dark" = "Gelap";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Dikuncupkan";
+"a11y.expanded" = "Dikembangkan";
+"a11y.toggleHint" = "Tunjuk atau sembunyikan panel ini";
+
+/* Help: helpers */
+"help.tabs.title" = "Repositori & Tab";
+"help.tabs.desc" = "Klik + untuk membuka lebih banyak repositori sebagai tab. Seret tab untuk menyusunnya semula; tab yang dibuka dipulihkan pada pelancaran seterusnya. Alih keluar entri lama daripada senarai Buka Repositori dengan ✕.";
+"help.suggestions.title" = "Cadangan Corak";
+"help.suggestions.desc" = "Corak yang digunakan oleh repositori terkini anda yang lain tetapi tiada dalam repositori ini. Klik ⊕ untuk menambah satu. Lipat panel dengan anak panahnya.";
+"help.ai.title" = "Ejen AI";
+"help.ai.desc" = "Tanya tentang corak anda atau ketik Mesej Pantas. Klik nama model untuk menukar model, ⚙ untuk menukar penyedia. ✨ Jana Komen menggunakan model yang sama.";
+
+/* Menu bar */
+"menu.repository" = "Repositori";
+"menu.nextTab" = "Tunjuk Tab Seterusnya";
+"menu.previousTab" = "Tunjuk Tab Sebelumnya";
+"menu.newSection" = "Seksyen Baharu";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” bukan repositori Git. Lepaskan folder yang mengandungi direktori .git.";
+"error.title" = "Tidak Dapat Membuka Repositori";
+"hint.dropRepository" = "Lepaskan untuk membuka repositori";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Papan Keratan Corak";
+"clipboard.empty" = "Pilih corak (klik ⌘ / klik ⇧) dan tekan ⌘C untuk mengumpulkannya di sini, kemudian tukar repositori dan tampal.";
+"clipboard.pasteAll" = "Tampal semua ke dalam repositori ini";
+"clipboard.paste" = "Tampal ke dalam repositori ini";
+"clipboard.remove" = "Alih keluar daripada papan keratan";
+"clipboard.clear" = "Kosongkan papan keratan";
+"menu.copyToClipboard" = "Salin ke Papan Keratan Corak";
+"help.clipboard.title" = "Papan Keratan Corak";
+"help.clipboard.desc" = "Klik ⌘ atau klik ⇧ untuk memilih beberapa corak, ⌘C untuk mengumpulkannya (daripada mana-mana repositori), kemudian tampal ke dalam repositori lain — hanya corak yang tiada ditambah. ⌘V juga menampal baris corak yang disalin dari mana-mana.";
+
+/* History panel */
+"history.title" = "Sejarah";
+"history.opened" = "Dibuka";
+"history.add" = "Tambah %@";
+"history.edit" = "Edit %@";
+"history.delete" = "Padam %@";
+"history.turnOn" = "Hidupkan %@";
+"history.turnOff" = "Matikan %@";
+"history.addSection" = "Tambah seksyen";
+"history.rename" = "Namakan semula seksyen kepada %@";
+"history.untitledSection" = "seksyen tanpa tajuk";
+"history.move" = "Susun semula";
+"history.paste" = "Tampal %ld corak";
+"history.import" = "Import %ld corak";
+"history.restore" = "Pulihkan “%@”";
+"history.pinned" = "Disemat";
+"history.recent" = "Terkini";
+"history.pin" = "Semat";
+"history.unpin" = "Nyahsemat";
+"history.pinCurrent" = "Semat Keadaan Semasa";
+"history.hint" = "Klik satu keadaan untuk kembali kepadanya. Suntingan seterusnya menggantikan yang dimalapkan.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Pengepala lalai Git";
+"empty.noRepo.desc" = "Pilih repositori Git, atau lepaskan foldernya di sini.";
+"empty.noPatterns.desc" = "Corak di sini menyembunyikan fail dalam klon ini sahaja — rakan sepasukan tidak akan melihatnya.";
+"btn.clear" = "Kosongkan";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Warna Aksen";
+"theme.gradient" = "Tema Kecerunan";
+"theme.noGradient" = "Tiada Kecerunan";
+"accent.system" = "Sistem";
+"accent.followSystem" = "Sistem (ikut macOS)";
+"btn.hide" = "Sembunyi";
+"a11y.hidePanel" = "Sembunyikan %@";
+"accent.red" = "Merah";
+"accent.orange" = "Oren";
+"accent.amber" = "Ambar";
+"accent.olive" = "Zaitun";
+"accent.lime" = "Limau";
+"accent.green" = "Hijau";
+"accent.emerald" = "Zamrud";
+"accent.teal" = "Hijau Kebiruan";
+"accent.cyan" = "Sian";
+"accent.blue" = "Biru";
+"accent.indigo" = "Nila";
+"accent.violet" = "Ungu Muda";
+"accent.purple" = "Ungu";
+"accent.magenta" = "Magenta";
+"accent.pink" = "Merah Jambu";
+"accent.graphite" = "Grafit";
+"gradient.none" = "Tiada";
+"gradient.ocean" = "Lautan";
+"gradient.ember" = "Bara";
+"gradient.lavender" = "Lavender";
+"gradient.watermelon" = "Tembikai";
+"gradient.lagoon" = "Lagun";
+"gradient.meadow" = "Padang Rumput";
+"gradient.dusk" = "Senja";
+"gradient.peach" = "Pic";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Alih Keluar daripada Sejarah";
+"language.search" = "Cari bahasa";
+"language.noResults" = "Tiada bahasa sepadan dengan “%@”";

@@ -29,102 +29,51 @@ struct EditorView: View {
         ".m2": "Maven dependencies cache"
     ]
 
+    /// Same layout as hosts-manager's EditorSheet: title, a labelled form, Generate Comment under the comment field,
+    /// Cancel / Save bottom-right (Return saves, Esc cancels).
     var body: some View {
-        let isEditing = viewModel.isEditing
-        return VStack(spacing: 16) {
-            Text(isEditing
-                 ? localized("window.editorTitle")
-                 : localized("window.addTitle"))
-                .font(.headline)
+        VStack(alignment: .leading, spacing: 12) {
+            Text(localized(viewModel.isEditing ? "window.editorTitle" : "window.addTitle")).font(.headline)
 
-            // Pattern input
-            VStack(alignment: .leading, spacing: 6) {
-                Label(localized("label.pattern"), systemImage: "text.line.last")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-
-                TextField(localized("placeholder.pattern"), text: $viewModel.patternText)
-                    .textFieldStyle(.roundedBorder)
+            Form {
+                TextField(localized("label.pattern"), text: $viewModel.patternText,
+                          prompt: Text(localized("placeholder.pattern")))
+                    .font(.system(.body, design: .monospaced))
                     .focused($focusedField, equals: .pattern)
-                    .onSubmit { focusedField = .comment }
-            }
+                if let error = viewModel.validationError { errorText(error) }
 
-            // ✨ Generate Comment button — visible only when pattern non-empty
-            if !viewModel.patternText.trimmingCharacters(in: .whitespaces).isEmpty {
-                Button(action: generateComment) {
-                    if isGeneratingComment {
-                        HStack(spacing: 6) {
-                            ProgressView().scaleEffect(0.75)
-                            Text(localized("label.aiGenerating"))
-                        }
-                    } else {
-                        Text(localized("btn.generateComment"))
-                    }
-                }
-                .frame(maxWidth: .infinity)
-                .buttonStyle(.bordered)
-                .disabled(isGeneratingComment)
-                .help(localized("hint.generateComment"))
-                .transition(.opacity.combined(with: .scale(scale: 0.95)))
-            }
-
-            // Comment input + hint
-            VStack(alignment: .leading, spacing: 6) {
-                Label(localized("label.comment"), systemImage: "bubble.left")
-                    .font(.caption)
-                    .foregroundStyle(.secondary)
-
-                TextField(localized("placeholder.comment"), text: $viewModel.commentText)
-                    .textFieldStyle(.roundedBorder)
+                TextField(localized("label.comment"), text: $viewModel.commentText,
+                          prompt: Text(localized("placeholder.comment")))
                     .focused($focusedField, equals: .comment)
-                    .onSubmit { handleSave() }
-
-                // Hint — shown only when pattern is empty
-                if viewModel.patternText.trimmingCharacters(in: .whitespaces).isEmpty {
-                    Text(localized("hint.generateCommentField"))
-                        .font(.caption2)
-                        .foregroundStyle(.tertiary)
-                        .transition(.opacity)
+                HStack(spacing: 6) {
+                    Button(action: generateComment) {
+                        Label(localized("btn.generateComment"), systemImage: "sparkles")
+                    }
+                    .controlSize(.small)
+                    .disabled(isGeneratingComment || viewModel.patternText.trimmingCharacters(in: .whitespaces).isEmpty)
+                    .help(localized("hint.generateComment"))
+                    if isGeneratingComment { ProgressView().controlSize(.small) }
                 }
             }
-            .animation(.easeInOut(duration: 0.15), value: viewModel.patternText.isEmpty)
 
-            // Validation error
-            if let error = viewModel.validationError {
-                HStack(spacing: 8) {
-                    Image(systemName: "exclamationmark.circle.fill").foregroundStyle(.red)
-                        .accessibilityHidden(true)
-                    Text(error).font(.caption).foregroundStyle(.red)
-                }
-                .padding(.vertical, 8).padding(.horizontal, 10)
-                .background(Color.red.opacity(0.1))
-                .cornerRadius(6)
+            HStack {
+                Spacer()
+                Button(localized("btn.cancel"), action: handleCancel)
+                    .keyboardShortcut(.cancelAction)
+                Button(localized("btn.save"), action: handleSave)
+                    .keyboardShortcut(.defaultAction)
+                    .disabled(!viewModel.isValid)
             }
-
-            // Action buttons — Cancel on left, Save on right
-            HStack(spacing: 12) {
-                Button(action: handleCancel) {
-                    Text(localized("btn.cancel"))
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.bordered)
-                .keyboardShortcut(.escape, modifiers: [])
-
-                Button(action: handleSave) {
-                    Text(localized("btn.save"))
-                        .frame(maxWidth: .infinity)
-                }
-                .buttonStyle(.borderedProminent)
-                .disabled(!viewModel.isValid)
-                .keyboardShortcut(.return, modifiers: .command)
-            }
-
-            Spacer()
         }
-        .padding(16)
-        .frame(maxWidth: 400)
-        .animation(.easeInOut(duration: 0.15), value: viewModel.patternText.isEmpty)
+        .padding(18)
+        .frame(width: 420)
         .onAppear { focusedField = .pattern }
+    }
+
+    private func errorText(_ text: String) -> some View {
+        Label(text, systemImage: "exclamationmark.triangle.fill")
+            .symbolRenderingMode(.multicolor)
+            .font(.caption)
     }
 
     // MARK: - Private Methods
@@ -147,7 +96,7 @@ struct EditorView: View {
         isGeneratingComment = true
         let settings = AISettings.load()
         if settings.isConfigured {
-            let language = languageService.currentLanguage == .thai ? "Thai" : "English"
+            let language = languageService.currentLanguage.englishName
             let system = """
             Write one short comment (at most 10 words) saying what the given gitignore pattern excludes. \
             Reply with the comment text only, in \(language): no quotes, no leading #.

@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Tambah";
+"btn.edit" = "Edit";
+"btn.delete" = "Hapus";
+"btn.cancel" = "Batal";
+"btn.save" = "Simpan";
+"btn.browse" = "Telusuri...";
+"btn.export" = "Ekspor";
+"btn.import" = "Impor";
+"btn.quit" = "Keluar";
+"btn.settings" = "Pengaturan";
+"btn.ok" = "OK";
+"btn.remove" = "Hapus";
+"btn.send" = "Kirim";
+"btn.copy" = "Salin";
+"btn.close" = "Tutup";
+"btn.previewRaw" = "Pratinjau Mentah";
+"btn.openRepo" = "Buka Repositori";
+"btn.generateComment" = "Buat Komentar";
+"btn.restore" = "Pulihkan Sebelumnya";
+"btn.merge" = "Gabungkan";
+"btn.replace" = "Ganti";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Masukkan pola abaikan (mis., *.log)";
+"placeholder.comment" = "Komentar (opsional)";
+"placeholder.search" = "Cari pola...";
+"placeholder.repositoryPath" = "Pilih repositori Git";
+
+/* MARK: - Labels */
+"label.pattern" = "Pola";
+"label.comment" = "Komentar";
+"label.repository" = "Repositori";
+"label.status" = "Status";
+"label.enabled" = "Aktif";
+"label.disabled" = "Nonaktif";
+"label.aiGenerating" = "Membuat komentar...";
+"label.recentRepos" = "Repositori Terbaru";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Belum ada pola";
+"message.noPatterns" = "Belum ada pola";
+"status.patternsCount" = "%d pola (%d aktif)";
+"status.exported" = "Terekspor %@ — tampilkan di Finder";
+"status.noRepository" = "Tidak ada repositori yang dipilih";
+"status.selectRepository" = "Pilih repositori untuk memulai";
+"status.connected" = "Terhubung";
+"status.disconnected" = "Terputus";
+"ai.notConfigured" = "Belum Diatur";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Yakin ingin menghapus pola ini?";
+"dialog.deleteTitle" = "Hapus Pola";
+"dialog.importConfirm" = "Ditemukan %d pola. Gabungkan hanya menambahkan yang baru; Ganti menimpa semua pola saat ini.";
+"dialog.importTitle" = "Impor Pola";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Pola tidak boleh kosong";
+"error.patternTooLong" = "Pola maksimal 250 karakter";
+"error.noRepository" = "Pilih repositori Git terlebih dahulu";
+"error.fileNotFound" = "File exclude tidak ditemukan di repositori";
+"error.permissionDenied" = "Izin ditolak. Periksa izin file.";
+"error.fileReadError" = "Gagal membaca file exclude";
+"error.fileWriteError" = "Gagal menulis file exclude";
+"error.invalidRepository" = "Bukan repositori Git yang valid";
+"error.connectionFailed" = "Koneksi ke layanan helper gagal";
+"error.invalidData" = "Data yang diterima tidak valid";
+"error.unknown" = "Terjadi kesalahan yang tidak diketahui";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Edit";
+"menu.delete" = "Hapus";
+"menu.removeRecent" = "Hapus dari Terbaru";
+"menu.language" = "Bahasa";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Edit Pola";
+"window.addTitle" = "Tambah Pola";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Sarankan komentar — dengan AI jika sudah diatur, hanya pola ini yang dikirim";
+"hint.restore" = "Kembalikan ke versi sebelum penyimpanan terakhir. Klik lagi untuk membatalkan pemulihan.";
+"hint.generateCommentField" = "Ketik pola di atas, lalu klik ✨ Buat Komentar untuk mengisi otomatis";
+"hint.mock" = "Prototipe: Tambah/Edit/Hapus/Aktifkan hanya tiruan.";
+"hint.reorder" = "Seret baris untuk mengubah urutan (dinonaktifkan saat mencari).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Buka Repositori";
+"openRepo.noRecent" = "Tidak ada repositori yang baru dibuka.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Pratinjau File Mentah";
+"raw.copied" = "Tersalin!";
+
+/* MARK: - Chat */
+"chat.title" = "Agen AI";
+"chat.placeholder" = "Tanya AI...";
+"chat.welcome" = "👋 Hai! Saya asisten AI Anda. Tanyakan apa saja tentang pola gitignore.";
+"chat.noApiKey" = "⚠️ Konfigurasikan API AI di Pengaturan terlebih dahulu.";
+"chat.intro" = "Tanyakan tentang pola abaikan repositori ini. File exclude Anda dikirim bersama setiap pertanyaan.";
+"chat.tryAsking" = "Coba tanyakan";
+"chat.setUp" = "Siapkan Penyedia AI…";
+"chat.step.attached" = "Melampirkan .git/info/exclude · %ld baris";
+"chat.step.waiting" = "Menunggu %@";
+"chat.step.thinking" = "Berpikir";
+"chat.step.writing" = "Menulis jawaban";
+"chat.thought" = "Berpikir selama %ld dtk";
+"chat.seconds" = "%ld dtk";
+"btn.stop" = "Berhenti";
+
+/* MARK: - Settings */
+"settings.title" = "Pengaturan API AI";
+"settings.provider" = "Penyedia";
+"settings.apiKey" = "Kunci API";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Model";
+"settings.loadModels" = "Muat model";
+"settings.noModels" = "Model tidak ditemukan.";
+"settings.appleNote" = "Berjalan di perangkat dengan Apple Intelligence (macOS 26+). Tidak memerlukan kunci API atau model.";
+"settings.keychainNote" = "Kunci API disimpan di Keychain macOS Anda.";
+
+/* MARK: - Navigation */
+"nav.back" = "Repositori";
+
+/* About & Help */
+"menu.help" = "Bantuan";
+"link.website" = "Situs web";
+"menu.helpWindow" = "Bantuan Git Exclude Manager";
+"menu.about" = "Tentang";
+"about.version" = "Versi %@";
+"about.desc" = "Kelola file .git/info/exclude Anda secara visual. Pola hanya diabaikan secara lokal dan tidak pernah di-commit.";
+"about.credit" = "Dibuat dengan Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — Lisensi MIT";
+"help.add.title" = "Tambah Pola";
+"help.add.desc" = "Klik Tambah (⌘N) untuk membuat pola abaikan baru. Sintaks glob dapat digunakan, mis. *.log atau build/.";
+"help.toggle.title" = "Aktifkan / Nonaktifkan";
+"help.toggle.desc" = "Klik lingkaran pada baris untuk menonaktifkan pola tanpa menghapusnya. Pola disimpan sebagai #pola.";
+"help.reorder.title" = "Ubah Urutan Pola";
+"help.reorder.desc" = "Seret baris untuk mengubah urutan. Seret dinonaktifkan saat mencari.";
+"help.import.title" = "Impor";
+"help.import.desc" = "Impor file teks apa pun, termasuk .gitignore. Gabungkan hanya menambahkan pola baru; Ganti menimpa semuanya.";
+"help.history.title" = "Riwayat";
+"help.history.desc" = "Setiap pengeditan tercantum di Riwayat (30 terakhir). Klik salah satu untuk kembali ke sana, atau klik ikon tempat sampahnya untuk menghapusnya; sematkan kondisi yang ingin Anda simpan — file saat dibuka disematkan otomatis. Repositori › Pulihkan Sebelumnya tetap mengembalikan penyimpanan terakhir dari cadangan (exclude.bak).";
+"help.preview.title" = "Pratinjau Mentah";
+"help.preview.desc" = "Lihat persis apa yang akan ditulis ke .git/info/exclude, termasuk baris komentar Anda.";
+
+/* Sections */
+"btn.addSection" = "Bagian";
+"section.placeholder" = "Tambah judul…";
+"hint.addSection" = "Tambahkan pemisah bagian berupa baris kosong. Seret ke posisinya dan ketik judul (disimpan sebagai # judul).";
+"hint.dragSection" = "Seret untuk memindahkan bagian ini";
+"hint.renameSection" = "Klik dua kali atau tekan Return untuk mengganti nama";
+"help.sections.title" = "Bagian";
+"help.sections.desc" = "Klik Bagian untuk menambahkan pemisah baris kosong, seret ke atas sekelompok pola dan ketik judul untuk mengaturnya. Baris komentar juga dapat diseret.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Saran Pola";
+"suggest.empty" = "Belum ada saran. Pola dari repositori terbaru Anda yang lain yang belum ada di repositori ini akan muncul di sini.";
+"suggest.from" = "dari %@";
+"suggest.add" = "Tambah pola ini";
+"quick.suggest" = "Sarankan pola yang sebaiknya diabaikan repositori ini";
+"quick.explain" = "Jelaskan fungsi pola saya saat ini";
+"quick.redundant" = "Apakah ada pola saya yang berlebihan atau tumpang tindih?";
+"quick.exceptOne" = "Bagaimana cara mengabaikan folder kecuali satu file?";
+"quick.organize" = "Kelompokkan pola saya ke dalam bagian dengan judul";
+
+/* Appearance */
+"menu.appearance" = "Tampilan";
+"theme.system" = "Sistem";
+"theme.light" = "Terang";
+"theme.dark" = "Gelap";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Diciutkan";
+"a11y.expanded" = "Diperluas";
+"a11y.toggleHint" = "Menampilkan atau menyembunyikan panel ini";
+
+/* Help: helpers */
+"help.tabs.title" = "Repositori & Tab";
+"help.tabs.desc" = "Klik + untuk membuka repositori lain sebagai tab. Seret tab untuk mengubah urutannya; tab yang terbuka dipulihkan saat peluncuran berikutnya. Hapus entri lama dari daftar Buka Repositori dengan ✕.";
+"help.suggestions.title" = "Saran Pola";
+"help.suggestions.desc" = "Pola yang digunakan repositori terbaru Anda yang lain tetapi belum ada di repositori ini. Klik ⊕ untuk menambahkan. Lipat panel dengan panahnya.";
+"help.ai.title" = "Agen AI";
+"help.ai.desc" = "Tanyakan tentang pola Anda atau ketuk Pesan Cepat. Klik nama model untuk berganti model, ⚙ untuk mengubah penyedia. ✨ Buat Komentar menggunakan model yang sama.";
+
+/* Menu bar */
+"menu.repository" = "Repositori";
+"menu.nextTab" = "Tampilkan Tab Berikutnya";
+"menu.previousTab" = "Tampilkan Tab Sebelumnya";
+"menu.newSection" = "Bagian Baru";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” bukan repositori Git. Seret folder yang berisi direktori .git.";
+"error.title" = "Tidak Dapat Membuka Repositori";
+"hint.dropRepository" = "Lepaskan untuk membuka repositori";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Papan Klip Pola";
+"clipboard.empty" = "Pilih pola (⌘-klik / ⇧-klik) dan tekan ⌘C untuk mengumpulkannya di sini, lalu ganti repositori dan tempel.";
+"clipboard.pasteAll" = "Tempel semua ke repositori ini";
+"clipboard.paste" = "Tempel ke repositori ini";
+"clipboard.remove" = "Hapus dari papan klip";
+"clipboard.clear" = "Kosongkan papan klip";
+"menu.copyToClipboard" = "Salin ke Papan Klip Pola";
+"help.clipboard.title" = "Papan Klip Pola";
+"help.clipboard.desc" = "⌘-klik atau ⇧-klik untuk memilih beberapa pola, ⌘C untuk mengumpulkannya (dari repositori mana pun), lalu tempel ke repositori lain — hanya pola yang belum ada yang ditambahkan. ⌘V juga menempel baris pola yang disalin dari mana saja.";
+
+/* History panel */
+"history.title" = "Riwayat";
+"history.opened" = "Dibuka";
+"history.add" = "Tambah %@";
+"history.edit" = "Edit %@";
+"history.delete" = "Hapus %@";
+"history.turnOn" = "Aktifkan %@";
+"history.turnOff" = "Nonaktifkan %@";
+"history.addSection" = "Tambah bagian";
+"history.rename" = "Ganti nama bagian menjadi %@";
+"history.untitledSection" = "bagian tanpa judul";
+"history.move" = "Ubah urutan";
+"history.paste" = "Tempel %ld pola";
+"history.import" = "Impor %ld pola";
+"history.restore" = "Pulihkan “%@”";
+"history.pinned" = "Disematkan";
+"history.recent" = "Terbaru";
+"history.pin" = "Sematkan";
+"history.unpin" = "Lepas Sematan";
+"history.pinCurrent" = "Sematkan Kondisi Saat Ini";
+"history.hint" = "Klik sebuah kondisi untuk kembali ke sana. Pengeditan berikutnya menggantikan yang diredupkan.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Header default Git";
+"empty.noRepo.desc" = "Pilih repositori Git, atau seret foldernya ke sini.";
+"empty.noPatterns.desc" = "Pola di sini menyembunyikan file hanya di klon ini — rekan tim tidak akan pernah melihatnya.";
+"btn.clear" = "Hapus";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Warna Aksen";
+"theme.gradient" = "Tema Gradasi";
+"theme.noGradient" = "Tanpa Gradasi";
+"accent.system" = "Sistem";
+"accent.followSystem" = "Sistem (ikuti macOS)";
+"btn.hide" = "Sembunyikan";
+"a11y.hidePanel" = "Sembunyikan %@";
+"accent.red" = "Merah";
+"accent.orange" = "Oranye";
+"accent.amber" = "Ambar";
+"accent.olive" = "Zaitun";
+"accent.lime" = "Limau";
+"accent.green" = "Hijau";
+"accent.emerald" = "Zamrud";
+"accent.teal" = "Hijau Kebiruan";
+"accent.cyan" = "Sian";
+"accent.blue" = "Biru";
+"accent.indigo" = "Nila";
+"accent.violet" = "Ungu Violet";
+"accent.purple" = "Ungu";
+"accent.magenta" = "Magenta";
+"accent.pink" = "Merah Muda";
+"accent.graphite" = "Grafit";
+"gradient.none" = "Tidak Ada";
+"gradient.ocean" = "Samudra";
+"gradient.ember" = "Bara";
+"gradient.lavender" = "Lavender";
+"gradient.watermelon" = "Semangka";
+"gradient.lagoon" = "Laguna";
+"gradient.meadow" = "Padang Rumput";
+"gradient.dusk" = "Senja";
+"gradient.peach" = "Persik";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Hapus dari Riwayat";
+"language.search" = "Cari bahasa";
+"language.noResults" = "Tidak ada bahasa yang cocok dengan “%@”";
