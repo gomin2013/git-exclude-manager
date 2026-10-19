@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="../assets/img/gem-icon.png">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="../assets/site.css">
-  <script>try{var l=localStorage.getItem("gem.lang")||((navigator.language||"").slice(0,2)==="th"?"th":"en");if(l==="th"){document.documentElement.classList.add("th");document.documentElement.lang="th"}}catch(e){}</script>
+  <script>try{var d=document.documentElement,n=(navigator.language||"").toLowerCase(),l=localStorage.getItem("gem.lang")||(/^zh-(hant|tw|hk|mo)/.test(n)?"zh-Hant":/^zh/.test(n)?"zh-Hans":/^fil/.test(n)?"tl":n.slice(0,2));if("en th ja ko vi id ms tl zh-Hans zh-Hant es ru".split(" ").indexOf(l)<0)l="en";d.lang=l;if(l==="th")d.classList.add("th");else if(l!=="en")d.classList.add("i18n-wait")}catch(e){}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,14 +39,11 @@
       <a class="brand" href="../"><img src="../assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
       <nav class="nav-links" aria-label="Main">
         <a href="../#features" class="hide-sm"><span class="en">Features</span><span class="th">ฟีเจอร์</span></a>
-        <a href="../download/"><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
-        <a href="../about/"><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="../download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="../about/"><i class="ph ph-info" aria-hidden="true"></i><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
         <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener" class="hide-sm">GitHub</a>
       </nav>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="th" aria-pressed="false">TH</button>
-      </div>
+      <button type="button" class="lang-btn" data-lang-open aria-haspopup="dialog" aria-label="Language"><i class="ph ph-globe" aria-hidden="true"></i><span class="lang-name">English</span><span class="lang-code">en</span></button>
     </div>
   </header>
 
@@ -66,7 +63,8 @@
         <ul>
           <li><span class="en"><strong>No accounts, analytics or tracking.</strong> The app has no telemetry, crash reporting or update checks. It does not contact any server of ours, because there isn't one.</span><span class="th"><strong>ไม่มีบัญชีผู้ใช้ ไม่มี analytics ไม่มีการติดตาม</strong> แอปไม่มี telemetry ไม่ส่งรายงาน crash และไม่เช็กอัปเดต ไม่ติดต่อเซิร์ฟเวอร์ของเรา เพราะเราไม่มีเซิร์ฟเวอร์</span></li>
           <li><span class="en"><strong>Your files stay local.</strong> Each .git/info/exclude and its exclude.bak are read and written in place, inside the repository. They never leave your Mac unless you export or send them yourself.</span><span class="th"><strong>ไฟล์อยู่ในเครื่อง</strong> .git/info/exclude และ exclude.bak ถูกอ่านและเขียนในที่เดิมภายใน repository และจะไม่ออกจากเครื่อง เว้นแต่คุณ export หรือส่งเอง</span></li>
-          <li><span class="en"><strong>Settings</strong> such as language, open tabs, recent repositories and panel layout are stored in macOS user defaults on your Mac.</span><span class="th"><strong>การตั้งค่า</strong> เช่น ภาษา แท็บที่เปิดอยู่ repository ล่าสุด และการจัดแผง เก็บใน user defaults ของ macOS ในเครื่องคุณ</span></li>
+          <li><span class="en"><strong>Settings</strong> such as language, appearance and colours, open tabs, recent repositories and the open side panel are stored in macOS user defaults on your Mac.</span><span class="th"><strong>การตั้งค่า</strong> เช่น ภาษา ธีมและสี แท็บที่เปิดอยู่ repository ล่าสุด และแผงด้านข้างที่เปิดอยู่ เก็บใน user defaults ของ macOS ในเครื่องคุณ</span></li>
+          <li><span class="en"><strong>History</strong> (your last edits and pinned states) lives in memory while the app is open and is gone when you quit.</span><span class="th"><strong>History</strong> (การแก้ไขล่าสุดและสถานะที่ปักหมุด) อยู่ในหน่วยความจำระหว่างที่แอปเปิดอยู่ และหายไปเมื่อปิดแอป</span></li>
           <li><span class="en"><strong>Pattern Clipboard</strong> lives in memory while the app is open. ⌘C also puts the patterns on the macOS pasteboard, like any copy.</span><span class="th"><strong>Pattern Clipboard</strong> อยู่ในหน่วยความจำระหว่างที่แอปเปิดอยู่ การกด ⌘C จะใส่ pattern ลงใน pasteboard ของ macOS ด้วย เหมือนการคัดลอกทั่วไป</span></li>
         </ul>
 
