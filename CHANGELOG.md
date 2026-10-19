@@ -1,5 +1,68 @@
 # Changelog
 
+## v1.1.0 — 2026-10-24
+
+A redesign of the main window — same layout as before (and as [Hosts Manager](https://github.com/gomin2013/hosts-manager)),
+modernised.
+
+### Added
+
+- **History** — a new side panel listing the last 30 edits (add, edit, turn on/off, delete, rename, reorder, paste,
+  import). Click a state to go back to it; later states stay dimmed until your next edit. Pin states you want to keep
+  (the file as opened is pinned for you) and remove one you don't need with its trash button. Replaces the **Restore Previous** button (the menu item stays and still
+  reverts the last save from `exclude.bak`).
+- **Side panels as a tool window** — an icon rail on the right edge opens one panel at a time at full height:
+  Clipboard · Suggestions · History · AI Agent · Help, then Appearance · Language · About at the bottom (⌥⌘1…8,
+  **–** hides the panel and gives the list the full width).
+- **Appearance & colour** (side panel at the bottom of the rail) — Light / Dark / System, 16 accent colours and
+  8 gradient themes. **Language** and **About** are the panels below it; the window has no toolbar any more.
+- **12 languages** — English, ไทย, 日本語, 한국어, Tiếng Việt, Bahasa Indonesia, Bahasa Melayu, Filipino, 简体中文,
+  繁體中文, Español and Русский. The **Language** panel searches by native name, English name, the name in your
+  current language or code; the first launch follows your macOS language.
+- **Help › Git Exclude Manager Help** (⌘?) opens the Help side panel (it used to say "Help isn't available").
+- **`-demo` launch mode** — `open GitExcludeManager.app --args -demo` shows three sample repositories held in memory,
+  with their own UI settings; nothing is read from or written to disk. Website screenshots come from it.
+- **AI Agent** — answers stream in with live steps (attached → waiting → thinking → writing) and seconds, the model's
+  thinking when the provider sends it (Ollama, Claude, Gemini), Markdown answers with copyable code blocks, and **Stop**.
+  A start page with one-click questions on first launch, and a note that the exclude file is sent with each question.
+- Keyboard: **Space** turns selected patterns on/off, **⌫** deletes them, **Return** / double-click edits a pattern or
+  renames a section.
+- **Welcome screen** when no repository is open (what a new user sees first): Open Repository ⌘O goes straight to
+  the folder picker, drop a folder anywhere, recent repositories, Help / Website / GitHub. Help is the first panel.
+
+### Changed
+
+- **New app icon and mascot** — a Liquid Glass robot whose visor shows the hidden eye (16–64 px keep the flat
+  eye-slash); the website mascot is the same robot, waving.
+- **Look** — Liquid Glass on macOS 26 (material on 14–15) for search, buttons and the side panel; Sukhumvit Set for
+  interface text, SF Mono for patterns; checkboxes instead of green circles; no cards; edit / delete sit at the end of
+  every row in a quiet secondary colour (no wall of red trash cans — and no hover-only buttons, which stuttered while
+  scrolling); sections get an accent bar; git's default header folds away.
+- Repository tabs fill with the chosen accent; × shows on the selected or hovered tab — closing the last one shows
+  the Welcome screen.
+- The Add / Edit sheet has the same layout as Hosts Manager (labels on the left, Generate Comment under Comment,
+  Return saves, Esc cancels). Thai uses "หมายเหตุ" for comment.
+- Deleting no longer asks for confirmation — every delete can be undone in History.
+- Appearance moved from the Settings menu to the palette button; Language and About are their own panels (Settings
+  will come back once there is more to set).
+- History lists start at the top of the panel.
+
+### Fixed
+
+- **"Add heading…" looked frozen** — clicking a section heading never let you type (the list took the click). A new
+  section now opens its heading for typing (scrolled into view); double-click or Return renames; Esc cancels.
+- Empty states: the Welcome screen, "No Patterns" with an Add button, and "No Results" while searching.
+- **A pattern with a comment was never ignored** — v1.0 saved `AGENTS.local.md # notes`, but git has no end-of-line
+  comments, so it read the whole line as one pattern. Comments are now saved on their own `## notes` line above the
+  pattern, and files saved the old way are rewritten when you open the repository (the old file stays as `exclude.bak`).
+
+### Website
+
+- The site speaks the same 12 languages: a language button opens a searchable list; English and Thai are built in,
+  the others load on demand. A Thai page at `/git-exclude-manager/th/` for search engines.
+- Phones: Download / About become icons, the app name and the language code show when there is room.
+- History is 30 edits.
+
 ## v1.0.2 — 2026-10-17
 
 ### Added

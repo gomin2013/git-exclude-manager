@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="Packaging/Mascot.png" width="200" alt="Git Exclude Manager mascot: a red panda holding a hidden-eye sign">
+  <img src="Packaging/AppIcon-1024.png" width="200" alt="Git Exclude Manager icon: a glass robot whose visor shows a hidden eye">
 </p>
 
 # Git Exclude Manager
 
 A native macOS app for editing **`.git/info/exclude`** — the per-clone ignore file that is never committed.
 Keep your editor folders, local notes and secrets out of `git status` without touching the team's `.gitignore`.
-English and Thai UI.
+In 12 languages.
 
 <p align="center">
   <img src="docs/images/screenshot.png" alt="Git Exclude Manager: patterns grouped into sections, pattern suggestions and the AI agent panel">
@@ -17,16 +17,22 @@ Same window layout as [Hosts Manager](https://github.com/gomin2013/hosts-manager
 
 ## Features
 
-- **Visual editor** — add, edit, enable/disable (`#pattern`), search and delete patterns. Every save is atomic
-  and keeps a backup; **Restore Previous** undoes the last save.
+- **Visual editor** — add, edit, enable/disable (`#pattern`), search and delete patterns from the mouse or the
+  keyboard (Space toggles, ⌫ deletes, Return edits). Every save is atomic and keeps a backup.
+- **History** — the last 30 edits, Photoshop-style: click one to go back, pin states to keep (the file as opened
+  is pinned for you), remove the ones you don't need.
 - **Your file stays yours** — comments, blank lines and unknown lines are written back byte-for-byte.
-- **Sections** — blank lines become draggable section breaks with an optional `# heading`; drag anything to reorder.
+- **Sections** — blank lines become draggable section breaks with an optional `# heading` (double-click or Return
+  to rename); drag anything to reorder.
 - **Multiple repositories** — browser-style tabs (drag to reorder, ⌘1…⌘9, ⌃Tab), restored on relaunch.
 - **Pattern Clipboard** — ⌘-click / ⇧-click to select patterns, ⌘C to collect them, paste into another
   repository (only missing ones are added).
 - **Pattern Suggestions** — patterns your other repositories use that this one doesn't, one click to add.
-- **AI Agent (optional)** — chat about your patterns, Quick Messages and ✨ Generate Comment with
-  Apple Foundation Models, Ollama, OpenAI, Gemini or Claude. API keys live in the Keychain.
+- **AI Agent (optional)** — chat about your patterns with live steps, the model's thinking and Markdown answers,
+  plus Generate Comment, with Apple Foundation Models, Ollama, OpenAI, Gemini or Claude. API keys live in the
+  Keychain.
+- **Your look** — Liquid Glass on macOS 26, Sukhumvit Set type, Light / Dark / System, 16 accent colours and
+  8 gradient themes; side panels open one at a time from the icon rail (⌥⌘1…7).
 - **Import / Export** — import any text file including `.gitignore` (merge or replace).
 
 ## Install
@@ -79,7 +85,7 @@ swift scripts/make-icon.swift             # regenerate icons from Packaging/sour
 |---|---|
 | `Sources/Shared` | Models, `.git/info/exclude` parser/serializer, file service, XPC protocol |
 | `Sources/GitExcludeManagerHelper` | User-level LaunchAgent that does the file I/O over XPC |
-| `Sources/GitExcludeManagerApp` | SwiftUI app: views, view models, AI service, en/th strings |
+| `Sources/GitExcludeManagerApp` | SwiftUI app: views, view models, AI service, strings in 12 languages |
 | `Packaging/` | App icon (Icon Composer + `.icns`), mascot, AI source renders |
 
 **Releasing:** bump `CFBundleShortVersionString` in both `Info.plist` files, update `CHANGELOG.md`, then
