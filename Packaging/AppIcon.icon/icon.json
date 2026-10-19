@@ -1,4 +1,4 @@
 {
-  "groups" : [ { "layers" : [ { "image-name" : "panda.png", "name" : "panda" } ] } ],
+  "groups" : [ { "layers" : [ { "image-name" : "icon.png", "name" : "icon" } ] } ],
   "supported-platforms" : { "squares" : "shared" }
 }
