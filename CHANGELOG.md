@@ -1,6 +1,24 @@
 # Changelog
 
-## v1.1.0 — 2026-10-24
+## v1.1.1 — 2026-10-21
+
+Fixes on top of 1.1.0 for anyone updating from an earlier version — everything in 1.1.0 below is included.
+
+### Fixed
+
+- **A repository could load forever after an update** — macOS keeps the helper allowed but may not start the new one
+  until you turn it off and on in Login Items, and nothing ever answered. Requests now give up after 10 s and say
+  where to fix it (System Settings › General › Login Items & Extensions).
+
+### Installation
+
+Download `GitExcludeManager-1.1.1.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
+## v1.1.0 — 2026-10-21
 
 A redesign of the main window — same layout as before (and as [Hosts Manager](https://github.com/gomin2013/hosts-manager)),
 modernised.
