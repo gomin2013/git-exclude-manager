@@ -63,7 +63,7 @@
 "error.fileReadError" = "Hindi nabasa ang exclude file";
 "error.fileWriteError" = "Hindi naisulat ang exclude file";
 "error.invalidRepository" = "Hindi wastong Git repository";
-"error.connectionFailed" = "Nabigo ang koneksyon sa helper service";
+"error.connectionFailed" = "Hindi tumutugon ang helper. Sa System Settings › General › Login Items & Extensions, i-on ang Git Exclude Manager — pagkatapos ng update, i-off at i-on muli.";
 "error.invalidData" = "Di-wastong data ang natanggap";
 "error.unknown" = "May naganap na hindi kilalang error";
 

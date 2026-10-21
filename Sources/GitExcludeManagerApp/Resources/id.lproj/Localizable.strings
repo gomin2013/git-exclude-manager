@@ -63,7 +63,7 @@
 "error.fileReadError" = "Gagal membaca file exclude";
 "error.fileWriteError" = "Gagal menulis file exclude";
 "error.invalidRepository" = "Bukan repositori Git yang valid";
-"error.connectionFailed" = "Koneksi ke layanan helper gagal";
+"error.connectionFailed" = "Helper tidak merespons. Di Pengaturan Sistem › Umum › Item Login & Ekstensi, aktifkan Git Exclude Manager — setelah pembaruan, matikan lalu aktifkan lagi.";
 "error.invalidData" = "Data yang diterima tidak valid";
 "error.unknown" = "Terjadi kesalahan yang tidak diketahui";
 

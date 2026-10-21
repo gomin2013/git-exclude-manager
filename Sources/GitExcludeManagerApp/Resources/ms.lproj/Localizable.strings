@@ -63,7 +63,7 @@
 "error.fileReadError" = "Gagal membaca fail exclude";
 "error.fileWriteError" = "Gagal menulis fail exclude";
 "error.invalidRepository" = "Bukan repositori Git yang sah";
-"error.connectionFailed" = "Sambungan perkhidmatan pembantu gagal";
+"error.connectionFailed" = "Pembantu tidak bertindak balas. Dalam Seting Sistem › Umum › Item Log Masuk & Sambungan, hidupkan Git Exclude Manager — selepas kemas kini, matikan dan hidupkan semula.";
 "error.invalidData" = "Data tidak sah diterima";
 "error.unknown" = "Ralat tidak diketahui berlaku";
 

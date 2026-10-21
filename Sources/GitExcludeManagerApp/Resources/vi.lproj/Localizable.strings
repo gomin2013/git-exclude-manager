@@ -63,7 +63,7 @@
 "error.fileReadError" = "Không thể đọc tệp exclude";
 "error.fileWriteError" = "Không thể ghi tệp exclude";
 "error.invalidRepository" = "Không phải kho lưu trữ Git hợp lệ";
-"error.connectionFailed" = "Kết nối với dịch vụ hỗ trợ không thành công";
+"error.connectionFailed" = "Trình hỗ trợ không phản hồi. Trong Cài đặt hệ thống › Cài đặt chung › Mục đăng nhập & Tiện ích mở rộng, hãy bật Git Exclude Manager — sau khi cập nhật, hãy tắt rồi bật lại.";
 "error.invalidData" = "Nhận được dữ liệu không hợp lệ";
 "error.unknown" = "Đã xảy ra lỗi không xác định";
 

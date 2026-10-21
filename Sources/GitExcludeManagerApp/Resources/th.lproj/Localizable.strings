@@ -63,7 +63,7 @@
 "error.fileReadError" = "ไม่สามารถอ่านไฟล์ exclude";
 "error.fileWriteError" = "ไม่สามารถเขียนไฟล์ exclude";
 "error.invalidRepository" = "ไม่ใช่ที่เก็บ Git ที่ถูกต้อง";
-"error.connectionFailed" = "การเชื่อมต่อบริการตัวช่วยล้มเหลว";
+"error.connectionFailed" = "ตัวช่วยไม่ตอบสนอง ไปที่ System Settings › General › Login Items & Extensions แล้วเปิด Git Exclude Manager ถ้าเพิ่งอัปเดต ให้ปิดแล้วเปิดอีกครั้ง";
 "error.invalidData" = "ได้รับข้อมูลที่ไม่ถูกต้อง";
 "error.unknown" = "เกิดข้อผิดพลาดที่ไม่ทราบสาเหตุ";
 

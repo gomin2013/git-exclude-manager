@@ -63,7 +63,7 @@
 "error.fileReadError" = "Failed to read exclude file";
 "error.fileWriteError" = "Failed to write exclude file";
 "error.invalidRepository" = "Not a valid Git repository";
-"error.connectionFailed" = "Helper service connection failed";
+"error.connectionFailed" = "The helper isn't responding. In System Settings › General › Login Items & Extensions, turn Git Exclude Manager on — after an update, off and on again.";
 "error.invalidData" = "Invalid data received";
 "error.unknown" = "An unknown error occurred";
 

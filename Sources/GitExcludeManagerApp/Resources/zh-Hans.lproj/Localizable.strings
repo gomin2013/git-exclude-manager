@@ -63,7 +63,7 @@
 "error.fileReadError" = "无法读取排除文件";
 "error.fileWriteError" = "无法写入排除文件";
 "error.invalidRepository" = "不是有效的 Git 仓库";
-"error.connectionFailed" = "辅助服务连接失败";
+"error.connectionFailed" = "辅助工具无响应。请在“系统设置 › 通用 › 登录项与扩展”中开启 Git Exclude Manager；如果刚更新过，请先关闭再开启。";
 "error.invalidData" = "收到无效的数据";
 "error.unknown" = "发生未知错误";
 
