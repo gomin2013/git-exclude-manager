@@ -117,6 +117,7 @@
 "settings.model" = "Model";
 "settings.loadModels" = "Muat model";
 "settings.noModels" = "Model tidak ditemukan.";
+"settings.recommended" = "Direkomendasikan";
 "settings.appleNote" = "Berjalan di perangkat dengan Apple Intelligence (macOS 26+). Tidak memerlukan kunci API atau model.";
 "settings.keychainNote" = "Kunci API disimpan di Keychain macOS Anda.";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Bantuan Git Exclude Manager";
 "menu.about" = "Tentang";
 "about.version" = "Versi %@";
+"about.support" = "Dukung di Ko-fi";
 "about.desc" = "Kelola file .git/info/exclude Anda secara visual. Pola hanya diabaikan secara lokal dan tidak pernah di-commit.";
 "about.credit" = "Dibuat dengan Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — Lisensi MIT";
 "help.add.title" = "Tambah Pola";

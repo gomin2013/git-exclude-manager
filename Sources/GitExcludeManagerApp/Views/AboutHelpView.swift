@@ -21,6 +21,9 @@ struct AboutView: View {
                 .foregroundStyle(.secondary)
             Text(localized("about.desc"))
                 .multilineTextAlignment(.center)
+            Link(destination: URL(string: "https://ko-fi.com/gomin2013")!) {
+                Label(localized("about.support"), systemImage: "cup.and.saucer.fill")
+            }
             Text(localized("about.credit"))
                 .font(.caption)
                 .foregroundStyle(.secondary)

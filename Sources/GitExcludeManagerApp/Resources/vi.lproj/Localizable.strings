@@ -117,6 +117,7 @@
 "settings.model" = "Mô hình";
 "settings.loadModels" = "Tải mô hình";
 "settings.noModels" = "Không tìm thấy mô hình nào.";
+"settings.recommended" = "Đề xuất";
 "settings.appleNote" = "Chạy trên thiết bị với Apple Intelligence (macOS 26 trở lên). Không cần khóa API hay mô hình.";
 "settings.keychainNote" = "Khóa API được lưu trong Keychain trên macOS của bạn.";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Trợ giúp Git Exclude Manager";
 "menu.about" = "Giới thiệu";
 "about.version" = "Phiên bản %@";
+"about.support" = "Ủng hộ trên Ko-fi";
 "about.desc" = "Quản lý các tệp .git/info/exclude của bạn một cách trực quan. Các mẫu chỉ được bỏ qua cục bộ và không bao giờ được commit.";
 "about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "Thêm mẫu";

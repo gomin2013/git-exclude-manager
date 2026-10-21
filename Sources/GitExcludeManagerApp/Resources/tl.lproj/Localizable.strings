@@ -117,6 +117,7 @@
 "settings.model" = "Model";
 "settings.loadModels" = "I-load ang mga model";
 "settings.noModels" = "Walang nahanap na model.";
+"settings.recommended" = "Inirerekomenda";
 "settings.appleNote" = "Tumatakbo sa device gamit ang Apple Intelligence (macOS 26+). Hindi kailangan ng API key o model.";
 "settings.keychainNote" = "Ang API key ay iniimbak sa iyong macOS Keychain.";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Tulong sa Git Exclude Manager";
 "menu.about" = "Tungkol";
 "about.version" = "Bersyon %@";
+"about.support" = "Suportahan sa Ko-fi";
 "about.desc" = "Pamahalaan nang biswal ang iyong mga .git/info/exclude file. Lokal lang binabalewala ang mga pattern at hindi kailanman nako-commit.";
 "about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "Magdagdag ng Pattern";

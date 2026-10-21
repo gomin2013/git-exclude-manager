@@ -70,7 +70,6 @@
  "Git Exclude Manager is written in Swift and SwiftUI, covered by more than 110 tests and released under the MIT License. Bug reports, ideas and pull requests are welcome on": "Git Exclude Manager 使用 Swift 和 SwiftUI 编写，有超过 110 个测试覆盖，基于 MIT License 发布。欢迎在以下地址提交 bug 报告、想法和 pull request：",
  "Sibling app": "姊妹应用",
  "Hosts Manager grew out of Git Exclude Manager and edits /etc/hosts the same way. Same window, same sections and drag, same AI Agent. If you use one, you already know the other.": "Hosts Manager 衍生自 Git Exclude Manager，并以同样的方式编辑 /etc/hosts。窗口相同，分组和拖动方式相同，AI 助理也相同。用过其中一个，另一个就已经会用了。",
- "Explore Hosts Manager": "了解 Hosts Manager",
  "Made by Watthajak Jinasam": "由 Watthajak Jinasam 开发",
  "Built so local files stop showing up in git status. The little glass robot shows a hidden eye on its visor: out of sight, still on disk.": "为了让本地文件不再出现在 git status 中而生。小小的玻璃机器人面罩上有一只隐藏的眼睛：看不见，但仍在磁盘上。",
  "Download Git Exclude Manager": "下载 Git Exclude Manager",

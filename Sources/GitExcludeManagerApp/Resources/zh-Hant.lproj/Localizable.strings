@@ -117,6 +117,7 @@
 "settings.model" = "模型";
 "settings.loadModels" = "載入模型";
 "settings.noModels" = "找不到模型。";
+"settings.recommended" = "推薦";
 "settings.appleNote" = "透過 Apple Intelligence 在裝置上執行（macOS 26 以上）。不需要 API 金鑰或模型。";
 "settings.keychainNote" = "API 金鑰會儲存在你的 macOS 鑰匙圈中。";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Manager 輔助說明";
 "menu.about" = "關於";
 "about.version" = "版本 %@";
+"about.support" = "在 Ko-fi 上支持";
 "about.desc" = "以視覺化方式管理你的 .git/info/exclude 檔案。模式只會在本機被忽略，且不會被提交。";
 "about.credit" = "使用 Swift + SwiftUI 打造 · macOS 14 以上\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "加入模式";

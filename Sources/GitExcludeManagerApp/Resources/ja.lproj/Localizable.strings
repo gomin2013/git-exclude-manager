@@ -117,6 +117,7 @@
 "settings.model" = "モデル";
 "settings.loadModels" = "モデルを読み込む";
 "settings.noModels" = "モデルが見つかりません。";
+"settings.recommended" = "おすすめ";
 "settings.appleNote" = "Apple Intelligenceを使用してデバイス上で実行されます(macOS 26以降)。APIキーやモデルは不要です。";
 "settings.keychainNote" = "APIキーはmacOSのキーチェーンに保存されます。";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Managerヘルプ";
 "menu.about" = "このアプリについて";
 "about.version" = "バージョン%@";
+"about.support" = "Ko-fiで支援する";
 "about.desc" = ".git/info/excludeファイルを視覚的に管理します。パターンはローカルでのみ無視され、コミットされることはありません。";
 "about.credit" = "Swift + SwiftUIで開発 · macOS 14以降\n© 2026 Watthajak Jinasam — MITライセンス";
 "help.add.title" = "パターンを追加する";

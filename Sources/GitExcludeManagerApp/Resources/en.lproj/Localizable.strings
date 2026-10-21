@@ -117,6 +117,7 @@
 "settings.model" = "Model";
 "settings.loadModels" = "Load models";
 "settings.noModels" = "No models found.";
+"settings.recommended" = "Recommended";
 "settings.appleNote" = "Runs on-device with Apple Intelligence (macOS 26+). No API key or model needed.";
 "settings.keychainNote" = "The API key is stored in your macOS Keychain.";
 
@@ -129,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Manager Help";
 "menu.about" = "About";
 "about.version" = "Version %@";
+"about.support" = "Support on Ko-fi";
 "about.desc" = "Manage your .git/info/exclude files visually. Patterns are ignored locally only and never committed.";
 "about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "Add a Pattern";
