@@ -8,12 +8,14 @@ A native macOS app for editing **`.git/info/exclude`** — the per-clone ignore 
 Keep your editor folders, local notes and secrets out of `git status` without touching the team's `.gitignore`.
 In 12 languages.
 
+**Website & download:** [gomin2013.github.io/git-exclude-manager](https://gomin2013.github.io/git-exclude-manager/)
+
 <p align="center">
   <img src="docs/images/screenshot.png" alt="Git Exclude Manager: patterns grouped into sections, pattern suggestions and the AI agent panel">
 </p>
 
 Same window layout as [Hosts Manager](https://github.com/gomin2013/hosts-manager) — a sibling app for editing
-`/etc/hosts` ([website](https://gomin2013.github.io/hosts-manager/)). If you use one, you already know the other.
+`/etc/hosts`. If you use one, you already know the other.
 
 ## Features
 
