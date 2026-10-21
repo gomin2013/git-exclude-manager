@@ -28,7 +28,11 @@ enum AIProvider: String, CaseIterable, Identifiable, Sendable {
 struct ChatTurn: Equatable, Sendable {
     enum Role: String, Sendable { case user, assistant }
     let role: Role
-    let text: String
+    var text: String
+    /// Assistant only: reasoning the provider streamed (display only — never sent back).
+    var thinking = ""
+    /// Assistant only: how long the reply took, once it finished.
+    var seconds: Int?
 }
 
 enum AIError: LocalizedError, Equatable {
@@ -288,12 +292,15 @@ enum AIService {
             guard SystemLanguageModel.default.isAvailable else {
                 throw AIError.unavailable("Apple Intelligence is not available or not enabled on this Mac.")
             }
-            // ponytail: history folded into one prompt; keep a LanguageModelSession per chat if context matters
-            let prompt = turns.map { "\($0.role.rawValue): \($0.text)" }.joined(separator: "\n\n")
             let session = LanguageModelSession(instructions: system)
-            return try await session.respond(to: prompt).content
+            return try await session.respond(to: foldedPrompt(turns)).content
         }
         #endif
         throw AIError.unavailable("Apple Foundation Models needs macOS 26 or later.")
+    }
+
+    // ponytail: history folded into one prompt; keep a LanguageModelSession per chat if context matters
+    static func foldedPrompt(_ turns: [ChatTurn]) -> String {
+        turns.map { "\($0.role.rawValue): \($0.text)" }.joined(separator: "\n\n")
     }
 }

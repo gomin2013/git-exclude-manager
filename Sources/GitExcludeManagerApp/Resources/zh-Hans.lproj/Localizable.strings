@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "添加";
+"btn.edit" = "编辑";
+"btn.delete" = "删除";
+"btn.cancel" = "取消";
+"btn.save" = "存储";
+"btn.browse" = "浏览...";
+"btn.export" = "导出";
+"btn.import" = "导入";
+"btn.quit" = "退出";
+"btn.settings" = "设置";
+"btn.ok" = "好";
+"btn.remove" = "移除";
+"btn.send" = "发送";
+"btn.copy" = "拷贝";
+"btn.close" = "关闭";
+"btn.previewRaw" = "预览原始内容";
+"btn.openRepo" = "打开仓库";
+"btn.generateComment" = "生成注释";
+"btn.restore" = "恢复上一版本";
+"btn.merge" = "合并";
+"btn.replace" = "替换";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "输入忽略规则（例如 *.log）";
+"placeholder.comment" = "注释（可选）";
+"placeholder.search" = "搜索规则...";
+"placeholder.repositoryPath" = "选择 Git 仓库";
+
+/* MARK: - Labels */
+"label.pattern" = "规则";
+"label.comment" = "注释";
+"label.repository" = "仓库";
+"label.status" = "状态";
+"label.enabled" = "已启用";
+"label.disabled" = "已停用";
+"label.aiGenerating" = "正在生成注释...";
+"label.recentRepos" = "最近使用的仓库";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "暂无规则";
+"message.noPatterns" = "暂无规则";
+"status.patternsCount" = "%d 条规则（%d 条已启用）";
+"status.exported" = "已导出 %@ — 在 Finder 中显示";
+"status.noRepository" = "未选择仓库";
+"status.selectRepository" = "选择一个仓库以开始";
+"status.connected" = "已连接";
+"status.disconnected" = "已断开连接";
+"ai.notConfigured" = "未设置";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "确定要删除此规则吗？";
+"dialog.deleteTitle" = "删除规则";
+"dialog.importConfirm" = "找到 %d 条规则。“合并”仅添加新规则；“替换”会覆盖当前所有规则。";
+"dialog.importTitle" = "导入规则";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "规则不能为空";
+"error.patternTooLong" = "规则不能超过 250 个字符";
+"error.noRepository" = "请先选择 Git 仓库";
+"error.fileNotFound" = "在仓库中未找到排除文件";
+"error.permissionDenied" = "权限被拒绝。请检查文件权限。";
+"error.fileReadError" = "无法读取排除文件";
+"error.fileWriteError" = "无法写入排除文件";
+"error.invalidRepository" = "不是有效的 Git 仓库";
+"error.connectionFailed" = "辅助服务连接失败";
+"error.invalidData" = "收到无效的数据";
+"error.unknown" = "发生未知错误";
+
+/* MARK: - Menu Items */
+"menu.edit" = "编辑";
+"menu.delete" = "删除";
+"menu.removeRecent" = "从最近使用中移除";
+"menu.language" = "语言";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "编辑规则";
+"window.addTitle" = "添加规则";
+
+/* MARK: - Hints */
+"hint.generateComment" = "建议一条注释 — 设置 AI 后使用 AI，仅发送此规则";
+"hint.restore" = "还原到上次存储之前的版本。再次点按可撤销恢复。";
+"hint.generateCommentField" = "在上方输入规则，然后点按 ✨ 生成注释以自动填写";
+"hint.mock" = "原型：添加/编辑/删除/开关仅为模拟。";
+"hint.reorder" = "拖移行即可重新排序（搜索时不可用）。";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "打开仓库";
+"openRepo.noRecent" = "没有最近打开的仓库。";
+
+/* MARK: - Raw Preview */
+"raw.title" = "原始文件预览";
+"raw.copied" = "已拷贝！";
+
+/* MARK: - Chat */
+"chat.title" = "AI 助理";
+"chat.placeholder" = "询问 AI...";
+"chat.welcome" = "👋 你好！我是你的 AI 助手。可以向我询问有关 gitignore 规则的问题。";
+"chat.noApiKey" = "⚠️ 请先在设置中配置 AI API。";
+"chat.intro" = "询问有关此仓库忽略规则的问题。每次提问时，你的排除文件会一并发送。";
+"chat.tryAsking" = "试着问问";
+"chat.setUp" = "设置 AI 提供方…";
+"chat.step.attached" = "已附上 .git/info/exclude · %ld 行";
+"chat.step.waiting" = "正在等待 %@";
+"chat.step.thinking" = "正在思考";
+"chat.step.writing" = "正在撰写回答";
+"chat.thought" = "思考了 %ld 秒";
+"chat.seconds" = "%ld 秒";
+"btn.stop" = "停止";
+
+/* MARK: - Settings */
+"settings.title" = "AI API 设置";
+"settings.provider" = "提供方";
+"settings.apiKey" = "API 密钥";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "模型";
+"settings.loadModels" = "载入模型";
+"settings.noModels" = "未找到模型。";
+"settings.appleNote" = "通过 Apple Intelligence 在设备上运行 (macOS 26+)。无需 API 密钥或模型。";
+"settings.keychainNote" = "API 密钥存储在你的 macOS 钥匙串中。";
+
+/* MARK: - Navigation */
+"nav.back" = "仓库";
+
+/* About & Help */
+"menu.help" = "帮助";
+"link.website" = "网站";
+"menu.helpWindow" = "Git Exclude Manager 帮助";
+"menu.about" = "关于";
+"about.version" = "版本 %@";
+"about.desc" = "以可视化方式管理你的 .git/info/exclude 文件。规则仅在本地忽略，绝不会被提交。";
+"about.credit" = "使用 Swift + SwiftUI 构建 · macOS 14+\n© 2026 Watthajak Jinasam — MIT 许可证";
+"help.add.title" = "添加规则";
+"help.add.desc" = "点按“添加”(⌘N) 以创建新的忽略规则。支持 glob 语法，例如 *.log 或 build/。";
+"help.toggle.title" = "启用 / 停用";
+"help.toggle.desc" = "点按某行上的圆圈即可停用规则而无需删除。它会存储为 #pattern。";
+"help.reorder.title" = "重新排序规则";
+"help.reorder.desc" = "拖移某行即可重新排序。搜索时无法拖移。";
+"help.import.title" = "导入";
+"help.import.desc" = "可导入任意文本文件，包括 .gitignore。“合并”仅添加新规则；“替换”会全部覆盖。";
+"help.history.title" = "历史记录";
+"help.history.desc" = "每次编辑都会列在历史记录中（最近 30 条）。点按某一条即可返回到该状态，或点按其废纸篓以移除；固定你想保留的状态 — 打开时的文件已为你固定。“仓库 › 恢复上一版本”仍会通过备份 (exclude.bak) 还原上次存储。";
+"help.preview.title" = "预览原始内容";
+"help.preview.desc" = "查看将写入 .git/info/exclude 的确切内容，包括你的注释行。";
+
+/* Sections */
+"btn.addSection" = "分区";
+"section.placeholder" = "添加标题…";
+"hint.addSection" = "添加空行分区分隔。将其拖到合适位置并输入标题（存储为 # 标题）。";
+"hint.dragSection" = "拖移以移动此分区";
+"hint.renameSection" = "双击或按下 Return 键以重命名";
+"help.sections.title" = "分区";
+"help.sections.desc" = "点按“分区”添加空行分隔，将其拖到一组规则上方并输入标题，以便整理这些规则。注释行也可以拖移。";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "规则建议";
+"suggest.empty" = "暂无建议。你其他最近使用的仓库中有而此仓库没有的规则将显示在这里。";
+"suggest.from" = "来自 %@";
+"suggest.add" = "添加此规则";
+"quick.suggest" = "建议此仓库应忽略的规则";
+"quick.explain" = "解释我当前的规则有什么作用";
+"quick.redundant" = "我的规则中是否有冗余或重叠的？";
+"quick.exceptOne" = "如何忽略一个文件夹但保留其中一个文件？";
+"quick.organize" = "将我的规则按分区和标题分组";
+
+/* Appearance */
+"menu.appearance" = "外观";
+"theme.system" = "系统";
+"theme.light" = "浅色";
+"theme.dark" = "深色";
+
+/* Collapsible panels */
+"a11y.collapsed" = "已折叠";
+"a11y.expanded" = "已展开";
+"a11y.toggleHint" = "显示或隐藏此面板";
+
+/* Help: helpers */
+"help.tabs.title" = "仓库与标签页";
+"help.tabs.desc" = "点按 + 可将更多仓库作为标签页打开。拖移标签页即可重新排序；已打开的标签页会在下次启动时恢复。使用 ✕ 可从“打开仓库”列表中移除旧条目。";
+"help.suggestions.title" = "规则建议";
+"help.suggestions.desc" = "你其他最近使用的仓库中有而此仓库没有的规则。点按 ⊕ 即可添加。使用面板的箭头可将其折叠。";
+"help.ai.title" = "AI 助理";
+"help.ai.desc" = "询问有关你的规则的问题，或点按“快捷消息”。点按模型名称可切换模型，点按 ⚙ 可更改提供方。✨ 生成注释使用同一模型。";
+
+/* Menu bar */
+"menu.repository" = "仓库";
+"menu.nextTab" = "显示下一个标签页";
+"menu.previousTab" = "显示上一个标签页";
+"menu.newSection" = "新建分区";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@”不是 Git 仓库。请拖入包含 .git 目录的文件夹。";
+"error.title" = "无法打开仓库";
+"hint.dropRepository" = "松开以打开仓库";
+
+/* Pattern Clipboard */
+"clipboard.title" = "规则剪贴板";
+"clipboard.empty" = "选择规则（按住 ⌘ 点按 / 按住 ⇧ 点按）并按 ⌘C 将其收集到此处，然后切换仓库并粘贴。";
+"clipboard.pasteAll" = "全部粘贴到此仓库";
+"clipboard.paste" = "粘贴到此仓库";
+"clipboard.remove" = "从剪贴板中移除";
+"clipboard.clear" = "清除剪贴板";
+"menu.copyToClipboard" = "拷贝到规则剪贴板";
+"help.clipboard.title" = "规则剪贴板";
+"help.clipboard.desc" = "按住 ⌘ 点按或按住 ⇧ 点按可选择多条规则，按 ⌘C 收集它们（可来自任意仓库），然后粘贴到另一个仓库 — 仅添加缺少的规则。⌘V 也可粘贴从任何位置拷贝的规则行。";
+
+/* History panel */
+"history.title" = "历史记录";
+"history.opened" = "打开时";
+"history.add" = "添加 %@";
+"history.edit" = "编辑 %@";
+"history.delete" = "删除 %@";
+"history.turnOn" = "开启 %@";
+"history.turnOff" = "关闭 %@";
+"history.addSection" = "添加分区";
+"history.rename" = "将分区重命名为 %@";
+"history.untitledSection" = "未命名分区";
+"history.move" = "重新排序";
+"history.paste" = "粘贴 %ld 条规则";
+"history.import" = "导入 %ld 条规则";
+"history.restore" = "恢复“%@”";
+"history.pinned" = "已固定";
+"history.recent" = "最近";
+"history.pin" = "固定";
+"history.unpin" = "取消固定";
+"history.pinCurrent" = "固定当前状态";
+"history.hint" = "点按某个状态即可返回到该状态。你的下一次编辑会替换灰显的状态。";
+
+/* v1.1 main window */
+"label.gitHeader" = "Git 默认标头";
+"empty.noRepo.desc" = "选择一个 Git 仓库，或将其文件夹拖到此处。";
+"empty.noPatterns.desc" = "此处的规则仅在这个克隆中隐藏文件 — 团队成员永远不会看到。";
+"btn.clear" = "清除";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "强调色";
+"theme.gradient" = "渐变主题";
+"theme.noGradient" = "无渐变";
+"accent.system" = "系统";
+"accent.followSystem" = "系统（跟随 macOS）";
+"btn.hide" = "隐藏";
+"a11y.hidePanel" = "隐藏%@";
+"accent.red" = "红色";
+"accent.orange" = "橙色";
+"accent.amber" = "琥珀色";
+"accent.olive" = "橄榄色";
+"accent.lime" = "青柠色";
+"accent.green" = "绿色";
+"accent.emerald" = "祖母绿";
+"accent.teal" = "青绿色";
+"accent.cyan" = "青色";
+"accent.blue" = "蓝色";
+"accent.indigo" = "靛蓝色";
+"accent.violet" = "紫罗兰色";
+"accent.purple" = "紫色";
+"accent.magenta" = "洋红色";
+"accent.pink" = "粉色";
+"accent.graphite" = "石墨色";
+"gradient.none" = "无";
+"gradient.ocean" = "海洋";
+"gradient.ember" = "余烬";
+"gradient.lavender" = "薰衣草";
+"gradient.watermelon" = "西瓜";
+"gradient.lagoon" = "潟湖";
+"gradient.meadow" = "草地";
+"gradient.dusk" = "黄昏";
+"gradient.peach" = "蜜桃";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "从历史记录中移除";
+"language.search" = "搜索语言";
+"language.noResults" = "没有与“%@”匹配的语言";

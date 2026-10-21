@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Добавить";
+"btn.edit" = "Изменить";
+"btn.delete" = "Удалить";
+"btn.cancel" = "Отменить";
+"btn.save" = "Сохранить";
+"btn.browse" = "Обзор...";
+"btn.export" = "Экспортировать";
+"btn.import" = "Импортировать";
+"btn.quit" = "Завершить";
+"btn.settings" = "Настройки";
+"btn.ok" = "OK";
+"btn.remove" = "Удалить";
+"btn.send" = "Отправить";
+"btn.copy" = "Скопировать";
+"btn.close" = "Закрыть";
+"btn.previewRaw" = "Показать исходный текст";
+"btn.openRepo" = "Открыть репозиторий";
+"btn.generateComment" = "Создать комментарий";
+"btn.restore" = "Восстановить предыдущую";
+"btn.merge" = "Объединить";
+"btn.replace" = "Заменить";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Введите шаблон игнорирования (например, *.log)";
+"placeholder.comment" = "Комментарий (необязательно)";
+"placeholder.search" = "Поиск шаблонов...";
+"placeholder.repositoryPath" = "Выберите репозиторий Git";
+
+/* MARK: - Labels */
+"label.pattern" = "Шаблон";
+"label.comment" = "Комментарий";
+"label.repository" = "Репозиторий";
+"label.status" = "Статус";
+"label.enabled" = "Включён";
+"label.disabled" = "Выключен";
+"label.aiGenerating" = "Создание комментария...";
+"label.recentRepos" = "Недавние репозитории";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Шаблонов пока нет";
+"message.noPatterns" = "Шаблонов пока нет";
+"status.patternsCount" = "Шаблонов: %d (включено: %d)";
+"status.exported" = "Экспортировано: %@ — показать в Finder";
+"status.noRepository" = "Репозиторий не выбран";
+"status.selectRepository" = "Выберите репозиторий, чтобы начать";
+"status.connected" = "Подключено";
+"status.disconnected" = "Отключено";
+"ai.notConfigured" = "Не задано";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Удалить этот шаблон?";
+"dialog.deleteTitle" = "Удаление шаблона";
+"dialog.importConfirm" = "Найдено шаблонов: %d. «Объединить» добавит только новые, «Заменить» перезапишет все текущие шаблоны.";
+"dialog.importTitle" = "Импорт шаблонов";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Шаблон не может быть пустым";
+"error.patternTooLong" = "Шаблон должен содержать не более 250 символов";
+"error.noRepository" = "Сначала выберите репозиторий Git";
+"error.fileNotFound" = "Файл исключений не найден в репозитории";
+"error.permissionDenied" = "Доступ запрещён. Проверьте права доступа к файлу.";
+"error.fileReadError" = "Не удалось прочитать файл исключений";
+"error.fileWriteError" = "Не удалось записать файл исключений";
+"error.invalidRepository" = "Это не репозиторий Git";
+"error.connectionFailed" = "Не удалось подключиться к службе-помощнику";
+"error.invalidData" = "Получены недопустимые данные";
+"error.unknown" = "Произошла неизвестная ошибка";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Изменить";
+"menu.delete" = "Удалить";
+"menu.removeRecent" = "Удалить из недавних";
+"menu.language" = "Язык";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Изменение шаблона";
+"window.addTitle" = "Новый шаблон";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Предложить комментарий — если настроен ИИ, отправляется только этот шаблон";
+"hint.restore" = "Вернуться к версии до последнего сохранения. Нажмите ещё раз, чтобы отменить восстановление.";
+"hint.generateCommentField" = "Введите шаблон выше, затем нажмите ✨ «Создать комментарий» для автозаполнения";
+"hint.mock" = "Прототип: «Добавить», «Изменить», «Удалить» и переключение работают только как макет.";
+"hint.reorder" = "Перетаскивайте строки, чтобы изменить порядок (отключено во время поиска).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Открыть репозиторий";
+"openRepo.noRecent" = "Нет недавно открытых репозиториев.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Исходный текст файла";
+"raw.copied" = "Скопировано!";
+
+/* MARK: - Chat */
+"chat.title" = "ИИ-агент";
+"chat.placeholder" = "Спросите ИИ...";
+"chat.welcome" = "👋 Привет! Я ваш ИИ-ассистент. Спрашивайте о шаблонах gitignore.";
+"chat.noApiKey" = "⚠️ Сначала настройте API ИИ в настройках.";
+"chat.intro" = "Спрашивайте о шаблонах игнорирования этого репозитория. Файл исключений отправляется вместе с каждым вопросом.";
+"chat.tryAsking" = "Попробуйте спросить";
+"chat.setUp" = "Настроить провайдера ИИ…";
+"chat.step.attached" = "Прикреплён .git/info/exclude · строк: %ld";
+"chat.step.waiting" = "Ожидание: %@";
+"chat.step.thinking" = "Размышление";
+"chat.step.writing" = "Подготовка ответа";
+"chat.thought" = "Размышление: %ld с";
+"chat.seconds" = "%ld с";
+"btn.stop" = "Остановить";
+
+/* MARK: - Settings */
+"settings.title" = "Настройки API ИИ";
+"settings.provider" = "Провайдер";
+"settings.apiKey" = "Ключ API";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Модель";
+"settings.loadModels" = "Загрузить модели";
+"settings.noModels" = "Модели не найдены.";
+"settings.appleNote" = "Работает на устройстве с Apple Intelligence (macOS 26+). Ключ API и модель не нужны.";
+"settings.keychainNote" = "Ключ API хранится в вашей Связке ключей macOS.";
+
+/* MARK: - Navigation */
+"nav.back" = "Репозитории";
+
+/* About & Help */
+"menu.help" = "Справка";
+"link.website" = "Сайт";
+"menu.helpWindow" = "Справка Git Exclude Manager";
+"menu.about" = "О приложении";
+"about.version" = "Версия %@";
+"about.desc" = "Наглядное управление файлами .git/info/exclude. Шаблоны действуют только локально и никогда не попадают в коммиты.";
+"about.credit" = "Создано на Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — лицензия MIT";
+"help.add.title" = "Добавление шаблона";
+"help.add.desc" = "Нажмите «Добавить» (⌘N), чтобы создать новый шаблон игнорирования. Поддерживается синтаксис glob, например *.log или build/.";
+"help.toggle.title" = "Включение и выключение";
+"help.toggle.desc" = "Нажмите кружок в строке, чтобы выключить шаблон, не удаляя его. Он сохранится как #шаблон.";
+"help.reorder.title" = "Порядок шаблонов";
+"help.reorder.desc" = "Перетащите строку, чтобы изменить порядок. Во время поиска перетаскивание отключено.";
+"help.import.title" = "Импорт";
+"help.import.desc" = "Импортируйте любой текстовый файл, включая .gitignore. «Объединить» добавляет только новые шаблоны, «Заменить» перезаписывает все.";
+"help.history.title" = "История";
+"help.history.desc" = "Каждое изменение отображается в истории (последние 30). Нажмите запись, чтобы вернуться к ней, или нажмите корзину рядом с ней, чтобы удалить её; закрепляйте состояния, которые хотите сохранить — файл на момент открытия закреплён автоматически. Репозиторий › «Восстановить предыдущую» по-прежнему возвращает последнее сохранение из резервной копии (exclude.bak).";
+"help.preview.title" = "Исходный текст";
+"help.preview.desc" = "Посмотрите, что именно будет записано в .git/info/exclude, включая строки с комментариями.";
+
+/* Sections */
+"btn.addSection" = "Раздел";
+"section.placeholder" = "Добавьте заголовок…";
+"hint.addSection" = "Добавить разрыв раздела в виде пустой строки. Перетащите его на место и введите заголовок (сохраняется как # заголовок).";
+"hint.dragSection" = "Перетащите, чтобы переместить этот раздел";
+"hint.renameSection" = "Дважды нажмите или нажмите Return, чтобы переименовать";
+"help.sections.title" = "Разделы";
+"help.sections.desc" = "Нажмите «Раздел», чтобы добавить разрыв в виде пустой строки, перетащите его над группой шаблонов и введите заголовок, чтобы упорядочить их. Строки комментариев тоже можно перетаскивать.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Предложения шаблонов";
+"suggest.empty" = "Предложений пока нет. Здесь появятся шаблоны из ваших других недавних репозиториев, которых нет в этом.";
+"suggest.from" = "из %@";
+"suggest.add" = "Добавить этот шаблон";
+"quick.suggest" = "Предложи шаблоны, которые этому репозиторию стоит игнорировать";
+"quick.explain" = "Объясни, что делают мои текущие шаблоны";
+"quick.redundant" = "Есть ли среди моих шаблонов лишние или пересекающиеся?";
+"quick.exceptOne" = "Как игнорировать папку, кроме одного файла?";
+"quick.organize" = "Сгруппируй мои шаблоны по разделам с заголовками";
+
+/* Appearance */
+"menu.appearance" = "Оформление";
+"theme.system" = "Системное";
+"theme.light" = "Светлое";
+"theme.dark" = "Тёмное";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Свёрнуто";
+"a11y.expanded" = "Развёрнуто";
+"a11y.toggleHint" = "Показывает или скрывает эту панель";
+
+/* Help: helpers */
+"help.tabs.title" = "Репозитории и вкладки";
+"help.tabs.desc" = "Нажмите +, чтобы открыть ещё репозитории во вкладках. Перетащите вкладку, чтобы изменить порядок; открытые вкладки восстанавливаются при следующем запуске. Удаляйте старые записи из списка «Открыть репозиторий» кнопкой ✕.";
+"help.suggestions.title" = "Предложения шаблонов";
+"help.suggestions.desc" = "Шаблоны, которые используют ваши другие недавние репозитории, а этот — нет. Нажмите ⊕, чтобы добавить шаблон. Панель сворачивается стрелкой.";
+"help.ai.title" = "ИИ-агент";
+"help.ai.desc" = "Спрашивайте о ваших шаблонах или выберите быстрое сообщение. Нажмите имя модели, чтобы сменить модель, ⚙ — чтобы сменить провайдера. ✨ «Создать комментарий» использует ту же модель.";
+
+/* Menu bar */
+"menu.repository" = "Репозиторий";
+"menu.nextTab" = "Показать следующую вкладку";
+"menu.previousTab" = "Показать предыдущую вкладку";
+"menu.newSection" = "Новый раздел";
+
+/* Drag & drop repositories */
+"error.notRepository" = "«%@» не является репозиторием Git. Перетащите папку, содержащую каталог .git.";
+"error.title" = "Не удалось открыть репозиторий";
+"hint.dropRepository" = "Отпустите, чтобы открыть репозиторий";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Буфер шаблонов";
+"clipboard.empty" = "Выберите шаблоны (нажатие с ⌘ или ⇧) и нажмите ⌘C, чтобы собрать их здесь, затем переключите репозиторий и вставьте.";
+"clipboard.pasteAll" = "Вставить все в этот репозиторий";
+"clipboard.paste" = "Вставить в этот репозиторий";
+"clipboard.remove" = "Удалить из буфера";
+"clipboard.clear" = "Очистить буфер";
+"menu.copyToClipboard" = "Скопировать в буфер шаблонов";
+"help.clipboard.title" = "Буфер шаблонов";
+"help.clipboard.desc" = "Нажмите с ⌘ или ⇧, чтобы выбрать несколько шаблонов, ⌘C — чтобы собрать их (из любого репозитория), затем вставьте в другой репозиторий — добавляются только отсутствующие шаблоны. ⌘V также вставляет строки шаблонов, скопированные откуда угодно.";
+
+/* History panel */
+"history.title" = "История";
+"history.opened" = "Открыто";
+"history.add" = "Добавить %@";
+"history.edit" = "Изменить %@";
+"history.delete" = "Удалить %@";
+"history.turnOn" = "Включить %@";
+"history.turnOff" = "Выключить %@";
+"history.addSection" = "Добавить раздел";
+"history.rename" = "Переименовать раздел в %@";
+"history.untitledSection" = "раздел без названия";
+"history.move" = "Изменить порядок";
+"history.paste" = "Вставить шаблонов: %ld";
+"history.import" = "Импортировать шаблонов: %ld";
+"history.restore" = "Восстановить «%@»";
+"history.pinned" = "Закреплённые";
+"history.recent" = "Недавние";
+"history.pin" = "Закрепить";
+"history.unpin" = "Открепить";
+"history.pinCurrent" = "Закрепить текущее состояние";
+"history.hint" = "Нажмите состояние, чтобы вернуться к нему. Следующее изменение заменит затемнённые состояния.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Стандартный заголовок Git";
+"empty.noRepo.desc" = "Выберите репозиторий Git или перетащите сюда его папку.";
+"empty.noPatterns.desc" = "Шаблоны здесь скрывают файлы только в этом клоне — коллеги их не увидят.";
+"btn.clear" = "Очистить";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Цвет выделения";
+"theme.gradient" = "Градиентная тема";
+"theme.noGradient" = "Без градиента";
+"accent.system" = "Системный";
+"accent.followSystem" = "Системный (как в macOS)";
+"btn.hide" = "Скрыть";
+"a11y.hidePanel" = "Скрыть: %@";
+"accent.red" = "Красный";
+"accent.orange" = "Оранжевый";
+"accent.amber" = "Янтарный";
+"accent.olive" = "Оливковый";
+"accent.lime" = "Лаймовый";
+"accent.green" = "Зелёный";
+"accent.emerald" = "Изумрудный";
+"accent.teal" = "Бирюзовый";
+"accent.cyan" = "Голубой";
+"accent.blue" = "Синий";
+"accent.indigo" = "Индиго";
+"accent.violet" = "Фиолетовый";
+"accent.purple" = "Пурпурный";
+"accent.magenta" = "Маджента";
+"accent.pink" = "Розовый";
+"accent.graphite" = "Графитовый";
+"gradient.none" = "Нет";
+"gradient.ocean" = "Океан";
+"gradient.ember" = "Угли";
+"gradient.lavender" = "Лаванда";
+"gradient.watermelon" = "Арбуз";
+"gradient.lagoon" = "Лагуна";
+"gradient.meadow" = "Луг";
+"gradient.dusk" = "Сумерки";
+"gradient.peach" = "Персик";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Удалить из истории";
+"language.search" = "Поиск языков";
+"language.noResults" = "Нет языков, соответствующих «%@»";

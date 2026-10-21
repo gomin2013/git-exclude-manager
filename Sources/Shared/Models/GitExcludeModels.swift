@@ -61,19 +61,19 @@ public struct GitExcludePattern: Identifiable, Codable, Hashable, Sendable {
     /// The line(s) this item occupies in `.git/info/exclude`.
     public var linesInFile: [String] {
         switch kind {
-        case .pattern: return [lineInFile]
+        case .pattern:
+            // Git has no end-of-line comments (`pattern # note` is one pattern), so the comment gets its own `##` line
+            // above — `##`, not `#`, so it never reads back as a section heading or a disabled pattern.
+            guard let comment, !comment.isEmpty else { return [lineInFile] }
+            return ["## " + comment.replacingOccurrences(of: "\n", with: " "), lineInFile]
         case .section: return pattern.isEmpty ? [""] : ["", "# " + pattern]
         case .comment: return pattern.components(separatedBy: "\n")
         }
     }
 
-    /// Returns the full line as it appears in `.git/info/exclude` (pattern items)
+    /// The pattern's own line in `.git/info/exclude`, without its `##` comment line.
     public var lineInFile: String {
-        let line = isEnabled ? pattern : "#" + pattern  // no space: `# text` is read back as a plain comment
-        if let comment = comment, !comment.isEmpty {
-            return line + " # " + comment
-        }
-        return line
+        isEnabled ? pattern : "#" + pattern  // no space: `# text` is read back as a plain comment
     }
 
     /// Indicates if this pattern is valid (non-empty)

@@ -1,0 +1,273 @@
+/* MARK: - Buttons */
+"btn.add" = "Thêm";
+"btn.edit" = "Sửa";
+"btn.delete" = "Xóa";
+"btn.cancel" = "Hủy";
+"btn.save" = "Lưu";
+"btn.browse" = "Chọn...";
+"btn.export" = "Xuất";
+"btn.import" = "Nhập";
+"btn.quit" = "Thoát";
+"btn.settings" = "Cài đặt";
+"btn.ok" = "OK";
+"btn.remove" = "Gỡ bỏ";
+"btn.send" = "Gửi";
+"btn.copy" = "Sao chép";
+"btn.close" = "Đóng";
+"btn.previewRaw" = "Xem trước bản gốc";
+"btn.openRepo" = "Mở kho lưu trữ";
+"btn.generateComment" = "Tạo chú thích";
+"btn.restore" = "Khôi phục bản trước";
+"btn.merge" = "Hợp nhất";
+"btn.replace" = "Thay thế";
+
+/* MARK: - Placeholders */
+"placeholder.pattern" = "Nhập mẫu bỏ qua (ví dụ: *.log)";
+"placeholder.comment" = "Chú thích (tùy chọn)";
+"placeholder.search" = "Tìm mẫu...";
+"placeholder.repositoryPath" = "Chọn một kho lưu trữ Git";
+
+/* MARK: - Labels */
+"label.pattern" = "Mẫu";
+"label.comment" = "Chú thích";
+"label.repository" = "Kho lưu trữ";
+"label.status" = "Trạng thái";
+"label.enabled" = "Đã bật";
+"label.disabled" = "Đã tắt";
+"label.aiGenerating" = "Đang tạo chú thích...";
+"label.recentRepos" = "Kho lưu trữ gần đây";
+
+/* MARK: - Status & Messages */
+"status.noPatterns" = "Chưa có mẫu nào";
+"message.noPatterns" = "Chưa có mẫu nào";
+"status.patternsCount" = "%d mẫu (%d đã bật)";
+"status.exported" = "Đã xuất %@ — hiển thị trong Finder";
+"status.noRepository" = "Chưa chọn kho lưu trữ";
+"status.selectRepository" = "Chọn một kho lưu trữ để bắt đầu";
+"status.connected" = "Đã kết nối";
+"status.disconnected" = "Đã ngắt kết nối";
+"ai.notConfigured" = "Chưa đặt";
+
+/* MARK: - Dialogs */
+"dialog.deleteConfirm" = "Bạn có chắc muốn xóa mẫu này không?";
+"dialog.deleteTitle" = "Xóa mẫu";
+"dialog.importConfirm" = "Tìm thấy %d mẫu. Hợp nhất chỉ thêm các mẫu mới; Thay thế sẽ ghi đè toàn bộ mẫu hiện tại.";
+"dialog.importTitle" = "Nhập mẫu";
+
+/* MARK: - Errors */
+"error.invalidPattern" = "Mẫu không được để trống";
+"error.patternTooLong" = "Mẫu không được dài quá 250 ký tự";
+"error.noRepository" = "Vui lòng chọn một kho lưu trữ Git trước";
+"error.fileNotFound" = "Không tìm thấy tệp exclude trong kho lưu trữ";
+"error.permissionDenied" = "Quyền truy cập bị từ chối. Hãy kiểm tra quyền của tệp.";
+"error.fileReadError" = "Không thể đọc tệp exclude";
+"error.fileWriteError" = "Không thể ghi tệp exclude";
+"error.invalidRepository" = "Không phải kho lưu trữ Git hợp lệ";
+"error.connectionFailed" = "Kết nối với dịch vụ hỗ trợ không thành công";
+"error.invalidData" = "Nhận được dữ liệu không hợp lệ";
+"error.unknown" = "Đã xảy ra lỗi không xác định";
+
+/* MARK: - Menu Items */
+"menu.edit" = "Sửa";
+"menu.delete" = "Xóa";
+"menu.removeRecent" = "Xóa khỏi Gần đây";
+"menu.language" = "Ngôn ngữ";
+
+/* MARK: - Window Titles */
+"window.title" = "Git Exclude Manager";
+"window.editorTitle" = "Sửa mẫu";
+"window.addTitle" = "Thêm mẫu";
+
+/* MARK: - Hints */
+"hint.generateComment" = "Gợi ý chú thích — khi đã thiết lập AI, chỉ mẫu này được gửi đi";
+"hint.restore" = "Hoàn nguyên về phiên bản trước lần lưu cuối. Nhấp lại để hoàn tác việc khôi phục.";
+"hint.generateCommentField" = "Nhập một mẫu ở trên, rồi nhấp ✨ Tạo chú thích để tự động điền";
+"hint.mock" = "Bản mẫu thử: Thêm/Sửa/Xóa/Bật tắt chỉ là giả lập.";
+"hint.reorder" = "Kéo các hàng để sắp xếp lại (bị tắt khi đang tìm kiếm).";
+
+/* MARK: - Open Repo */
+"openRepo.title" = "Mở kho lưu trữ";
+"openRepo.noRecent" = "Chưa có kho lưu trữ nào được mở gần đây.";
+
+/* MARK: - Raw Preview */
+"raw.title" = "Xem trước tệp gốc";
+"raw.copied" = "Đã sao chép!";
+
+/* MARK: - Chat */
+"chat.title" = "Trợ lý AI";
+"chat.placeholder" = "Hỏi AI...";
+"chat.welcome" = "👋 Xin chào! Tôi là trợ lý AI của bạn. Hãy hỏi tôi về các mẫu gitignore.";
+"chat.noApiKey" = "⚠️ Vui lòng cấu hình API AI trong Cài đặt trước.";
+"chat.intro" = "Hỏi về các mẫu bỏ qua của kho lưu trữ này. Tệp exclude của bạn được gửi kèm theo mỗi câu hỏi.";
+"chat.tryAsking" = "Thử hỏi";
+"chat.setUp" = "Thiết lập nhà cung cấp AI…";
+"chat.step.attached" = "Đã đính kèm .git/info/exclude · %ld dòng";
+"chat.step.waiting" = "Đang chờ %@";
+"chat.step.thinking" = "Đang suy nghĩ";
+"chat.step.writing" = "Đang viết câu trả lời";
+"chat.thought" = "Đã suy nghĩ %ld giây";
+"chat.seconds" = "%ld giây";
+"btn.stop" = "Dừng";
+
+/* MARK: - Settings */
+"settings.title" = "Cài đặt API AI";
+"settings.provider" = "Nhà cung cấp";
+"settings.apiKey" = "Khóa API";
+"settings.apiKeyPlaceholder" = "sk-...";
+"settings.model" = "Mô hình";
+"settings.loadModels" = "Tải mô hình";
+"settings.noModels" = "Không tìm thấy mô hình nào.";
+"settings.appleNote" = "Chạy trên thiết bị với Apple Intelligence (macOS 26 trở lên). Không cần khóa API hay mô hình.";
+"settings.keychainNote" = "Khóa API được lưu trong Keychain trên macOS của bạn.";
+
+/* MARK: - Navigation */
+"nav.back" = "Kho lưu trữ";
+
+/* About & Help */
+"menu.help" = "Trợ giúp";
+"link.website" = "Trang web";
+"menu.helpWindow" = "Trợ giúp Git Exclude Manager";
+"menu.about" = "Giới thiệu";
+"about.version" = "Phiên bản %@";
+"about.desc" = "Quản lý các tệp .git/info/exclude của bạn một cách trực quan. Các mẫu chỉ được bỏ qua cục bộ và không bao giờ được commit.";
+"about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
+"help.add.title" = "Thêm mẫu";
+"help.add.desc" = "Nhấp Thêm (⌘N) để tạo một mẫu bỏ qua mới. Cú pháp glob được hỗ trợ, ví dụ: *.log hoặc build/.";
+"help.toggle.title" = "Bật / Tắt";
+"help.toggle.desc" = "Nhấp vòng tròn trên một hàng để tắt một mẫu mà không xóa nó. Mẫu được lưu dưới dạng #pattern.";
+"help.reorder.title" = "Sắp xếp lại mẫu";
+"help.reorder.desc" = "Kéo một hàng để sắp xếp lại. Không thể kéo khi đang tìm kiếm.";
+"help.import.title" = "Nhập";
+"help.import.desc" = "Nhập bất kỳ tệp văn bản nào, kể cả .gitignore. Hợp nhất chỉ thêm các mẫu mới; Thay thế sẽ ghi đè toàn bộ.";
+"help.history.title" = "Lịch sử";
+"help.history.desc" = "Mỗi lần sửa đều được liệt kê trong Lịch sử (30 lần gần nhất). Nhấp vào một mục để quay lại, hoặc nhấp thùng rác của nó để xóa; ghim các trạng thái bạn muốn giữ — tệp lúc mở được ghim sẵn cho bạn. Kho lưu trữ › Khôi phục bản trước vẫn hoàn nguyên lần lưu cuối từ bản sao lưu (exclude.bak).";
+"help.preview.title" = "Xem trước bản gốc";
+"help.preview.desc" = "Xem chính xác nội dung sẽ được ghi vào .git/info/exclude, bao gồm các dòng chú thích của bạn.";
+
+/* Sections */
+"btn.addSection" = "Phần";
+"section.placeholder" = "Thêm tiêu đề…";
+"hint.addSection" = "Thêm một dòng trống ngăn cách phần. Kéo vào vị trí và nhập tiêu đề (được lưu dưới dạng # tiêu đề).";
+"hint.dragSection" = "Kéo để di chuyển phần này";
+"hint.renameSection" = "Nhấp đúp hoặc nhấn Return để đổi tên";
+"help.sections.title" = "Phần";
+"help.sections.desc" = "Nhấp Phần để thêm một dòng trống ngăn cách, kéo nó lên trên một nhóm mẫu và nhập tiêu đề để sắp xếp chúng. Các dòng chú thích cũng có thể kéo được.";
+
+/* Suggestions & Quick Messages */
+"suggest.title" = "Gợi ý mẫu";
+"suggest.empty" = "Chưa có gợi ý nào. Các mẫu từ những kho lưu trữ gần đây khác mà kho này chưa có sẽ xuất hiện ở đây.";
+"suggest.from" = "từ %@";
+"suggest.add" = "Thêm mẫu này";
+"quick.suggest" = "Gợi ý các mẫu mà kho lưu trữ này nên bỏ qua";
+"quick.explain" = "Giải thích các mẫu hiện tại của tôi làm gì";
+"quick.redundant" = "Có mẫu nào của tôi bị thừa hoặc chồng chéo không?";
+"quick.exceptOne" = "Làm thế nào để bỏ qua một thư mục trừ một tệp?";
+"quick.organize" = "Nhóm các mẫu của tôi thành các phần có tiêu đề";
+
+/* Appearance */
+"menu.appearance" = "Giao diện";
+"theme.system" = "Hệ thống";
+"theme.light" = "Sáng";
+"theme.dark" = "Tối";
+
+/* Collapsible panels */
+"a11y.collapsed" = "Đã thu gọn";
+"a11y.expanded" = "Đã mở rộng";
+"a11y.toggleHint" = "Hiện hoặc ẩn bảng này";
+
+/* Help: helpers */
+"help.tabs.title" = "Kho lưu trữ & Thẻ";
+"help.tabs.desc" = "Nhấp + để mở thêm kho lưu trữ dưới dạng thẻ. Kéo một thẻ để sắp xếp lại; các thẻ đang mở sẽ được khôi phục ở lần khởi chạy sau. Xóa các mục cũ khỏi danh sách Mở kho lưu trữ bằng ✕.";
+"help.suggestions.title" = "Gợi ý mẫu";
+"help.suggestions.desc" = "Các mẫu mà những kho lưu trữ gần đây khác của bạn dùng nhưng kho này chưa có. Nhấp ⊕ để thêm một mẫu. Thu gọn bảng bằng mũi tên của nó.";
+"help.ai.title" = "Trợ lý AI";
+"help.ai.desc" = "Hỏi về các mẫu của bạn hoặc chạm vào một Tin nhắn nhanh. Nhấp tên mô hình để chuyển mô hình, ⚙ để đổi nhà cung cấp. ✨ Tạo chú thích dùng cùng mô hình đó.";
+
+/* Menu bar */
+"menu.repository" = "Kho lưu trữ";
+"menu.nextTab" = "Hiện thẻ tiếp theo";
+"menu.previousTab" = "Hiện thẻ trước";
+"menu.newSection" = "Phần mới";
+
+/* Drag & drop repositories */
+"error.notRepository" = "“%@” không phải là kho lưu trữ Git. Hãy thả một thư mục có chứa thư mục .git.";
+"error.title" = "Không thể mở kho lưu trữ";
+"hint.dropRepository" = "Thả để mở kho lưu trữ";
+
+/* Pattern Clipboard */
+"clipboard.title" = "Bảng nhớ tạm mẫu";
+"clipboard.empty" = "Chọn các mẫu (nhấp kèm ⌘ / ⇧) và nhấn ⌘C để gom chúng vào đây, sau đó chuyển kho lưu trữ và dán.";
+"clipboard.pasteAll" = "Dán tất cả vào kho lưu trữ này";
+"clipboard.paste" = "Dán vào kho lưu trữ này";
+"clipboard.remove" = "Xóa khỏi bảng nhớ tạm";
+"clipboard.clear" = "Xóa bảng nhớ tạm";
+"menu.copyToClipboard" = "Sao chép vào bảng nhớ tạm mẫu";
+"help.clipboard.title" = "Bảng nhớ tạm mẫu";
+"help.clipboard.desc" = "Nhấp kèm ⌘ hoặc ⇧ để chọn nhiều mẫu, ⌘C để gom chúng (từ bất kỳ kho lưu trữ nào), rồi dán vào một kho lưu trữ khác — chỉ các mẫu còn thiếu được thêm vào. ⌘V cũng dán các dòng mẫu được sao chép từ bất kỳ đâu.";
+
+/* History panel */
+"history.title" = "Lịch sử";
+"history.opened" = "Đã mở";
+"history.add" = "Thêm %@";
+"history.edit" = "Sửa %@";
+"history.delete" = "Xóa %@";
+"history.turnOn" = "Bật %@";
+"history.turnOff" = "Tắt %@";
+"history.addSection" = "Thêm phần";
+"history.rename" = "Đổi tên phần thành %@";
+"history.untitledSection" = "phần chưa đặt tên";
+"history.move" = "Sắp xếp lại";
+"history.paste" = "Dán %ld mẫu";
+"history.import" = "Nhập %ld mẫu";
+"history.restore" = "Khôi phục “%@”";
+"history.pinned" = "Đã ghim";
+"history.recent" = "Gần đây";
+"history.pin" = "Ghim";
+"history.unpin" = "Bỏ ghim";
+"history.pinCurrent" = "Ghim trạng thái hiện tại";
+"history.hint" = "Nhấp vào một trạng thái để quay lại. Lần sửa tiếp theo của bạn sẽ thay thế các trạng thái bị mờ.";
+
+/* v1.1 main window */
+"label.gitHeader" = "Tiêu đề mặc định của Git";
+"empty.noRepo.desc" = "Chọn một kho lưu trữ Git, hoặc thả thư mục của nó vào đây.";
+"empty.noPatterns.desc" = "Các mẫu ở đây chỉ ẩn tệp trong bản sao này — đồng đội sẽ không bao giờ thấy chúng.";
+"btn.clear" = "Xóa sạch";
+
+/* Accent colour, gradient themes, tool window (v1.1 — same keys as hosts-manager) */
+"theme.accent" = "Màu nhấn";
+"theme.gradient" = "Chủ đề chuyển màu";
+"theme.noGradient" = "Không chuyển màu";
+"accent.system" = "Hệ thống";
+"accent.followSystem" = "Hệ thống (theo macOS)";
+"btn.hide" = "Ẩn";
+"a11y.hidePanel" = "Ẩn %@";
+"accent.red" = "Đỏ";
+"accent.orange" = "Cam";
+"accent.amber" = "Hổ phách";
+"accent.olive" = "Ô liu";
+"accent.lime" = "Chanh";
+"accent.green" = "Xanh lá";
+"accent.emerald" = "Lục bảo";
+"accent.teal" = "Xanh mòng két";
+"accent.cyan" = "Lam lục";
+"accent.blue" = "Xanh dương";
+"accent.indigo" = "Chàm";
+"accent.violet" = "Tím violet";
+"accent.purple" = "Tím";
+"accent.magenta" = "Đỏ tươi";
+"accent.pink" = "Hồng";
+"accent.graphite" = "Than chì";
+"gradient.none" = "Không";
+"gradient.ocean" = "Đại dương";
+"gradient.ember" = "Than hồng";
+"gradient.lavender" = "Oải hương";
+"gradient.watermelon" = "Dưa hấu";
+"gradient.lagoon" = "Đầm phá";
+"gradient.meadow" = "Đồng cỏ";
+"gradient.dusk" = "Hoàng hôn";
+"gradient.peach" = "Đào";
+
+/* History remove · Language panel (v1.1) */
+"history.remove" = "Xóa khỏi Lịch sử";
+"language.search" = "Tìm ngôn ngữ";
+"language.noResults" = "Không có ngôn ngữ nào khớp với “%@”";

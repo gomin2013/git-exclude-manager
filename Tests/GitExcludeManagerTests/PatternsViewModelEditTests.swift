@@ -42,6 +42,15 @@ final class PatternsViewModelEditTests: XCTestCase {
         XCTAssertEqual(ExcludeParserService.serialize(viewModel.patterns), "a\n\n# Tools\n")
     }
 
+    /// A new section opens its heading for typing — List(selection:) never focuses an always-visible TextField.
+    func testNewSectionStartsEditingItsHeading() {
+        let viewModel = PatternsViewModel()
+
+        viewModel.addSection()
+
+        XCTAssertEqual(viewModel.editingSectionID, viewModel.patterns.last?.id)
+    }
+
     func testCountsAndSearchOnlyConsiderPatterns() {
         let viewModel = PatternsViewModel()
         viewModel.patterns = ExcludeParserService.parseItems(content: "# header\n\n# Logs\n*.log\n#tmp/\n")

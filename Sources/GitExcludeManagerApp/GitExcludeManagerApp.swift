@@ -4,8 +4,11 @@ import ServiceManagement
 
 @main
 struct GitExcludeManagerApp: App {
-    @StateObject private var patternsVM = PatternsViewModel()
-    @StateObject private var repositoryVM = RepositoryViewModel()
+    /// `-demo` (DemoData): sample repositories in memory — screenshots without real paths, nothing written.
+    @StateObject private var patternsVM = PatternsViewModel(demoFiles: DemoData.isEnabled ? DemoData.files : nil)
+    @StateObject private var repositoryVM = DemoData.isEnabled
+        ? RepositoryViewModel(demo: DemoData.repositories)
+        : RepositoryViewModel()
     // Use the singleton so every L() call shares the same bundle
     @StateObject private var languageService = LanguageService.shared
 
@@ -33,14 +36,12 @@ struct GitExcludeManagerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            PatternsView(
-                patternsVM: patternsVM,
-                repositoryVM: repositoryVM,
-                languageService: languageService
-            )
-            .frame(minWidth: 680, minHeight: 500)
-            // Inject as environment so child views can observe language changes
-            .environmentObject(languageService)
+            patternsView
+                .frame(minWidth: 820, minHeight: 540)
+                // Inject as environment so child views can observe language changes
+                .environmentObject(languageService)
+                .defaultAppStorage(DemoData.defaults)
+                .task { if DemoData.isEnabled { DemoData.seed(patternsVM) } }
         }
         .windowResizability(.contentSize)
         .onChange(of: scenePhase) { _, phase in
@@ -50,6 +51,13 @@ struct GitExcludeManagerApp: App {
         }
         .commands {
             CommandGroup(replacing: .newItem) { }
+            // No Help Book: Help › opens the Help side panel (PatternsView observes ui.toolPanel via @AppStorage)
+            CommandGroup(replacing: .help) {
+                Button(localized("menu.helpWindow")) {
+                    DemoData.defaults.set(ToolPanel.help.rawValue, forKey: "ui.toolPanel")
+                }
+                .keyboardShortcut("?", modifiers: .command)
+            }
             // Menu-bar "Repository" menu: shortcuts show next to each item, so they're discoverable.
             // (⌘N add pattern and ⌘F search live on their buttons in PatternsView.)
             CommandMenu(localized("menu.repository")) {
@@ -78,6 +86,10 @@ struct GitExcludeManagerApp: App {
                 }
             }
         }
+    }
+
+    private var patternsView: some View {
+        PatternsView(patternsVM: patternsVM, repositoryVM: repositoryVM)
     }
 
     /// Same as clicking a tab: clear the search so the new repo's list isn't filtered.

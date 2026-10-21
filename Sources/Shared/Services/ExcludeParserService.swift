@@ -18,9 +18,20 @@ public enum ExcludeParserService {
 
     /// Parses every line into an item, losslessly: `serialize(parseItems(x)) == x` (modulo a missing final newline).
     /// - `""` → section; a directly following `# heading` line becomes its title
-    /// - pattern / `#pattern` → pattern item
+    /// - pattern / `#pattern` → pattern item; a `## text` line directly above it is its comment
     /// - anything else → comment item (consecutive lines grouped)
     public static func parseItems(content: String) -> [GitExcludePattern] {
+        parse(lines: content).items
+    }
+
+    /// True when the file still has `pattern # comment` lines, written by v1.0. Git has no end-of-line comments —
+    /// `#` starts one only at the start of a line — so it read `AGENTS.local.md # notes` as one pattern that matched
+    /// nothing. Saving the parsed items rewrites them as `## notes` above the pattern.
+    public static func hasInlineComments(content: String) -> Bool {
+        parse(lines: content).inlineComments
+    }
+
+    private static func parse(lines content: String) -> (items: [GitExcludePattern], inlineComments: Bool) {
         var lines = content
             .replacingOccurrences(of: "\r\n", with: "\n")
             .split(separator: "\n", omittingEmptySubsequences: false)
@@ -28,6 +39,7 @@ public enum ExcludeParserService {
         if lines.last == "" { lines.removeLast() }  // final newline, not a blank line
 
         var items: [GitExcludePattern] = []
+        var inlineComments = false
         var index = 0
         while index < lines.count {
             let line = lines[index]
@@ -39,7 +51,14 @@ public enum ExcludeParserService {
                     index += 1
                 }
                 items.append(GitExcludePattern(pattern: title, kind: .section))
+            } else if line.hasPrefix("## "), index < lines.count, var pattern = parseLine(lines[index]) {
+                inlineComments = inlineComments || pattern.comment != nil
+                let comment = line.dropFirst(3).trimmingCharacters(in: .whitespaces)
+                pattern.comment = comment.isEmpty ? pattern.comment : comment
+                items.append(pattern)
+                index += 1
             } else if let pattern = parseLine(line) {
+                inlineComments = inlineComments || pattern.comment != nil  // only `pattern # comment` sets it here
                 items.append(pattern)
             } else if let last = items.last, last.kind == .comment {
                 items[items.count - 1].pattern += "\n" + line
@@ -47,7 +66,7 @@ public enum ExcludeParserService {
                 items.append(GitExcludePattern(pattern: line, kind: .comment))
             }
         }
-        return items
+        return (items, inlineComments)
     }
 
     /// Serializes items back to `.git/info/exclude` text.
@@ -64,10 +83,10 @@ public enum ExcludeParserService {
             return nil
         }
 
-        // `#pattern` (no space) = disabled pattern; `# text` or bare `#` = plain comment.
+        // `#pattern` (no space) = disabled pattern; `# text`, `## text` or bare `#` = plain comment.
         if trimmed.hasPrefix("#") {
             let rest = trimmed.dropFirst()
-            guard let first = rest.first, !first.isWhitespace else {
+            guard let first = rest.first, !first.isWhitespace, first != "#" else {
                 return nil
             }
             return buildPattern(from: String(rest), isEnabled: false)

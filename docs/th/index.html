@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <base href="../">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Git Exclude Manager · ซ่อนไฟล์ส่วนตัวจาก git status</title>
+  <meta name="description" data-th="แอป macOS ฟรีโอเพนซอร์สสำหรับ .git/info/exclude ซ่อนโฟลเดอร์ editor โน้ต และ secret จาก git status โดยไม่แตะ .gitignore ของทีม" content="แอป macOS ฟรีโอเพนซอร์สสำหรับ .git/info/exclude ซ่อนโฟลเดอร์ editor โน้ต และ secret จาก git status โดยไม่แตะ .gitignore ของทีม">
+  <link rel="canonical" href="https://gomin2013.github.io/git-exclude-manager/th/">
+  <link rel="alternate" hreflang="en" href="https://gomin2013.github.io/git-exclude-manager/">
+  <link rel="alternate" hreflang="th" href="https://gomin2013.github.io/git-exclude-manager/th/">
+  <link rel="alternate" hreflang="x-default" href="https://gomin2013.github.io/git-exclude-manager/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Git Exclude Manager">
+  <meta property="og:title" data-th="Git Exclude Manager · ซ่อนไฟล์ส่วนตัวจาก git status" content="Git Exclude Manager · ซ่อนไฟล์ส่วนตัวจาก git status">
+  <meta property="og:locale" content="th_TH">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:description" data-th="ฟรีและโอเพนซอร์ส แก้ .git/info/exclude ในหน้าต่าง Mac แชร์ pattern ข้าม repository และมี AI Agent" content="ฟรีและโอเพนซอร์ส แก้ .git/info/exclude ในหน้าต่าง Mac แชร์ pattern ข้าม repository และมี AI Agent">
+  <meta property="og:url" content="https://gomin2013.github.io/git-exclude-manager/th/">
+  <meta property="og:image" content="https://gomin2013.github.io/git-exclude-manager/assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f7f7f8" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0c0d10" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/gem-icon.png">
+  <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+  <link rel="stylesheet" href="assets/site.css">
+  <script>try{var d=document.documentElement,n=(navigator.language||"").toLowerCase(),l="th"||(/^zh-(hant|tw|hk|mo)/.test(n)?"zh-Hant":/^zh/.test(n)?"zh-Hans":/^fil/.test(n)?"tl":n.slice(0,2));if("en th ja ko vi id ms tl zh-Hans zh-Hant es ru".split(" ").indexOf(l)<0)l="en";d.lang=l;if(l==="th"){d.classList.add("th");document.querySelectorAll("[data-th]").forEach(function(e){e.tagName==="TITLE"?e.textContent=e.dataset.th:e.content=e.dataset.th})}else if(l!=="en")d.classList.add("i18n-wait")}catch(e){}</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Git Exclude Manager",
+    "operatingSystem": "macOS 14 or later",
+    "applicationCategory": "DeveloperApplication",
+    "description": "A free, open-source macOS app for editing .git/info/exclude with sections, History, repository tabs, pattern sharing, Liquid Glass and an optional AI Agent.",
+    "url": "https://gomin2013.github.io/git-exclude-manager/",
+    "downloadUrl": "https://github.com/gomin2013/git-exclude-manager/releases/latest",
+    "image": "https://gomin2013.github.io/git-exclude-manager/assets/img/gem-icon.png",
+    "screenshot": "https://gomin2013.github.io/git-exclude-manager/assets/img/gem-main.png",
+    "softwareVersion": "1.1.0",
+    "license": "https://opensource.org/licenses/MIT",
+    "inLanguage": ["en", "th"],
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "author": { "@type": "Person", "name": "Watthajak Jinasam", "url": "https://github.com/gomin2013" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip" href="/git-exclude-manager/th/#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="./"><img src="assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="/git-exclude-manager/th/#features" class="hide-sm"><span class="en">Features</span><span class="th">ฟีเจอร์</span></a>
+        <a href="download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="about/"><i class="ph ph-info" aria-hidden="true"></i><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener" class="hide-sm">GitHub</a>
+      </nav>
+      <button type="button" class="lang-btn" data-lang-open aria-haspopup="dialog" aria-label="Language"><i class="ph ph-globe" aria-hidden="true"></i><span class="lang-name">English</span><span class="lang-code">en</span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero: asymmetric split, real screenshot -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div class="hero-copy">
+          <h1 class="reveal">
+            <span class="en">Keep local files out of git status.</span>
+            <span class="th">ซ่อนไฟล์ส่วนตัวจาก git status ได้ง่ายๆ</span>
+          </h1>
+          <p class="lede reveal" data-d="1">
+            <span class="en">A free macOS app for .git/info/exclude, the ignore file that is never committed. Hide editor folders, notes and secrets without touching your team's .gitignore.</span>
+            <span class="th">แอป macOS ฟรีสำหรับ .git/info/exclude ไฟล์ ignore ที่ไม่ถูก commit ซ่อนโฟลเดอร์ของ editor โน้ตส่วนตัว และไฟล์ลับ โดยไม่ต้องแตะ .gitignore ของทีม</span>
+          </p>
+          <div class="cta-row reveal" data-d="2">
+            <a class="btn btn-primary" href="download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download for Mac</span><span class="th">ดาวน์โหลดสำหรับ Mac</span></a>
+            <a class="btn btn-ghost" href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i><span class="en">View on GitHub</span><span class="th">ดูบน GitHub</span></a>
+          </div>
+        </div>
+        <div class="hero-shot reveal" data-d="1">
+          <img class="shot" src="assets/img/gem-main.png" width="1100" height="800" fetchpriority="high"
+               alt="Git Exclude Manager window: acme-web, acme-api and dotfiles tabs, patterns grouped into Editors, Secrets and Claude Code sections, and the AI Agent side panel with one-click questions">
+          <img class="mascot" src="assets/img/gem-mascot.png" width="512" height="512" alt="" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Facts strip -->
+    <section class="facts" aria-label="At a glance">
+      <div class="wrap">
+        <ul>
+          <li class="reveal"><i class="ph ph-code" aria-hidden="true"></i><span><strong><span class="en">Free and open source</span><span class="th">ฟรีและโอเพนซอร์ส</span></strong><span class="en">MIT license, no ads</span><span class="th">สัญญาอนุญาต MIT ไม่มีโฆษณา</span></span></li>
+          <li class="reveal" data-d="1"><i class="ph ph-apple-logo" aria-hidden="true"></i><span><strong><span class="en">Native macOS app</span><span class="th">แอป macOS แท้</span></strong><span class="en">Apple silicon, macOS 14+, Liquid Glass on macOS 26</span><span class="th">Apple silicon, macOS 14 ขึ้นไป, Liquid Glass บน macOS 26</span></span></li>
+          <li class="reveal" data-d="2"><i class="ph ph-eye-slash" aria-hidden="true"></i><span><strong><span class="en">No account, no tracking</span><span class="th">ไม่ต้องสมัคร ไม่เก็บข้อมูล</span></strong><span class="en">Your patterns stay on your Mac</span><span class="th">ข้อมูลอยู่ในเครื่องของคุณ</span></span></li>
+          <li class="reveal" data-d="3"><i class="ph ph-translate" aria-hidden="true"></i><span><strong><span class="en">12 languages</span><span class="th">12 ภาษา</span></strong><span class="en">Search and switch in the Language panel</span><span class="th">ค้นหาและสลับภาษาได้ในแผง Language</span></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Features: bento, 7 items = 7 cells (a 4×2, b c 2, d e f g 3) -->
+    <section id="features">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2><span class="en">Every repository's exclude file, in one window</span><span class="th">ไฟล์ exclude ของทุก repository รวมไว้ในหน้าต่างเดียว</span></h2>
+          <p><span class="en">Open as many repositories as you like, keep their patterns tidy and move the good ones between them.</span><span class="th">เปิดได้หลาย repository จัดระเบียบ pattern ให้เป็นหมวดหมู่ แล้วคัดลอก pattern ดีๆ ข้ามไปใช้ repository อื่นได้</span></p>
+        </div>
+        <div class="bento">
+          <article class="cell cell-a reveal">
+            <i class="ph ph-cursor-click ico" aria-hidden="true"></i>
+            <h3><span class="en">Sections you can drag</span><span class="th">แบ่งหมวดแล้วลากจัดเรียงได้</span></h3>
+            <p><span class="en">A blank line becomes a section break with an optional # heading — double-click it to rename. Drag patterns and sections into any order.</span><span class="th">บรรทัดว่างกลายเป็นตัวแบ่งหมวด ใส่ # หัวข้อได้ ดับเบิลคลิกเพื่อเปลี่ยนชื่อ ลาก pattern และหมวดไปเรียงตรงไหนก็ได้</span></p>
+            <img src="assets/img/gem-sections.png" width="736" height="440" loading="lazy"
+                 alt="Editors, Secrets and Claude Code sections with checkboxes for patterns such as .idea/, .env.local and CLAUDE.local.md">
+          </article>
+          <article class="cell cell-b reveal" data-d="1">
+            <i class="ph ph-tabs ico" aria-hidden="true"></i>
+            <h3><span class="en">A tab per repository</span><span class="th">หนึ่งแท็บต่อหนึ่ง repository</span></h3>
+            <p><span class="en">Drag tabs to reorder, jump with <kbd>⌘1</kbd> to <kbd>⌘9</kbd> or <kbd>⌃Tab</kbd>, drop a folder from Finder to open another. Your tabs come back on relaunch.</span><span class="th">ลากสลับแท็บได้ กด <kbd>⌘1</kbd> ถึง <kbd>⌘9</kbd> หรือ <kbd>⌃Tab</kbd> เพื่อสลับ ลากโฟลเดอร์จาก Finder มาวางเพื่อเปิดเพิ่ม เปิดแอปใหม่แท็บก็ยังอยู่</span></p>
+          </article>
+          <article class="cell cell-c reveal" data-d="2">
+            <i class="ph ph-keyboard ico" aria-hidden="true"></i>
+            <h3><span class="en">Keyboard first</span><span class="th">ใช้คีย์บอร์ดได้ทั้งหมด</span></h3>
+            <p><span class="en"><kbd>Space</kbd> turns patterns on or off, <kbd>⌫</kbd> deletes, <kbd>Return</kbd> edits, <kbd>⌥⌘1</kbd>–<kbd>7</kbd> opens a side panel.</span><span class="th"><kbd>Space</kbd> เปิด/ปิด pattern <kbd>⌫</kbd> ลบ <kbd>Return</kbd> แก้ไข <kbd>⌥⌘1</kbd>–<kbd>7</kbd> เปิดแผงด้านข้าง</span></p>
+          </article>
+          <article class="cell cell-d reveal">
+            <i class="ph ph-copy ico" aria-hidden="true"></i>
+            <h3><span class="en">Copy patterns between repositories</span><span class="th">คัดลอก pattern ข้าม repository</span></h3>
+            <p><span class="en"><kbd>⌘</kbd>-click or <kbd>⇧</kbd>-click patterns, press <kbd>⌘C</kbd>, switch tabs and paste. Only the missing ones are added. Pattern Suggestions lists what your other repositories ignore, one click each — both live in the side panel.</span><span class="th">กด <kbd>⌘</kbd> หรือ <kbd>⇧</kbd> แล้วคลิกเลือก pattern กด <kbd>⌘C</kbd> สลับแท็บแล้ววาง เพิ่มเฉพาะตัวที่ยังไม่มี ส่วน Pattern Suggestions แสดง pattern ที่ repository อื่นใช้ กดเพิ่มได้ในคลิกเดียว ทั้งสองอยู่ในแผงด้านข้าง</span></p>
+            <img src="assets/img/gem-suggestions.png" width="300" height="445" loading="lazy"
+                 alt="Pattern Clipboard holding coverage/ and node_modules/.cache/ from acme-api, and Pattern Suggestions offering .DS_Store and *.local.zsh">
+          </article>
+          <article class="cell cell-e reveal" data-d="1">
+            <i class="ph ph-file-text ico" aria-hidden="true"></i>
+            <h3><span class="en">Your file stays yours</span><span class="th">ไฟล์ของคุณยังเป็นของคุณ</span></h3>
+            <p><span class="en">Comments, blank lines and anything unusual are written back byte for byte. Import a .gitignore, export a copy or Preview Raw before you save.</span><span class="th">comment บรรทัดว่าง และบรรทัดแปลกๆ ถูกเขียนกลับเหมือนเดิมทุกไบต์ นำเข้า .gitignore ส่งออกสำเนา หรือกด Preview Raw ดูไฟล์จริงก่อนบันทึก</span></p>
+<pre aria-label="Example exclude lines"><span class="c"># Editors</span>
+.idea/
+.vscode/settings.json
+
+<span class="c"># Secrets</span>
+.env.local
+<span class="off">#config/master.key</span></pre>
+          </article>
+          <article class="cell cell-f reveal">
+            <i class="ph ph-clock-counter-clockwise ico" aria-hidden="true"></i>
+            <h3><span class="en">Go back any step</span><span class="th">ย้อนกลับได้ทุกขั้น</span></h3>
+            <p><span class="en">History keeps your last 30 edits. Click one to go back, pin the states you want to keep — the file as you opened it is pinned for you.</span><span class="th">History เก็บการแก้ไข 30 ครั้งล่าสุด คลิกเพื่อย้อนกลับ ปักหมุดสถานะที่อยากเก็บไว้ ไฟล์ตอนเปิดถูกปักหมุดให้แล้ว</span></p>
+            <img src="assets/img/gem-history.png" width="300" height="290" loading="lazy"
+                 alt="History panel: Opened and Add *.log pinned, recent edits ending with Turn off *.swp">
+          </article>
+          <article class="cell cell-g reveal" data-d="1">
+            <i class="ph ph-palette ico" aria-hidden="true"></i>
+            <h3><span class="en">Make it yours</span><span class="th">ปรับให้เป็นสไตล์คุณ</span></h3>
+            <p><span class="en">Liquid Glass on macOS 26 and Sukhumvit Set type. Light, Dark or System, 16 accent colours and 8 gradient themes.</span><span class="th">Liquid Glass บน macOS 26 และฟอนต์ Sukhumvit Set เลือก Light, Dark หรือตามระบบ สี accent 16 สี และธีม gradient 8 แบบ</span></p>
+            <div class="swatches" aria-hidden="true">
+              <span style="--c:#E00219"></span><span style="--c:#B45403"></span><span style="--c:#9A6405"></span><span style="--c:#7F7002"></span><span style="--c:#557B04"></span><span style="--c:#028132"></span><span style="--c:#057F60"></span><span style="--c:#077D7A"></span><span style="--c:#027A8F"></span><span style="--c:#036AE4"></span><span style="--c:#5C55FF"></span><span style="--c:#8F3DFA"></span><span style="--c:#B424D8"></span><span style="--c:#CF01A6"></span><span style="--c:#DB045E"></span><span style="--c:#6F6F6F"></span>
+            </div>
+            <div class="gradients" aria-hidden="true">
+              <span style="--a:#007CBE;--b:#FFF7AE"></span><span style="--a:#E57A44;--b:#251351"></span><span style="--a:#F1FEC6;--b:#A882DD"></span><span style="--a:#DB5375;--b:#B3FFB3"></span><span style="--a:#02C3BD;--b:#4E148C"></span><span style="--a:#629460;--b:#F4D35E"></span><span style="--a:#414288;--b:#B0DB43"></span><span style="--a:#FFC145;--b:#EC368D"></span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Safety: horizontal flow -->
+    <section id="safety">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <h2><span class="en">Safe by design</span><span class="th">ออกแบบมาให้ปลอดภัย</span></h2>
+          <p><span class="en">A small helper does the file work, and every save takes the same five steps.</span><span class="th">helper ตัวเล็กเป็นผู้จัดการไฟล์ และทุกการบันทึกผ่าน 5 ขั้นตอนเดิมเสมอ</span></p>
+        </div>
+        <ol class="flow">
+          <li class="reveal"><span class="dot"><i class="ph ph-git-branch" aria-hidden="true"></i></span>
+            <h3><span class="en">Check the repository</span><span class="th">ตรวจ repository</span></h3>
+            <p><span class="en">Only folders with a real .git are accepted. Anything else is refused.</span><span class="th">รับเฉพาะโฟลเดอร์ที่มี .git จริงเท่านั้น นอกนั้นปฏิเสธทั้งหมด</span></p></li>
+          <li class="reveal" data-d="1"><span class="dot"><i class="ph ph-text-align-left" aria-hidden="true"></i></span>
+            <h3><span class="en">Keep every line</span><span class="th">เก็บทุกบรรทัดไว้</span></h3>
+            <p><span class="en">Lines you didn't touch, including git's default header, stay exactly as they were.</span><span class="th">บรรทัดที่ไม่ได้แก้ รวมถึง header เริ่มต้นของ git ยังอยู่เหมือนเดิมทุกตัวอักษร</span></p></li>
+          <li class="reveal" data-d="2"><span class="dot"><i class="ph ph-clock-counter-clockwise" aria-hidden="true"></i></span>
+            <h3><span class="en">Back up</span><span class="th">สำรองไฟล์</span></h3>
+            <p><span class="en">The previous version is kept next to it as exclude.bak.</span><span class="th">เวอร์ชันก่อนหน้าเก็บไว้ข้างๆ เป็น exclude.bak</span></p></li>
+          <li class="reveal" data-d="3"><span class="dot"><i class="ph ph-floppy-disk" aria-hidden="true"></i></span>
+            <h3><span class="en">Write atomically</span><span class="th">เขียนแบบ atomic</span></h3>
+            <p><span class="en">A crash in the middle of a save can't leave a half-written file.</span><span class="th">แม้เครื่องค้างระหว่างบันทึก ไฟล์ก็ไม่เสียครึ่งๆ กลางๆ</span></p></li>
+          <li class="reveal" data-d="3"><span class="dot"><i class="ph ph-arrow-counter-clockwise" aria-hidden="true"></i></span>
+            <h3><span class="en">Go back</span><span class="th">ย้อนกลับได้</span></h3>
+            <p><span class="en">History steps back through this session's edits; Repository › Restore Previous brings back the last save, even after a relaunch.</span><span class="th">History ย้อนการแก้ไขในรอบนี้ได้ทีละขั้น ส่วนเมนู Repository › Restore Previous คืนการบันทึกล่าสุดได้แม้เปิดแอปใหม่</span></p></li>
+        </ol>
+        <div class="pin-note reveal">
+          <i class="ph ph-user-circle" aria-hidden="true"></i>
+          <p><span class="en">Exclude files belong to you, so the helper runs as you, never as root. It can only touch files you could already edit, and the app never asks for an administrator password.</span><span class="th">ไฟล์ exclude เป็นของคุณเอง helper จึงรันด้วยสิทธิ์ของคุณ ไม่ใช่ root แตะได้เฉพาะไฟล์ที่คุณแก้ได้อยู่แล้ว และแอปไม่เคยขอรหัสผ่านผู้ดูแลระบบ</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI: split with a real screenshot -->
+    <section class="ai" id="ai">
+      <div class="wrap ai-grid">
+        <div class="ai-visual reveal">
+          <img class="panel" src="assets/img/gem-ai-panel.png" width="300" height="748" loading="lazy"
+               alt="AI Agent panel answering a question with three suggested patterns and a short reason for each">
+          <img class="buddy" src="assets/img/gem-mascot.png" width="512" height="512" alt="" loading="lazy">
+        </div>
+        <div class="ai-copy">
+          <p class="eyebrow reveal">AI Agent</p>
+          <h2 class="reveal"><span class="en">Ask about your ignore patterns</span><span class="th">ถามเรื่อง pattern ได้เลย</span></h2>
+          <p class="lede reveal" data-d="1"><span class="en">Chat with an assistant that sees this repository's exclude file — watch it work step by step, read its thinking, and copy the patterns it suggests.</span><span class="th">คุยกับผู้ช่วยที่เห็นไฟล์ exclude ของ repository นี้ ดูขั้นตอนการทำงานและความคิดของโมเดล แล้วคัดลอก pattern ที่แนะนำไปใช้ได้เลย</span></p>
+          <ul>
+            <li class="reveal" data-d="1"><i class="ph ph-brain" aria-hidden="true"></i><span><span class="en">Answers stream in with live steps and seconds, the model's thinking (Ollama, Claude, Gemini), Markdown with copyable code blocks, and a Stop button.</span><span class="th">คำตอบค่อยๆ แสดงพร้อมขั้นตอนและเวลา เห็นความคิดของโมเดล (Ollama, Claude, Gemini) แสดงผลแบบ Markdown พร้อมปุ่มคัดลอก code และกดหยุดได้</span></span></li>
+            <li class="reveal" data-d="1"><i class="ph ph-chat-circle-text" aria-hidden="true"></i><span><span class="en">One-click questions like “Suggest patterns this repository should ignore” or “Are any of my patterns redundant?”</span><span class="th">คำถามสำเร็จรูป เช่น “แนะนำ pattern ที่ repository นี้ควร ignore” หรือ “มี pattern ซ้ำซ้อนไหม?” กดได้ในคลิกเดียว</span></span></li>
+            <li class="reveal" data-d="2"><i class="ph ph-sparkle" aria-hidden="true"></i><span><span class="en">Generate Comment explains a pattern in a few words. Only that pattern is sent.</span><span class="th">Generate Comment อธิบาย pattern สั้นๆ ให้ ส่งไปเฉพาะ pattern นั้น</span></span></li>
+            <li class="reveal" data-d="2"><i class="ph ph-key" aria-hidden="true"></i><span><span class="en">Switch models right in the panel. API keys stay in your Keychain, and Apple Intelligence or Ollama keep everything on your Mac.</span><span class="th">เปลี่ยนโมเดลได้ในแผงเลย API key เก็บใน Keychain เลือก Apple Intelligence หรือ Ollama ถ้าอยากให้ทุกอย่างอยู่ในเครื่อง</span></span></li>
+            <li class="reveal" data-d="3"><i class="ph ph-hand" aria-hidden="true"></i><span><span class="en">The AI never edits the file. Every change goes through you.</span><span class="th">AI ไม่แก้ไฟล์เอง ทุกการเปลี่ยนแปลงต้องผ่านคุณ</span></span></li>
+          </ul>
+          <div class="logos reveal" data-d="3" aria-label="Supported AI providers">
+            <img src="assets/img/logos/apple.svg" alt="Apple Foundation Models" width="22" height="26">
+            <img src="assets/img/logos/ollama.svg" alt="Ollama" width="26" height="26">
+            <img src="assets/img/logos/googlegemini.svg" alt="Google Gemini" width="26" height="26">
+            <img src="assets/img/logos/claude.svg" alt="Claude" width="26" height="26">
+            <span class="muted">+ OpenAI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sibling app -->
+    <section id="hosts-manager">
+      <div class="wrap">
+        <div class="sibling reveal">
+          <div>
+            <p class="eyebrow"><span class="en">Also by the same author</span><span class="th">จากผู้พัฒนาคนเดียวกัน</span></p>
+            <div class="who">
+              <img src="assets/img/hm-icon.png" width="56" height="56" alt="">
+              <h2 style="font-size:30px">Hosts Manager</h2>
+            </div>
+            <p><span class="en">The same window and the same ideas, for /etc/hosts. Point domains at your local server, block trackers and undo any save, without sudo in a terminal.</span><span class="th">หน้าตาและแนวคิดเดียวกัน แต่สำหรับ /etc/hosts ชี้โดเมนมาที่เซิร์ฟเวอร์ในเครื่อง บล็อก tracker และย้อนการบันทึกได้ โดยไม่ต้องพิมพ์ sudo ใน Terminal</span></p>
+            <div class="cta-row" style="margin-top:22px">
+              <a class="btn btn-ghost" href="https://gomin2013.github.io/hosts-manager/"><i class="ph ph-arrow-square-out" aria-hidden="true"></i><span class="en">Website</span><span class="th">เว็บไซต์</span></a>
+              <a class="btn btn-ghost" href="https://github.com/gomin2013/hosts-manager" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i>GitHub</a>
+            </div>
+          </div>
+          <img class="shot" src="assets/img/hm-main-dark.png" width="1432" height="972" loading="lazy"
+               alt="Hosts Manager window with /etc/hosts entries grouped into Local dev, Staging and Blocked sections">
+        </div>
+      </div>
+    </section>
+
+    <!-- Closing -->
+    <section class="closing">
+      <div class="wrap">
+        <div class="closing-inner reveal">
+          <img src="assets/img/gem-mascot.png" width="512" height="512" alt="" loading="lazy">
+          <div>
+            <h2><span class="en">Get Git Exclude Manager for your Mac</span><span class="th">ใช้ Git Exclude Manager บน Mac ของคุณ</span></h2>
+            <p class="lede"><span class="en">Free and open source. Setup takes about a minute.</span><span class="th">ฟรีและโอเพนซอร์ส ติดตั้งเสร็จในประมาณหนึ่งนาที</span></p>
+            <div class="cta-row">
+              <a class="btn btn-primary" href="download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download for Mac</span><span class="th">ดาวน์โหลดสำหรับ Mac</span></a>
+              <a class="btn btn-ghost" href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener"><i class="ph ph-github-logo" aria-hidden="true"></i><span class="en">View on GitHub</span><span class="th">ดูบน GitHub</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot">
+      <a class="brand" href="./"><img src="assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
+      <nav aria-label="Footer">
+        <a href="download/"><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="about/"><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="privacy-policy/"><span class="en">Privacy Policy</span><span class="th">นโยบายความเป็นส่วนตัว</span></a>
+        <a href="terms-of-use/"><span class="en">Terms of Use</span><span class="th">ข้อกำหนดการใช้งาน</span></a>
+        <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener">GitHub</a>
+      </nav>
+      <small><span class="en">© 2026 Watthajak Jinasam. Released under the MIT License. Not affiliated with Apple or Git.</span><span class="th">© 2026 Watthajak Jinasam เผยแพร่ภายใต้สัญญาอนุญาต MIT ไม่มีส่วนเกี่ยวข้องกับ Apple หรือ Git</span></small>
+    </div>
+  </footer>
+  <script src="assets/site.js" defer></script>
+</body>
+</html>

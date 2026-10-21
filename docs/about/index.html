@@ -19,7 +19,7 @@
   <link rel="apple-touch-icon" href="../assets/img/gem-icon.png">
   <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
   <link rel="stylesheet" href="../assets/site.css">
-  <script>try{var l=localStorage.getItem("gem.lang")||((navigator.language||"").slice(0,2)==="th"?"th":"en");if(l==="th"){document.documentElement.classList.add("th");document.documentElement.lang="th"}}catch(e){}</script>
+  <script>try{var d=document.documentElement,n=(navigator.language||"").toLowerCase(),l=localStorage.getItem("gem.lang")||(/^zh-(hant|tw|hk|mo)/.test(n)?"zh-Hant":/^zh/.test(n)?"zh-Hans":/^fil/.test(n)?"tl":n.slice(0,2));if("en th ja ko vi id ms tl zh-Hans zh-Hant es ru".split(" ").indexOf(l)<0)l="en";d.lang=l;if(l==="th")d.classList.add("th");else if(l!=="en")d.classList.add("i18n-wait")}catch(e){}</script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,14 +39,11 @@
       <a class="brand" href="../"><img src="../assets/img/gem-icon.png" alt="" width="30" height="30">Git Exclude Manager</a>
       <nav class="nav-links" aria-label="Main">
         <a href="../#features" class="hide-sm"><span class="en">Features</span><span class="th">ฟีเจอร์</span></a>
-        <a href="../download/"><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
-        <a href="./" aria-current="page"><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
+        <a href="../download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download</span><span class="th">ดาวน์โหลด</span></a>
+        <a href="./" aria-current="page"><i class="ph ph-info" aria-hidden="true"></i><span class="en">About</span><span class="th">เกี่ยวกับ</span></a>
         <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener" class="hide-sm">GitHub</a>
       </nav>
-      <div class="lang" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">EN</button>
-        <button type="button" data-lang="th" aria-pressed="false">TH</button>
-      </div>
+      <button type="button" class="lang-btn" data-lang-open aria-haspopup="dialog" aria-label="Language"><i class="ph ph-globe" aria-hidden="true"></i><span class="lang-name">English</span><span class="lang-code">en</span></button>
     </div>
   </header>
 
@@ -70,13 +67,13 @@
           <p><span class="en">Exclude files are yours, so the helper runs as your user and never as root. It only accepts connections from Git Exclude Manager itself.</span><span class="th">ไฟล์ exclude เป็นของคุณเอง helper จึงรันด้วยสิทธิ์ผู้ใช้ของคุณ ไม่ใช่ root และรับการเชื่อมต่อจาก Git Exclude Manager เท่านั้น</span></p>
 
           <h2><span class="en">Open source</span><span class="th">โอเพนซอร์ส</span></h2>
-          <p><span class="en">Git Exclude Manager is written in Swift and SwiftUI, covered by more than 80 tests and released under the MIT License. Bug reports, ideas and pull requests are welcome on</span><span class="th">Git Exclude Manager เขียนด้วย Swift และ SwiftUI มีเทสต์มากกว่า 80 รายการ เผยแพร่ภายใต้สัญญาอนุญาต MIT แจ้งบั๊ก เสนอไอเดีย หรือส่ง pull request ได้ที่</span> <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener">GitHub</a>.</p>
+          <p><span class="en">Git Exclude Manager is written in Swift and SwiftUI, covered by more than 110 tests and released under the MIT License. Bug reports, ideas and pull requests are welcome on</span><span class="th">Git Exclude Manager เขียนด้วย Swift และ SwiftUI มีเทสต์มากกว่า 110 รายการ เผยแพร่ภายใต้สัญญาอนุญาต MIT แจ้งบั๊ก เสนอไอเดีย หรือส่ง pull request ได้ที่</span> <a href="https://github.com/gomin2013/git-exclude-manager" target="_blank" rel="noopener">GitHub</a>.</p>
         </div>
         <figure class="reveal" data-d="1" style="margin:0">
-          <img class="shot" src="../assets/img/gem-main.png" width="1582" height="1161" loading="lazy"
-               alt="Git Exclude Manager main window with repository tabs, sections and the AI Agent panel">
-          <img src="../assets/img/gem-suggestions.png" width="340" height="315" loading="lazy"
-               alt="Pattern Clipboard and Pattern Suggestions panels" style="margin-top:24px;border-radius:12px;box-shadow:var(--shadow);max-width:60%">
+          <img class="shot" src="../assets/img/gem-main.png" width="1100" height="800" loading="lazy"
+               alt="Git Exclude Manager main window with repository tabs, sections and the AI Agent side panel">
+          <img src="../assets/img/gem-suggestions.png" width="300" height="445" loading="lazy"
+               alt="Pattern Clipboard and Pattern Suggestions side panels" style="margin-top:24px;border-radius:12px;box-shadow:var(--shadow);max-width:60%">
         </figure>
       </div>
     </section>
@@ -107,7 +104,7 @@
           <img src="../assets/img/gem-mascot.png" width="512" height="512" alt="" loading="lazy">
           <div>
             <h2><span class="en">Made by Watthajak Jinasam</span><span class="th">พัฒนาโดย Watthajak Jinasam</span></h2>
-            <p class="lede"><span class="en">Built so local files stop showing up in git status. The red panda holds up a hidden-eye sign: out of sight, still on disk.</span><span class="th">สร้างขึ้นเพื่อให้ไฟล์ส่วนตัวเลิกโผล่ใน git status แพนด้าแดงถือป้ายรูปตาปิด มองไม่เห็นแต่ยังอยู่ในเครื่อง</span></p>
+            <p class="lede"><span class="en">Built so local files stop showing up in git status. The little glass robot shows a hidden eye on its visor: out of sight, still on disk.</span><span class="th">สร้างขึ้นเพื่อให้ไฟล์ส่วนตัวเลิกโผล่ใน git status หุ่นยนต์แก้วตัวเล็กมีรูปตาที่ถูกขีดฆ่าบนหน้าจอ มองไม่เห็นแต่ยังอยู่ในเครื่อง</span></p>
             <div class="cta-row">
               <a class="btn btn-primary" href="../download/"><i class="ph ph-download-simple" aria-hidden="true"></i><span class="en">Download for Mac</span><span class="th">ดาวน์โหลดสำหรับ Mac</span></a>
               <a class="btn btn-ghost" href="https://github.com/gomin2013"><i class="ph ph-github-logo" aria-hidden="true"></i>@gomin2013</a>
