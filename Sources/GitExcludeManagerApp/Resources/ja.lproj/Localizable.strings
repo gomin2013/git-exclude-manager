@@ -63,7 +63,7 @@
 "error.fileReadError" = "除外ファイルを読み込めませんでした";
 "error.fileWriteError" = "除外ファイルに書き込めませんでした";
 "error.invalidRepository" = "有効なGitリポジトリではありません";
-"error.connectionFailed" = "ヘルパーサービスへの接続に失敗しました";
+"error.connectionFailed" = "ヘルパーが応答しません。システム設定 › 一般 › ログイン項目と機能拡張 で Git Exclude Manager をオンにしてください。アップデート後は、一度オフにしてからオンにしてください。";
 "error.invalidData" = "無効なデータを受信しました";
 "error.unknown" = "不明なエラーが発生しました";
 

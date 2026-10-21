@@ -35,6 +35,39 @@ final class XPCIntegrationTests: XCTestCase {
         roots.forEach { try? FileManager.default.removeItem(at: $0) }
     }
 
+    /// Accepts the connection but never answers — what the app sees when launchd won't start an updated helper.
+    private final class SilentDelegate: NSObject, NSXPCListenerDelegate, HelperProtocol {
+        func listener(_ listener: NSXPCListener, shouldAcceptNewConnection connection: NSXPCConnection) -> Bool {
+            connection.exportedInterface = NSXPCInterface(with: HelperProtocol.self)
+            connection.exportedObject = self
+            connection.resume()
+            return true
+        }
+        func readExcludeFile(repoPath: String, completion: @escaping (Data?, NSError?) -> Void) {}
+        func writeExcludeFile(repoPath: String, content: String, completion: @escaping (Bool, NSError?) -> Void) {}
+        func restoreBackup(repoPath: String, completion: @escaping (Bool, NSError?) -> Void) {}
+        func listRepositories(completion: @escaping ([String]?, NSError?) -> Void) {}
+        func validatePattern(pattern: String, completion: @escaping (Bool) -> Void) {}
+        func getVersion(completion: @escaping (String?) -> Void) {}
+        func ping(completion: @escaping (Bool) -> Void) {}
+    }
+
+    func testSilentHelperTimesOutInsteadOfLoadingForever() async {
+        let silent = SilentDelegate(), quiet = NSXPCListener.anonymous()
+        quiet.delegate = silent
+        quiet.resume()
+        defer { quiet.invalidate() }
+        let client = XPCService(endpoint: quiet.endpoint, timeout: 0.3)
+
+        let read = expectation(description: "read gives up")
+        let alive = expectation(description: "ping gives up")
+        await client.readExcludeFile(repoPath: "/tmp/repo") { result in
+            if case .failure(.connectionFailed) = result { read.fulfill() }
+        }
+        await client.ping { isAlive in if !isAlive { alive.fulfill() } }
+        await fulfillment(of: [read, alive], timeout: 3)
+    }
+
     // MARK: - XPCService ↔ HelperService
 
     func testReadWriteRestoreRoundTrip() async throws {

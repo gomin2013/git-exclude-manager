@@ -63,7 +63,7 @@
 "error.fileReadError" = "無法讀取排除檔案";
 "error.fileWriteError" = "無法寫入排除檔案";
 "error.invalidRepository" = "不是有效的 Git 儲存庫";
-"error.connectionFailed" = "輔助服務連接失敗";
+"error.connectionFailed" = "輔助程式沒有回應。請在「系統設定 › 一般 › 登入項目與延伸功能」中開啟 Git Exclude Manager；如果剛更新過，請先關閉再開啟。";
 "error.invalidData" = "收到無效的資料";
 "error.unknown" = "發生未知的錯誤";
 

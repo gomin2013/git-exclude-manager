@@ -63,7 +63,7 @@
 "error.fileReadError" = "No se pudo leer el archivo de exclusión";
 "error.fileWriteError" = "No se pudo escribir el archivo de exclusión";
 "error.invalidRepository" = "No es un repositorio de Git válido";
-"error.connectionFailed" = "Falló la conexión con el servicio auxiliar";
+"error.connectionFailed" = "El ayudante no responde. En Ajustes del Sistema › General › Ítems de inicio y extensiones, activa Git Exclude Manager; tras una actualización, desactívalo y vuelve a activarlo.";
 "error.invalidData" = "Se recibieron datos no válidos";
 "error.unknown" = "Se produjo un error desconocido";
 
