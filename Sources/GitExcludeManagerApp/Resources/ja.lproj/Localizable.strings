@@ -130,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Managerヘルプ";
 "menu.about" = "このアプリについて";
 "about.version" = "バージョン%@";
+"about.support" = "Ko-fiで支援する";
 "about.desc" = ".git/info/excludeファイルを視覚的に管理します。パターンはローカルでのみ無視され、コミットされることはありません。";
 "about.credit" = "Swift + SwiftUIで開発 · macOS 14以降\n© 2026 Watthajak Jinasam — MITライセンス";
 "help.add.title" = "パターンを追加する";

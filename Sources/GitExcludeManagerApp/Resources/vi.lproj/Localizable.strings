@@ -130,6 +130,7 @@
 "menu.helpWindow" = "Trợ giúp Git Exclude Manager";
 "menu.about" = "Giới thiệu";
 "about.version" = "Phiên bản %@";
+"about.support" = "Ủng hộ trên Ko-fi";
 "about.desc" = "Quản lý các tệp .git/info/exclude của bạn một cách trực quan. Các mẫu chỉ được bỏ qua cục bộ và không bao giờ được commit.";
 "about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "Thêm mẫu";

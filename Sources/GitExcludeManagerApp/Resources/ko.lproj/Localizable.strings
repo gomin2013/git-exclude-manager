@@ -130,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Manager 도움말";
 "menu.about" = "정보";
 "about.version" = "버전 %@";
+"about.support" = "Ko-fi로 후원하기";
 "about.desc" = ".git/info/exclude 파일을 시각적으로 관리하세요. 패턴은 로컬에서만 무시되며 커밋되지 않습니다.";
 "about.credit" = "Swift + SwiftUI로 제작 · macOS 14 이상\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "패턴 추가";

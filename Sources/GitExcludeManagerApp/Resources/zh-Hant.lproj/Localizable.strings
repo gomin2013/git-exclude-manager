@@ -130,6 +130,7 @@
 "menu.helpWindow" = "Git Exclude Manager 輔助說明";
 "menu.about" = "關於";
 "about.version" = "版本 %@";
+"about.support" = "在 Ko-fi 上支持";
 "about.desc" = "以視覺化方式管理你的 .git/info/exclude 檔案。模式只會在本機被忽略，且不會被提交。";
 "about.credit" = "使用 Swift + SwiftUI 打造 · macOS 14 以上\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "加入模式";

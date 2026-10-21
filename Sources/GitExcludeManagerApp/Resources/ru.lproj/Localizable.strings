@@ -130,6 +130,7 @@
 "menu.helpWindow" = "Справка Git Exclude Manager";
 "menu.about" = "О приложении";
 "about.version" = "Версия %@";
+"about.support" = "Поддержать на Ko-fi";
 "about.desc" = "Наглядное управление файлами .git/info/exclude. Шаблоны действуют только локально и никогда не попадают в коммиты.";
 "about.credit" = "Создано на Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — лицензия MIT";
 "help.add.title" = "Добавление шаблона";

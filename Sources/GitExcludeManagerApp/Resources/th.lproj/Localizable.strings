@@ -130,6 +130,7 @@
 "menu.helpWindow" = "วิธีใช้ Git Exclude Manager";
 "menu.about" = "เกี่ยวกับ";
 "about.version" = "เวอร์ชัน %@";
+"about.support" = "สนับสนุนผ่าน Ko-fi";
 "about.desc" = "จัดการไฟล์ .git/info/exclude แบบเห็นภาพ รูปแบบจะถูกละเว้นเฉพาะในเครื่องนี้ และไม่ถูก commit";
 "about.credit" = "สร้างด้วย Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "เพิ่มรูปแบบ";
