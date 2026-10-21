@@ -33,6 +33,8 @@ Same window layout as [Hosts Manager](https://github.com/gomin2013/hosts-manager
 - **AI Agent (optional)** — chat about your patterns with live steps, the model's thinking and Markdown answers,
   plus Generate Comment, with Apple Foundation Models, Ollama, OpenAI, Gemini or Claude. API keys live in the
   Keychain.
+  **Load models** lists only the recommended low-cost picks per provider (e.g. Gemini Flash-Lite, GPT mini,
+  Claude Haiku).
 - **Your look** — Liquid Glass on macOS 26, Sukhumvit Set type, Light / Dark / System, 16 accent colours and
   8 gradient themes; side panels open one at a time from the icon rail (⌥⌘1…7).
 - **Import / Export** — import any text file including `.gitignore` (merge or replace).
@@ -103,6 +105,11 @@ swift scripts/make-icon.swift             # regenerate icons from Packaging/sour
 ## Contributing
 
 Issues and pull requests are welcome. Please add tests for new behavior and make sure `swift test` passes.
+
+## Support
+
+Git Exclude Manager is free. If it saves you time, you can
+[buy me a coffee on Ko-fi](https://ko-fi.com/gomin2013).
 
 ## License
 
