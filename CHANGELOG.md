@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.1.2 — 2026-10-22
+
+### Changed
+
+- **Shorter model lists** — **Load models** for OpenAI, Gemini and Claude now shows just the newest low-cost model of
+  each family (GPT mini / nano, Gemini Flash-Lite / Flash, Claude Haiku / Sonnet) instead of dozens of previews, TTS,
+  image models and dated snapshots; the first is marked **(Recommended)**. Ollama still lists every model you pulled,
+  and if a provider renames its models the full list comes back.
+
+### Added
+
+- **Support on Ko-fi** — a link in **About** (and in the website footer). Git Exclude Manager stays free.
+
+### Installation
+
+Download `GitExcludeManager-1.1.2.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
 ## v1.1.1 — 2026-10-21
 
 Fixes on top of 1.1.0 for anyone updating from an earlier version — everything in 1.1.0 below is included.
