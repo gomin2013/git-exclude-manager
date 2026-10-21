@@ -31,7 +31,9 @@ struct AISettingsView: View {
                     } else {
                         Menu(localized("settings.model")) {
                             ForEach(models, id: \.self) { model in
-                                Button(model) { settings.model = model }
+                                Button(AIService.modelLabel(model, provider: settings.provider)) {
+                                    settings.model = model
+                                }
                             }
                         }
                         .fixedSize()

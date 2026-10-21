@@ -117,6 +117,7 @@
 "settings.model" = "Model";
 "settings.loadModels" = "Muatkan model";
 "settings.noModels" = "Tiada model ditemui.";
+"settings.recommended" = "Disyorkan";
 "settings.appleNote" = "Berjalan pada peranti dengan Apple Intelligence (macOS 26+). Tiada kunci API atau model diperlukan.";
 "settings.keychainNote" = "Kunci API disimpan dalam Keychain macOS anda.";
 

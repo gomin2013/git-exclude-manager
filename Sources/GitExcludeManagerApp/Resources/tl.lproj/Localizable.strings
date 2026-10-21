@@ -117,6 +117,7 @@
 "settings.model" = "Model";
 "settings.loadModels" = "I-load ang mga model";
 "settings.noModels" = "Walang nahanap na model.";
+"settings.recommended" = "Inirerekomenda";
 "settings.appleNote" = "Tumatakbo sa device gamit ang Apple Intelligence (macOS 26+). Hindi kailangan ng API key o model.";
 "settings.keychainNote" = "Ang API key ay iniimbak sa iyong macOS Keychain.";
 
