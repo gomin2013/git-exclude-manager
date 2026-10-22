@@ -130,7 +130,7 @@
 "menu.helpWindow" = "Git Exclude Manager Help";
 "menu.about" = "About";
 "about.version" = "Version %@";
-"about.support" = "Support on Ko-fi";
+"about.support" = "Support on GitHub Sponsors";
 "about.desc" = "Manage your .git/info/exclude files visually. Patterns are ignored locally only and never committed.";
 "about.credit" = "Built with Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — MIT License";
 "help.add.title" = "Add a Pattern";
