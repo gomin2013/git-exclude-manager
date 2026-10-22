@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.1.3 — 2026-10-22
+
+### Changed
+
+- **Support moved to GitHub Sponsors** — the link in **About** (now with a ♥), the website footer, the README and the
+  repository's **Sponsor** button all go to [github.com/sponsors/gomin2013](https://github.com/sponsors/gomin2013)
+  instead of Ko-fi, in every language. Git Exclude Manager stays free.
+
+### Installation
+
+Download `GitExcludeManager-1.1.3.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
 ## v1.1.2 — 2026-10-22
 
 ### Changed

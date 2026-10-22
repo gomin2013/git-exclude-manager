@@ -130,7 +130,7 @@
 "menu.helpWindow" = "Bantuan Git Exclude Manager";
 "menu.about" = "Perihal";
 "about.version" = "Versi %@";
-"about.support" = "Sokong di Ko-fi";
+"about.support" = "Sokong di GitHub Sponsors";
 "about.desc" = "Urus fail .git/info/exclude anda secara visual. Corak hanya diabaikan secara setempat dan tidak pernah di-commit.";
 "about.credit" = "Dibina dengan Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — Lesen MIT";
 "help.add.title" = "Tambah Corak";

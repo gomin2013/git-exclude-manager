@@ -130,7 +130,7 @@
 "menu.helpWindow" = "Ayuda de Git Exclude Manager";
 "menu.about" = "Acerca de";
 "about.version" = "Versión %@";
-"about.support" = "Apoyar en Ko-fi";
+"about.support" = "Apoyar en GitHub Sponsors";
 "about.desc" = "Gestiona visualmente tus archivos .git/info/exclude. Los patrones se ignoran solo en local y nunca se confirman.";
 "about.credit" = "Creado con Swift + SwiftUI · macOS 14 o posterior\n© 2026 Watthajak Jinasam — Licencia MIT";
 "help.add.title" = "Añadir un patrón";

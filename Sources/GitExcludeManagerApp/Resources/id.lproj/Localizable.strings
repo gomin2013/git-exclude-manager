@@ -130,7 +130,7 @@
 "menu.helpWindow" = "Bantuan Git Exclude Manager";
 "menu.about" = "Tentang";
 "about.version" = "Versi %@";
-"about.support" = "Dukung di Ko-fi";
+"about.support" = "Dukung di GitHub Sponsors";
 "about.desc" = "Kelola file .git/info/exclude Anda secara visual. Pola hanya diabaikan secara lokal dan tidak pernah di-commit.";
 "about.credit" = "Dibuat dengan Swift + SwiftUI · macOS 14+\n© 2026 Watthajak Jinasam — Lisensi MIT";
 "help.add.title" = "Tambah Pola";

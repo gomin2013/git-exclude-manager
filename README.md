@@ -109,7 +109,7 @@ Issues and pull requests are welcome. Please add tests for new behavior and make
 ## Support
 
 Git Exclude Manager is free. If it saves you time, you can
-[buy me a coffee on Ko-fi](https://ko-fi.com/gomin2013).
+[sponsor me on GitHub](https://github.com/sponsors/gomin2013).
 
 ## License
 
