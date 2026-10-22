@@ -1,5 +1,26 @@
 # Changelog
 
+## v1.1.4 — 2026-10-22
+
+### Added
+
+- **Drop a repository on the Dock icon** — drag a repository folder from Finder onto Git Exclude Manager in the Dock
+  (or use **Open With**) and it opens as a tab, whether the app is running or not. A folder that isn't a git
+  repository gets the usual message naming it. Git Exclude Manager never becomes the default app for folders.
+
+### Changed
+
+- **One main window** — opening a repository from outside the app always uses the window you have; it no longer opens a
+  second copy of it. Closing the window still keeps the app in the Dock; click the icon to bring it back.
+
+### Installation
+
+Download `GitExcludeManager-1.1.4.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
 ## v1.1.3 — 2026-10-22
 
 ### Changed

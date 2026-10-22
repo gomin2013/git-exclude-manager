@@ -11,6 +11,8 @@ struct GitExcludeManagerApp: App {
         : RepositoryViewModel()
     // Use the singleton so every L() call shares the same bundle
     @StateObject private var languageService = LanguageService.shared
+    /// Repository folders dropped on the Dock icon open as tabs, like dropping them on the window.
+    @NSApplicationDelegateAdaptor(DockDropDelegate.self) private var dockDrop
 
     @Environment(\.scenePhase) private var scenePhase
 
@@ -21,7 +23,9 @@ struct GitExcludeManagerApp: App {
     /// Registers the bundled LaunchAgent so launchd starts the helper on demand.
     /// Only meaningful inside a .app built by `scripts/build-app.sh`; `swift run` has no bundle.
     private static func registerHelper() {
-        guard Bundle.main.bundleURL.pathExtension == "app" else { return }
+        // `-demo` never writes, so it never registers either: a demo run of a build copy can't replace the installed
+        // app's LaunchAgent registration (same rule as hosts-manager).
+        guard Bundle.main.bundleURL.pathExtension == "app", !DemoData.isEnabled else { return }
         let service = SMAppService.agent(plistName: "com.gitexcludemanager.helper.plist")
         guard service.status != .enabled else { return }
         do {
@@ -35,13 +39,18 @@ struct GitExcludeManagerApp: App {
     }
 
     var body: some Scene {
-        WindowGroup {
+        // `Window`, not `WindowGroup`: one main window — a repository dropped on the Dock icon opens as a tab
+        // in it instead of SwiftUI opening a second copy of the window.
+        Window("Git Exclude Manager", id: "main") {
             patternsView
                 .frame(minWidth: 820, minHeight: 540)
                 // Inject as environment so child views can observe language changes
                 .environmentObject(languageService)
                 .defaultAppStorage(DemoData.defaults)
-                .task { if DemoData.isEnabled { DemoData.seed(patternsVM) } }
+                .task {
+                    dockDrop.onOpen = { [repositoryVM] urls in repositoryVM.openDropped(urls) }
+                    if DemoData.isEnabled { DemoData.seed(patternsVM) }
+                }
         }
         .windowResizability(.contentSize)
         .onChange(of: scenePhase) { _, phase in
