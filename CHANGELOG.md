@@ -1,5 +1,21 @@
 # Changelog
 
+## v1.1.5 — 2026-10-22
+
+### Changed
+
+- **Website: links to the whole Gomin family** — every page's footer now links Gomin Apps,
+  Hosts Manager, SwiftUI Mac Skills (Claude Code skills built from these apps) and the
+  developer profile, in all 12 languages. The app itself is unchanged.
+
+### Installation
+
+Download `GitExcludeManager-1.1.5.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
 ## v1.1.4 — 2026-10-22
 
 ### Added
