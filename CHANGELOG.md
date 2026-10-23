@@ -1,5 +1,22 @@
 # Changelog
 
+## v1.1.6 — 2026-10-24
+
+### Changed
+
+- **Website: AI Voice Manager joins the family** — a new card on Home, Thai Home and About for AI Voice Manager (write a
+  voice-over script scene by scene, listen free with your Mac's voices, then generate it with Gemini TTS), and its link
+  in every page's footer: Gomin Apps, Hosts Manager, Git Exclude Manager, AI Voice Manager, SwiftUI Mac Skills,
+  Profile, GitHub, Sponsor — in all 12 languages. The app itself is unchanged.
+
+### Installation
+
+Download `GitExcludeManager-1.1.6.dmg` (and `SHA256SUMS.txt`), drag **Git Exclude Manager** to **Applications**
+(replace the old copy) and allow the first launch in **System Settings → Privacy & Security → Open Anyway** (or
+`xattr -dr com.apple.quarantine "/Applications/GitExcludeManager.app"`). Updating: if a repository says the helper
+isn't responding, turn Git Exclude Manager **off and on again** in **System Settings → General → Login Items &
+Extensions**. Requires an Apple silicon Mac with macOS 14 or later.
+
 ## v1.1.5 — 2026-10-22
 
 ### Changed

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Packaging/AppIcon-1024.png" width="200" alt="Git Exclude Manager icon: a glass robot whose visor shows a hidden eye">
+  <img src="Packaging/Mascot.png" width="200" alt="Git Exclude Manager mascot: a waving glass robot whose visor shows a hidden eye">
 </p>
 
 # Git Exclude Manager
