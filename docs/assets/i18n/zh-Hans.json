@@ -98,7 +98,7 @@
  "Short version: Git Exclude Manager collects nothing. Your repositories and exclude files stay on your Mac.": "简而言之：Git Exclude Manager 不收集任何数据。你的仓库和 exclude 文件只保留在你的 Mac 上。",
  "Last updated": "最后更新",
  "The app": "应用",
- "<strong>No accounts, analytics or tracking.</strong> The app has no telemetry, crash reporting or update checks. It does not contact any server of ours, because there isn't one.": "<strong>没有账号、分析或跟踪。</strong>应用没有遥测、崩溃报告或更新检查，也不会连接我们的任何服务器，因为我们根本没有服务器。",
+ "<strong>No accounts, analytics or tracking.</strong> The app has no telemetry or crash reporting, and no server of ours to talk to. <strong>Check for Updates</strong> asks GitHub for the latest release only when you click it (or once a day if you turn on automatic checks in About); nothing about you is sent, though GitHub sees your IP address as with any web request.": "<strong>无账户、无分析、无跟踪。</strong>应用没有遥测或崩溃报告，也没有我们的服务器。<strong>检查更新</strong>只在你点击时（或在“关于”中开启自动检查后每天一次）向 GitHub 查询最新版本；不会发送任何关于你的信息，但和任何网页请求一样，GitHub 能看到你的 IP 地址。",
  "<strong>Your files stay local.</strong> Each .git/info/exclude and its exclude.bak are read and written in place, inside the repository. They never leave your Mac unless you export or send them yourself.": "<strong>你的文件保留在本地。</strong>每个 .git/info/exclude 及其 exclude.bak 都在仓库内就地读写。除非你自己导出或发送，否则它们不会离开你的 Mac。",
  "<strong>Settings</strong> such as language, appearance and colours, open tabs, recent repositories and the open side panel are stored in macOS user defaults on your Mac.": "<strong>设置</strong>，如语言、外观和颜色、打开的标签页、最近使用的仓库以及打开的侧边面板，保存在你 Mac 上的 macOS 用户默认设置中。",
  "<strong>History</strong> (your last edits and pinned states) lives in memory while the app is open and is gone when you quit.": "<strong>历史记录</strong>（你最近的编辑和固定的状态）保存在应用运行期间的内存中，退出后即消失。",
