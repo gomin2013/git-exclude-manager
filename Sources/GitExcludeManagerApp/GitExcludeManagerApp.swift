@@ -51,6 +51,7 @@ struct GitExcludeManagerApp: App {
                     dockDrop.onOpen = { [repositoryVM] urls in repositoryVM.openDropped(urls) }
                     if DemoData.isEnabled { DemoData.seed(patternsVM) }
                 }
+                .task { await UpdateChecker.checkIfDue() }   // off unless turned on in About (`-demo`: always off)
         }
         .windowResizability(.contentSize)
         .onChange(of: scenePhase) { _, phase in
@@ -59,6 +60,9 @@ struct GitExcludeManagerApp: App {
             }
         }
         .commands {
+            CommandGroup(after: .appInfo) {
+                Button(localized("update.check")) { Task { await UpdateChecker.check(manual: true) } }
+            }
             CommandGroup(replacing: .newItem) { }
             // No Help Book: Help › opens the Help side panel (PatternsView observes ui.toolPanel via @AppStorage)
             CommandGroup(replacing: .help) {

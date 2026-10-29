@@ -37,6 +37,8 @@ Same window layout as [Hosts Manager](https://github.com/gomin2013/hosts-manager
   Claude Haiku).
 - **Your look** — Liquid Glass on macOS 26, Sukhumvit Set type, Light / Dark / System, 16 accent colours and
   8 gradient themes; side panels open one at a time from the icon rail (⌥⌘1…7).
+- **Check for Updates** — from the app menu or About: asks GitHub for the latest release and shows what's new;
+  **Download** opens the DMG. A daily automatic check is optional and off by default.
 - **Import / Export** — import any text file including `.gitignore` (merge or replace).
 
 ## Install
@@ -75,11 +77,13 @@ Apps you build yourself are not quarantined, so there is no Gatekeeper prompt.
 Files are read and written locally by a user-level helper — no root, no telemetry.
 With a **cloud** AI provider, the chat sends the repository name and the current `.git/info/exclude`
 content to that provider. Choose Ollama or Apple Foundation Models to keep everything on-device.
+**Check for Updates** asks GitHub for the latest release only when you click it (or once a day if you turn that on
+in About); nothing about you is sent.
 
 ## Development
 
 ```bash
-swift build && swift test                 # 80+ tests: parser, file I/O, XPC round trip, view models, AI clients
+swift build && swift test                 # 130+ tests: parser, file I/O, XPC round trip, view models, AI clients
 scripts/build-app.sh                      # build/GitExcludeManager.app (ad-hoc signed, helper registered on launch)
 scripts/make-dmg.sh                       # build/GitExcludeManager-<version>.dmg
 swift scripts/make-icon.swift             # regenerate icons from Packaging/source/
